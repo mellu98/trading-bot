@@ -1,0 +1,39 @@
+{
+  "4h": "Separateexisting256closednativewarmupaudit/sourceavailability/UTCcontinuity/gaps/revisions/restarts/quoteage. Actual0new4hdecision=>NOTVERIFIED_REAL_FORWARD; fakecausality/gaptestsnotmarketproof. NeveractionableglobalFAIL/newsblocked;250ms/2sguardsunchanged.",
+  "A": "ExistingfullfinancialRuntime/Feed/Risk/criticalFULLAtomicJournal +noncriticalenqueue_observation/fullstatecheckpoint/UI/export and1HzstatusGET. CorrectedexternalOSprobes; internalhostprobenoop equalboth.",
+  "B": "EXACTsameRuntime/Feed/Risk/criticalFULLAtomicJournal/protection/raw+RESTproofwrites/original16jobworker andfair32/512receive. Onlyenqueue_observation suppressed andrealDashboardreplacedidleNullDashboard; noownerstateencode/deepcopy/publish/checkpoint/UIpoll duringwindow. Terminalproofcopies AFTERstop separatedfrommeasurement. Risk/equitytick andraw/RESTproofserializationremainidentical.",
+  "calibration_sha256": "7b5d58c016233e818af49166a6278e4ee3ebbf50940b02d3bf6b48a1010e9703",
+  "capture_policy": "MAX4TOTAL,1RESERVED/segment=>2A/2B;60scooldown;ownerpriority;oneofficialsampletoolatonceownedruntimePIDallthreads only. Wsamehostcorrelatornotstackprofiled. sample1second/10ms,max15sectooltimeout. calibrationrealownfakePIDreturn0/nativeonset73.5ms,totalactive6.434s,CPU.258s. Noauthbypass. NativeDateTime/firstheartbeatresume overlapclassifieddirect/partial/post/missing, no assumedoverlap.",
+  "censoring": "Preserveallrawcounts. Reportpretrigger anduncensoredstats separately; entiretoolactivewindow+200ms excludedfromunperturbedcomparison, nativeactualsamplingwindowseparate. Externalprobeoversleepandmissedcapturemeasured. NoPASSfromcensoredstalls.",
+  "connected_target_per_segment_seconds": 600,
+  "controls": "No model/tests/backtests/heavyjobs duringrealmeasurements. Onlyownforward90259 stopped; prior90258alreadyfailedIOqueueclosed, preservedincident/readonlyjournalintegrity. Hostbeforeafterread-onlyRAM/VM/disk/power/largestbasenamePIDRSSCPU. OnlyLocalconfigured; no SSH/unknownhost probes. NoOSchanges or unownedprocesskills.",
+  "decision": "GlobalstabilityremainsFAIL/BLOCKEDunlessunambiguousuncensoredtechnicalevidence; notfinancialapproval. CauseIDENTIFIEDonlyifABcontrastandactualoverlappingnativeblockingstacks/OScontextsupportspecificmechanism; otherwiseNOT_IDENTIFIED/INCONCLUSIVE. No newfixunlessprovenandscopedparentdiff.",
+  "frozen_at_ns": 1793126097835042000,
+  "heartbeat": "Existing20msloopprobe writesseqlockmmap, noflush. Independent20msexternalpoll retainslastvalidstampontornwrite. Separateexistingworker-stage/backlogsharedslots, no newqueue/worker. Owner>100ms diagnostictriggerNOTsafetythreshold; worker-onlyrequiresq>=8+stageage>250ms.",
+  "no_retry": "Consumerfailedclosed=>stopattempt/reportactualexposure, noreset/retrytotarget. Continueotherfrozenattempts.",
+  "order": [
+    "A",
+    "B",
+    "B",
+    "A"
+  ],
+  "protected_manifest_sha256": "6fc25c4c56f1380771e2630811ac01da85a50ed4ee77efda086922ab9af2bfce",
+  "scope": "ONE technical finalpause A/B only; no financial/model/strategy/provider/account/order/credential/Databento changes. All production bytes immutable.",
+  "sources": {
+    "reports/binance-spot/forward-signals/recorder.py": "db43ae5e46b69a5e60e8f5c68719cfb34f752ab8e29ee933162daedfce6db5d4",
+    "reports/binance-spot/pause-ab/audit4h.py": "c4a4c3478bf436a05b704a58ef3e5d6988cd9c4d443913cd6292f912d33b9649",
+    "reports/binance-spot/pause-ab/control.py": "c151cd5741ce259894c12e222fab9050b3f2943c798ec723ffe185f4e5e5144f",
+    "reports/binance-spot/pause-ab/external.py": "bedb4d82fadb7edeb336a35e37d58ef0bfca1227052f5aa5a67bc35b02e91ac8",
+    "reports/binance-spot/pause-ab/pause.py": "2049a6c411097a4157a329e5d010e13c11da841ee540c1891b3f55da60c56523",
+    "reports/binance-spot/pause-ab/test_pause.py": "f3e6b7eafff3a215916e02dc3598b481962bb6bc3ef93970f30ecca926049b24",
+    "reports/binance-spot/stability-isolation/runner-fixed.py": "9480407ad7b112b8687ece4f5c30fe73cec650b0eeec4db1e3febcd0e0694bb4",
+    "reports/binance-spot/stability-isolation/sampler-v2.py": "f01dbf421d533308d33ba591f96e2ed716b2d9c834411bd6f40821b0ed636984",
+    "src/mnq_local/binance_app.py": "b4bb12477a185792e6f7fdf161822522248805cfba340fce239f8f0276aa4620",
+    "src/mnq_local/binance_spot.py": "686173f0b73fb7c0269a87b2092d46dbc5720d87652509be1ba96f7a0629b943",
+    "src/mnq_local/replay.py": "d6188adeb7a76b85001566efb96ea8906e7a13997c9f02cb07ae89c0d0055825",
+    "src/mnq_timestral/strategy.py": "8dd17b8963a8ba26987b303e5fcf08043ce1098e02e9c702849b2d8369d0ff7d"
+  },
+  "startup_timeout_seconds": 45,
+  "telemetry": "Sameboundedwall/thread/processCPU/GC/loop/queue/receipt/sourceagewhereprovided; continuousiostat5sfirstrowEXCLUDED; lightweight5sVM/swap/load/PIDRSSCPUtimepageins/stat/wchan;processcontextswitchesend. No repeatedtop. ExternalownCPU/childCPU/wallmeasured. Native stacks ownedprocessonly; noenv/keys/otherprocessargv.",
+  "wall_cap_per_segment_seconds": 900
+}

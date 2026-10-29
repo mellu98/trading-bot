@@ -1,0 +1,154 @@
+{
+  "status": "OFFLINE_HARDENING_VERIFIED_NO_STRATEGY_PROMOTED",
+  "bug_fixed": {
+    "cause": "Runtime reserved fixed exit fee/slippage even when ReplayOptions costs were higher",
+    "example_mes_usd": {
+      "old_closing_reserve": 1.86,
+      "configured_closing_reserve": 7.0,
+      "scenario_fee_per_side": 2.0,
+      "scenario_slippage_ticks": 4
+    },
+    "risk_limits_changed": false,
+    "default_risk_reserve_floor_lowered": false,
+    "default_economic_equivalence": {
+      "status": "DEFAULT_ECONOMIC_BEHAVIOR_UNCHANGED",
+      "default_fields": {
+        "bars_processed": 780,
+        "trades": 4,
+        "gross": -19.0,
+        "fees": 4.88,
+        "net": -23.88,
+        "max_drawdown": 42.66,
+        "orders": 12,
+        "ambiguities": 1,
+        "halt": "consecutive_losses"
+      },
+      "flat": true,
+      "working_orders": 0,
+      "baseline": "reports/databento-live/offline-final-run/summary.json",
+      "independent_validation": false
+    }
+  },
+  "tests": {
+    "total_passed": 122,
+    "new_regressions": 27,
+    "duration_seconds": 36.45,
+    "warnings": 4,
+    "warnings_scope": "Existing frozen ORB/Pandas deprecation",
+    "real_broker_tests": 0,
+    "coverage": [
+      "higher-cost reserve and daily loss stop",
+      "invalid reserve/floor",
+      "adverse long and short stop gaps",
+      "future price/volume perturbation leaves past features unchanged",
+      "all three signal sources reject future context",
+      "strict news cannot be unlocked by forged metadata",
+      "NY entry boundaries across US DST",
+      "existing SQLite rollback/open-position restart/reconciliation",
+      "duplicates/late/stale/disconnect/queue overflow",
+      "stop/target/kill/strict protective actions",
+      "Live ownership/key binding blocks before SDK construction"
+    ]
+  },
+  "cost_stress": {
+    "declared_before_execution": true,
+    "protocol": "reports/offline-hardening/stress-protocol.json",
+    "all_120_sessions_already_observed": true,
+    "independent_holdout": false,
+    "account": "Daily-reset diagnostic only; removes cross-day halt for coverage, not deployable",
+    "single_scenario_nets": {
+      "MNQ/vwap_v1_fixed": -4494.0,
+      "MNQ/orb": -1443.94,
+      "MNQ/sweep_mss": -967.42,
+      "MES/vwap_v1_fixed": -5238.2,
+      "MES/orb": -1429.93,
+      "MES/sweep_mss": -1853.2
+    },
+    "all_six_negative": true,
+    "empirical_book_or_slippage_measured": false,
+    "fill_model_limitation": "Minute OHLC trade prints cannot reconstruct actual spread/queue/intrabar order. Frozen research spread is a cash-friction assumption; worst stop-first/gap semantics preserved."
+  },
+  "calendar": {
+    "official_sources_checked": [
+      "Fed",
+      "BLS",
+      "BEA"
+    ],
+    "snapshot": "reports/offline-hardening/news-verification.json",
+    "historical_pit_complete": false,
+    "forward_schedule_complete": false,
+    "operational_entries": "BLOCKED_UNCERTIFIED_NEWS_AND_STRATEGY",
+    "technical_offline_only_separate": true,
+    "no_revised_macro_actual_values_used": true,
+    "note": "Selected prospective schedule observations are not a certified calendar. Current-page last-modified cannot establish historical per-event known_at. BEA timezone corroboration explicitly incomplete in snapshot."
+  },
+  "forward_preparation": {
+    "existing_adapter_runtime_dashboard_reused": true,
+    "new_adapters": 0,
+    "new_infrastructure": 0,
+    "first_probe_seconds": 600,
+    "automatic_simulated_entries": false,
+    "real_order_route": false,
+    "credential_owner_verified": false,
+    "requires_owner_verified_key_binding": true,
+    "all_live_authorization_flags_still_false": true,
+    "preflight": {
+      "status": "BLOCKED",
+      "phase": "LICENSE_ENTITLEMENT_AND_COST_AUTHORIZATION",
+      "reason": "verified_scoped_live_authorization_required",
+      "network_connections": 0,
+      "simulated_orders_enabled": false,
+      "real_money_routing": false
+    },
+    "activation_after_evidence_only": "./run-databento-live.sh app --seconds 600 --port 8768",
+    "additional_evidence_needed": "Own-account portal must verify exact effective key against grant fingerprint, CME license/classification/cost consent, actual trades/MBP1 entitlement. No blind autostart or shared-key use."
+  },
+  "still_not_measured_without_authorized_feed": [
+    "actual MNQ/MES bid/ask and spread",
+    "feed age and continuity/real reconnect behavior",
+    "real-time signal/risk pipeline processing on fresh market events",
+    "prospective forward financial evidence on previously unseen data"
+  ],
+  "not_fixed_by_live_alone": [
+    "complete point-in-time economic calendar",
+    "statistically robust strategy edge",
+    "local synthetic fills are not actual exchange/broker executions or queue validation"
+  ],
+  "keys_loaded_this_session": 0,
+  "friend_key_used": false,
+  "market_data_api_requests": 0,
+  "purchases": 0,
+  "real_orders": 0,
+  "preservation": {
+    "immutable_targets": {
+      "reports/archive/vwap-v1-manifest.json": true,
+      "reports/research-v2/protocol.json": true,
+      "reports/research-v2/results.json": true,
+      "reports/quant-validation/bars120.csv": true
+    },
+    "frozen_v2_sources_unchanged": true,
+    "v1_archive_files_verified": 459,
+    "owned_cme_sessions": 120,
+    "owned_cme_bars": 93600,
+    "dataset_sha256": "b5d3e676d1de881a8bd1a07eedccc14f286a615db0d7b4169f9950fead600ff5",
+    "intentional_existing_source_changes": [
+      "src/mnq_paper/core.py: closing-cost input only",
+      "src/mnq_local/replay.py: closing-cost estimate only",
+      "src/mnq_local/databento_live.py: owner/key-bound authorization only"
+    ],
+    "intentional_operational_config_change": "reports/databento-live/authorization.json owner gate false/hash null; no license/payment enabled",
+    "old_economic_reports_unchanged": true
+  },
+  "commands": {
+    "research": "PYTHONPATH=src:adapters/databento/src:adapters/databento_planner/src PYTHONDONTWRITEBYTECODE=1 .venv/bin/python reports/offline-hardening/verify_offline.py",
+    "tests": "PYTHONPATH=src:tests_local:adapters/databento/src:adapters/databento_planner/src PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m pytest tests_local/test_offline_hardening.py tests_paper/test_runtime.py tests_local/test_replay.py tests_local/test_databento_live.py tests_local/test_databento_paper.py tests_local/test_databento_cli.py tests_local/test_dashboard.py -q"
+  },
+  "rollback": "Risk-only reverse patch reports/offline-hardening/risk-reserve.patch verified against exact prior source hashes and patch --dry-run -R. Owner/key gate should remain fail-closed.",
+  "existing_dashboard": {
+    "http_status": 200,
+    "mode": "HISTORICAL_REPLAY",
+    "broker_connected": false,
+    "bars_processed": 780,
+    "note": "Existing completed historical dashboard left running, not represented as live"
+  }
+}

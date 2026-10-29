@@ -1,0 +1,28 @@
+{
+  "all_trade_cash_and_grid_checks": true,
+  "dataset_sha256": "0cc25d36104554342a2980af2a119c32f287a0f2636b7d0acbc6c68fb0189771",
+  "execution_freeze_sha256": "5a8be80c1541cf2e865b4042d11b6bc92aecf55559afa2a2a19ec5f240aee77d",
+  "financially_approved": false,
+  "identical_replays": 2,
+  "identical_trade_equity_daily_execution_state_files": true,
+  "live_buy_count": 1,
+  "live_continuous180s_pass_claim": false,
+  "live_entry_certificate_at_check": false,
+  "live_feed_live": true,
+  "live_flat_budget_spent": true,
+  "live_observer_pid": 64007,
+  "live_queue_delay_rejections_since_batch_restart": 33,
+  "live_sell_count": 1,
+  "live_source_hashes_unchanged_by_research": true,
+  "protocol_sha256": "8230d5ad3d7f0e11133c515020aca348b04656d452735dc530a55aca54304653",
+  "results_sha256": "e09be315fde5d63e5ae0b304d65f085a90e492443b1c95b29d9d66e2fb1d86d6",
+  "status": "PASS_LOCKED_REPLAY_AND_ACCOUNTING",
+  "tests": {
+    "ib_v4_not_counted": "optional ibapi unavailable",
+    "passed": 64,
+    "pertinent_existing": 46,
+    "research_synthetic": 5,
+    "spot": 13,
+    "warnings": "4 existing pandas timezone deprecations"
+  }
+}

@@ -1,0 +1,247 @@
+{
+  "archive_pair_count": 22,
+  "base": "research/strategy-discovery-2026",
+  "cost_proposal": {
+    "account_fee_certified": false,
+    "adverse": {
+      "fee_side": 0.0015,
+      "full_spread": 0.001,
+      "slip_side": 0.0005
+    },
+    "base": {
+      "fee_side": 0.001,
+      "full_spread": 0.0002,
+      "slip_side": 0.0001
+    },
+    "severe": {
+      "fee_side": 0.002,
+      "full_spread": 0.002,
+      "slip_side": 0.001
+    }
+  },
+  "created_utc": "2026-10-28T10:44:43.261789+00:00",
+  "data_documentation": "https://github.com/binance/binance-public-data (verified support daily/monthly ZIP,1d/1h,originalCHECKSUM,2025Spot microseconds vs earlier milliseconds; archives may later revise)",
+  "fired_limits": [
+    "Historical top universe/listing/migration anchor awaiting AgentA verification; A cannot be promoted without it.",
+    "Do not forward-fill missing executable price, retrospectively liquidate before delist, drop losing assets or use current universe. Missing held prices block validity rather than fabricate fill.",
+    "Final strategy rules/primary+robustness choices await literature and adversarial review; no returns read.",
+    "Unknown project-wide prior trial history prevents a naive exact DSR significance claim."
+  ],
+  "holdout_access_policy": "No holdout prices/results until explicit root release; preferably do not acquire until code/config/test freeze. Cache integrity checks are not holdout economic inspection. Source/config/input hash receipt before evaluation.",
+  "minimal_engine": "Pure isolated multiasset long/cash event loop; continuous fractional quantity research assumption; self-financing cash/fee guard, sell before buy, modeled bid/ask/slip; no operationalRuntime/Risk/SQLite imports or new dependency framework.",
+  "new_data_downloads": 0,
+  "observed_local_archive_pairs": [
+    {
+      "already_observed": true,
+      "bytes": 44271,
+      "checksum_path": "data/binance-spot/research/BTCUSDT-1h-2024-12.zip.CHECKSUM",
+      "checksum_sha256": "b8ed8ba0d52a240ed5bd2ffe49f1d7671b8a59210096b4b1c9c74ddeabe29417",
+      "path": "data/binance-spot/research/BTCUSDT-1h-2024-12.zip",
+      "sha256": "dfec812f73a84257b195cbdaed34d020fa77e845625c061c13bd6a60e7ef9372"
+    },
+    {
+      "already_observed": true,
+      "bytes": 44655,
+      "checksum_path": "data/binance-spot/research/BTCUSDT-1h-2025-01.zip.CHECKSUM",
+      "checksum_sha256": "271a45ec61a89a526c1ddf6f9f90e4fd61a974a24bf3faea1354ffb061dc3702",
+      "path": "data/binance-spot/research/BTCUSDT-1h-2025-01.zip",
+      "sha256": "e7f2aaa5396a8062a57ab29ce9fab2d76b2c84ec58815d4ab7b3fe16f78c7118"
+    },
+    {
+      "already_observed": true,
+      "bytes": 40203,
+      "checksum_path": "data/binance-spot/research/BTCUSDT-1h-2025-02.zip.CHECKSUM",
+      "checksum_sha256": "39aad157be4a3418c1ad7c9b5c088822a4d05d0a4a17a5dde6814565ecceb6a6",
+      "path": "data/binance-spot/research/BTCUSDT-1h-2025-02.zip",
+      "sha256": "7420f55c93f61d7e734fc9d2507c7f2fcb5eaf48112277cecd241d4e1dbf3bd5"
+    },
+    {
+      "already_observed": true,
+      "bytes": 44468,
+      "checksum_path": "data/binance-spot/research/BTCUSDT-1h-2025-03.zip.CHECKSUM",
+      "checksum_sha256": "d6c8fff7d5ea4765feb729d0113cfd5824627c2a75673f9df0117265211270b2",
+      "path": "data/binance-spot/research/BTCUSDT-1h-2025-03.zip",
+      "sha256": "b5ae8bb57e5e526c2050c9f8229b723871a5af47d80c53453abf61847a5f3aa6"
+    },
+    {
+      "already_observed": true,
+      "bytes": 42741,
+      "checksum_path": "data/binance-spot/research/BTCUSDT-1h-2025-04.zip.CHECKSUM",
+      "checksum_sha256": "449ce4ac55a096f73b8e86f6d78d7f528b14cc99ac492e48d07eed883dfa26c8",
+      "path": "data/binance-spot/research/BTCUSDT-1h-2025-04.zip",
+      "sha256": "bbec48ed5f7b603bbceff943ad0dccd3c29cae6d14161bcd2eabc9f762ff0a35"
+    },
+    {
+      "already_observed": true,
+      "bytes": 44381,
+      "checksum_path": "data/binance-spot/research/BTCUSDT-1h-2025-05.zip.CHECKSUM",
+      "checksum_sha256": "e4c568e6fd8c87c044dec0525cf7fc2c8a8b7ddcf757de430befe451ebb6aab7",
+      "path": "data/binance-spot/research/BTCUSDT-1h-2025-05.zip",
+      "sha256": "da6213bf4c57ea60faed3ef1f6a0ecb87f22ca7a3a67614604cf44d2d6b265fe"
+    },
+    {
+      "already_observed": true,
+      "bytes": 42662,
+      "checksum_path": "data/binance-spot/research/BTCUSDT-1h-2025-06.zip.CHECKSUM",
+      "checksum_sha256": "73be3e3c02ba65b02589ce34b3c1943d6bc6cf0a8fdfa7fc346ece58123fc8cd",
+      "path": "data/binance-spot/research/BTCUSDT-1h-2025-06.zip",
+      "sha256": "d0760943538f48032dd066401e53f46bbf4868e6545929678e23bcdee032a5e8"
+    },
+    {
+      "already_observed": true,
+      "bytes": 43886,
+      "checksum_path": "data/binance-spot/research/BTCUSDT-1h-2025-07.zip.CHECKSUM",
+      "checksum_sha256": "b60ef25c982a2f2d1e2c011b0b47c5525b9476e812a34985ebf9d5c3c91bf641",
+      "path": "data/binance-spot/research/BTCUSDT-1h-2025-07.zip",
+      "sha256": "487738ee596380eaad32a2a93c75d17e1ebdd165a9b544c0e44be36079f5c02e"
+    },
+    {
+      "already_observed": true,
+      "bytes": 44104,
+      "checksum_path": "data/binance-spot/research/BTCUSDT-1h-2025-08.zip.CHECKSUM",
+      "checksum_sha256": "963fc8c1e0033d9dbc9cbdc20c1b12dc947717c678c01731770b931ae8ab6d9a",
+      "path": "data/binance-spot/research/BTCUSDT-1h-2025-08.zip",
+      "sha256": "a99ec5bac64333fb521b2ab1bac5e8387eede6413cc7841656a02be95613c64f"
+    },
+    {
+      "already_observed": true,
+      "bytes": 42491,
+      "checksum_path": "data/binance-spot/research/BTCUSDT-1h-2025-09.zip.CHECKSUM",
+      "checksum_sha256": "3ee2646a774511c2192567f0496dc1847f78217b17179cee81ae21bcd14b3c41",
+      "path": "data/binance-spot/research/BTCUSDT-1h-2025-09.zip",
+      "sha256": "b0ad5b54097f6adb440d07204fd215dae9b224fb73569fd4309a55c9234d46b3"
+    },
+    {
+      "already_observed": true,
+      "bytes": 44751,
+      "checksum_path": "data/binance-spot/research/BTCUSDT-1h-2025-10.zip.CHECKSUM",
+      "checksum_sha256": "93370144894549ce1079b2f18c714661a26490e5eb3f570424cc6a21ee286bfb",
+      "path": "data/binance-spot/research/BTCUSDT-1h-2025-10.zip",
+      "sha256": "5426b1b48905963d50e11d1243910b5fa05a89c9a2003bcd5082561d352a2123"
+    },
+    {
+      "already_observed": true,
+      "bytes": 43273,
+      "checksum_path": "data/binance-spot/research/BTCUSDT-1h-2025-11.zip.CHECKSUM",
+      "checksum_sha256": "be820b467aacdf04d50445fd5992cd2b7b63cee1a4f7e331ed2295eac2772951",
+      "path": "data/binance-spot/research/BTCUSDT-1h-2025-11.zip",
+      "sha256": "1f28f02e33e1f19e5163cd45b67c07b3b75870e78dbbf9f861d1348ca372d942"
+    },
+    {
+      "already_observed": true,
+      "bytes": 43894,
+      "checksum_path": "data/binance-spot/research/BTCUSDT-1h-2025-12.zip.CHECKSUM",
+      "checksum_sha256": "971da81f7a1fc28c8db7b9818589108f206d4e04dc928451a62516b14c2652cd",
+      "path": "data/binance-spot/research/BTCUSDT-1h-2025-12.zip",
+      "sha256": "d546c6e44b443e34cef5122043c5cdd3b9c76980e23cc408dafd9f6f76d65c05"
+    },
+    {
+      "already_observed": true,
+      "bytes": 43807,
+      "checksum_path": "data/binance-spot/breakout-4h/BTCUSDT-1h-2026-01.zip.CHECKSUM",
+      "checksum_sha256": "4133e8751248f43816625addd0a8aed63f6c90e108d2e975b18800f908fdf7eb",
+      "path": "data/binance-spot/breakout-4h/BTCUSDT-1h-2026-01.zip",
+      "sha256": "a40e86beb4f1e6d4b19ca022c87b8b2f0e4e40874d349a5a75b27baa9634c858"
+    },
+    {
+      "already_observed": true,
+      "bytes": 40150,
+      "checksum_path": "data/binance-spot/breakout-4h/BTCUSDT-1h-2026-02.zip.CHECKSUM",
+      "checksum_sha256": "6658a2078003dea7a0a972098ce01d534a97c005e33e1936d84b2a73d7776ad1",
+      "path": "data/binance-spot/breakout-4h/BTCUSDT-1h-2026-02.zip",
+      "sha256": "0be4e5c92892495c5da5b371fe8755f2d508b28a58414b4171284480806ed6c4"
+    },
+    {
+      "already_observed": true,
+      "bytes": 44392,
+      "checksum_path": "data/binance-spot/breakout-4h/BTCUSDT-1h-2026-03.zip.CHECKSUM",
+      "checksum_sha256": "ccaba3dd0a83dc0555069f107a51099b60f9f282252085c21eba6e81405c7209",
+      "path": "data/binance-spot/breakout-4h/BTCUSDT-1h-2026-03.zip",
+      "sha256": "44f383f9423f96cdc29e03b4ba8062296763dd740ab1d93f04b62c88bac30aa6"
+    },
+    {
+      "already_observed": true,
+      "bytes": 42394,
+      "checksum_path": "data/binance-spot/breakout-4h/BTCUSDT-1h-2026-04.zip.CHECKSUM",
+      "checksum_sha256": "db8d8f5683cf7d8bbc8c4b62be67706045325ff14835c5d3e209dc7aae1c14bf",
+      "path": "data/binance-spot/breakout-4h/BTCUSDT-1h-2026-04.zip",
+      "sha256": "9f8e49b70978177414a005a6e84b1cf891f97b0196526cbd579535449c14b6f6"
+    },
+    {
+      "already_observed": true,
+      "bytes": 43547,
+      "checksum_path": "data/binance-spot/breakout-4h/BTCUSDT-1h-2026-05.zip.CHECKSUM",
+      "checksum_sha256": "2a49e21f2710fbe9338aee22e9052472f9d7487c8d2eb30f1afc1fbc6ab9b3f7",
+      "path": "data/binance-spot/breakout-4h/BTCUSDT-1h-2026-05.zip",
+      "sha256": "11b8537dc1769a7de9d6cb2e0354dd4a376018986a826c67d1078e25fbf8fb80"
+    },
+    {
+      "already_observed": true,
+      "bytes": 42265,
+      "checksum_path": "data/binance-spot/breakout-4h/BTCUSDT-1h-2026-06.zip.CHECKSUM",
+      "checksum_sha256": "5df37a0877ad1eafa29738188d1f35e55a0403305f984a7e771e4f3395f03037",
+      "path": "data/binance-spot/breakout-4h/BTCUSDT-1h-2026-06.zip",
+      "sha256": "7c446aee297f382ee92b8d9b3300a1d7c21bed8166118f3bb261275bed5e308e"
+    },
+    {
+      "already_observed": true,
+      "bytes": 43238,
+      "checksum_path": "data/binance-spot/breakout-4h/BTCUSDT-1h-2026-07.zip.CHECKSUM",
+      "checksum_sha256": "db21356abec34c017934428044fd2c8237b0b01901c5ef87ad5258733e3075dd",
+      "path": "data/binance-spot/breakout-4h/BTCUSDT-1h-2026-07.zip",
+      "sha256": "ec98553c10acdbf3f210c55045614e8d3daf616e407c36718269361b1e972b16"
+    },
+    {
+      "already_observed": true,
+      "bytes": 43110,
+      "checksum_path": "data/binance-spot/breakout-4h/BTCUSDT-1h-2026-08.zip.CHECKSUM",
+      "checksum_sha256": "218bd33275901f079c20c05ba306b024f5d2dd3a44920406afad4d524759d138",
+      "path": "data/binance-spot/breakout-4h/BTCUSDT-1h-2026-08.zip",
+      "sha256": "1fa85817e358f73e0dd9509f6f31c79bf9b23d9470971a882c8f814871a3fccf"
+    },
+    {
+      "already_observed": true,
+      "bytes": 41901,
+      "checksum_path": "data/binance-spot/breakout-4h/BTCUSDT-1h-2026-09.zip.CHECKSUM",
+      "checksum_sha256": "53c2c60f970bcbeb5d891bf9234fb91aad4659c6921e28c49f87043bc4bea392",
+      "path": "data/binance-spot/breakout-4h/BTCUSDT-1h-2026-09.zip",
+      "sha256": "39b31046d702bd7e482e03b125d6fbfd730147aa5d9ad03d8b04bf1961a8e9bd"
+    }
+  ],
+  "phase": "INVENTORY_ONLY_AWAITING_ROOT_FREEZEGO",
+  "proposed_data_budget": {
+    "allowlist": "https://data.binance.vision/data/spot/monthly/klines/<frozen-symbol>/{1d,1h}/<frozen-name>.zip[.CHECKSUM]",
+    "concurrency_max": 4,
+    "conditional_universe_assets": 7,
+    "daily_months_per_asset": 63,
+    "expected_compressed_megabytes": "6-10 estimate, not measured",
+    "hard_compressed_bytes": 67108864,
+    "hard_decoded_bytes": 268435456,
+    "hourly_assets": [
+      "BTCUSDT",
+      "ETHUSDT"
+    ],
+    "hourly_months_per_asset": 60,
+    "successful_public_gets_max": 1122,
+    "transient_attempts_max": 3,
+    "zip_checksum_pairs_max": 561
+  },
+  "proposed_splits": {
+    "development": "2020-01-01/2023-01-01",
+    "holdout_locked": "2024-01-01/2024-12-01",
+    "old_observed_not_holdout": "2024-12-01/2026-10-01",
+    "validation": "2023-01-01/2024-01-01",
+    "warmup": "2019-09-01/2020-01-01, prices only; method may need less"
+  },
+  "protected_manifest": {
+    "all_match": true,
+    "count": 179,
+    "path": "reports/binance-spot/pause-ab/protected-before.json",
+    "sha256": "6fc25c4c56f1380771e2630811ac01da85a50ed4ee77efda086922ab9af2bfce"
+  },
+  "source_report": {
+    "path": "reports/PROJECT-VERDICT.md",
+    "sha256": "e4b269659f9b439a50435397c191337217703bbf80752f5c304afa63a50506fd"
+  },
+  "strategy_financial_runs": 0
+}

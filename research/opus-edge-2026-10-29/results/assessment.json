@@ -1,0 +1,65 @@
+{
+ "E1A_always_on": {
+  "criteria": {
+   "c1": false,
+   "c2": false,
+   "c3": true,
+   "c4": true,
+   "c5": false,
+   "ALL_PASS": false
+  },
+  "bootstrap": {
+   "7": {
+    "lower_one_sided": -2.144462051795618e-05,
+    "ci95": [
+     -1.9788455957049776e-05,
+     3.04927365608891e-05
+    ]
+   },
+   "30": {
+    "lower_one_sided": -3.696013137428344e-05,
+    "ci95": [
+     -3.432747557869658e-05,
+     5.14395102196643e-05
+    ]
+   }
+  }
+ },
+ "E1B_hysteresis_10_0": {
+  "criteria": {
+   "c1": false,
+   "c2": false,
+   "c3": true,
+   "c4": true,
+   "c5": false,
+   "c6": false,
+   "ALL_PASS": false
+  },
+  "bootstrap": {
+   "7": {
+    "lower_one_sided": -5.395128577745286e-05,
+    "ci95": [
+     -5.2261459003120526e-05,
+     1.7195808631379225e-06
+    ]
+   },
+   "30": {
+    "lower_one_sided": -7.0715361772826e-05,
+    "ci95": [
+     -6.813524115037758e-05,
+     2.5164033334237187e-05
+    ]
+   }
+  }
+ },
+ "E2:primary_m1_p3": {
+  "c1": false,
+  "c2": false,
+  "c3": false,
+  "c4": false,
+  "c5": false,
+  "c6": false,
+  "c7": false,
+  "ALL_PASS": false
+ }
+}

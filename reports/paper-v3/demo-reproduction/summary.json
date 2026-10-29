@@ -1,0 +1,27 @@
+{
+  "accepted_decisions": 33,
+  "bars_received": 3900,
+  "decisions": 123,
+  "ending_positions": {
+    "MES": 0,
+    "MNQ": 0
+  },
+  "executions": 66,
+  "exit_fills": {
+    "flatten": 0,
+    "stop": 21,
+    "target": 12
+  },
+  "financial_validation": false,
+  "halt": "consecutive_losses",
+  "live_orders": 0,
+  "mock_conids_not_real": true,
+  "orders": 99,
+  "purchases": 0,
+  "real_broker_connected": false,
+  "restarts_verified": 1,
+  "source_sha256": "a3ba489f2937a94d5416508bef85eaef1db891159565b6a11367f647d0da8b2c",
+  "status": "MOCK_END_TO_END_ONLY_NOT_IB_PAPER_CERTIFICATION",
+  "strategy": "Unchanged V1 VWAP/Z-score2.5, unapproved technical test only",
+  "v1_v2_frozen_files_unchanged": 309
+}

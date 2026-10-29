@@ -1,0 +1,18 @@
+{
+  "all_claimed_ai_metrics": null,
+  "baseline_replays_completed": 15,
+  "independent_evidence": false,
+  "live_enabled": false,
+  "model_outputs_replaced_with_mock": false,
+  "new_control_tests": 11,
+  "oct19_vwap_matches_v5_byte_exact": true,
+  "preserved_paths": 1519,
+  "real_inference_performed": false,
+  "software_files": {
+    "run-timestral-28m.sh": "db81a08a78601eb3cf784a9cd69d2d4a5aec35a161e5ec004f9674726c292280",
+    "src/mnq_local/timestral_experiment.py": "85aea5a5201e8220e28bd3dffed93c8b71f28f2fc4991b5e43f35468607fc7f0",
+    "tests_local/test_timestral_experiment.py": "a73d00b496b90fd5752f949023a460caf1ba60e183c17d3e76ebbf73117b1739"
+  },
+  "status": "PARTIAL_EXTERNAL_ELIGIBILITY_REQUIRED",
+  "weights_downloaded": false
+}

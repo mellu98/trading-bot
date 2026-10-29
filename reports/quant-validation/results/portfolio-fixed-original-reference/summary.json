@@ -1,0 +1,55 @@
+{
+  "ambiguous_intrabar_trades": 11,
+  "by_day": {
+    "2026-05-05": -35.39999999999999,
+    "2026-05-06": -33.67999999999999,
+    "2026-05-07": -26.39999999999999,
+    "2026-05-08": -22.459999999999994,
+    "2026-05-11": -43.199999999999996,
+    "2026-05-12": -50.22,
+    "2026-05-13": -17.959999999999997,
+    "2026-05-14": -45.72,
+    "2026-05-15": -41.22,
+    "2026-05-18": 9.800000000000004,
+    "2026-05-19": -22.459999999999994,
+    "2026-05-20": -50.22,
+    "2026-05-21": -44.91999999999999,
+    "2026-05-22": -70.44
+  },
+  "by_symbol": {
+    "MES": {
+      "net": -270.9,
+      "trades": 35
+    },
+    "MNQ": {
+      "net": -223.59999999999994,
+      "trades": 40
+    }
+  },
+  "decision_reasons": {
+    "daily_halt_latched": 169,
+    "global_halt_latched": 2257,
+    "hold_or_no_new_crossing": 90869,
+    "max_trades": 9,
+    "outside_entry_window": 193,
+    "pending_order": 13,
+    "position_open": 15,
+    "risk_allowed": 75
+  },
+  "execution_cost": 127.5,
+  "exit_reasons": {
+    "stop": 57,
+    "target": 18
+  },
+  "expectancy": -6.593333333333333,
+  "fees": 93.0,
+  "global_halt_latched": true,
+  "gross": -274.0,
+  "last_trade_date": "2026-05-22",
+  "max_drawdown_mark_to_minute_close": 504.8200000000003,
+  "net": -494.49999999999994,
+  "news_filter": "OFF_EXPLORATORY",
+  "profit_factor": 0.4587820681201296,
+  "trades": 75,
+  "win_rate": 0.24
+}

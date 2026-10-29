@@ -1,0 +1,500 @@
+{
+  "checked_at_utc": "2026-10-26T16:41:02.880392+00:00",
+  "native_verdict": "NOT_RELIABLE_FOR_AUTOMATIC_ENTRIES",
+  "reason": "Observed late source rollover, historical ask revisions and crossed native bid/ask; no provider finality guarantee",
+  "broker_demo_authenticated": true,
+  "production_routing": false,
+  "automatic_orders": false,
+  "native_forward_running": "NATIVE_CANDLES_OBSERVATION_BLOCKED_SIGNALS",
+  "current_pid": 64583,
+  "first_runtime_observed_seconds": 390.101832,
+  "second_runtime_observed_seconds": 248.026314,
+  "restarted_runtime_observed_seconds": 70.108562,
+  "raw_capture_seconds": 721.7406742500025,
+  "raw_successful_reads": 1328,
+  "raw_transport_errors": [],
+  "native_runtime_journal_events": {
+    "capital_native_cycle": 159,
+    "capital_native_decisions": 1,
+    "capital_native_poll": 600,
+    "capital_native_rejected": 36,
+    "capital_native_started": 3
+  },
+  "native_summary": {
+    "US100|MINUTE": {
+      "bootstrap_polls": 5,
+      "bootstrapped": true,
+      "cached": 512,
+      "gaps": [],
+      "invalid_responses": 25,
+      "last_poll_ns": 1793032859587380000,
+      "live_verified": 0,
+      "polls": 134,
+      "quarantined_days": {
+        "2026-10-26": "invalid_native_response"
+      },
+      "revisions_after_close": 0,
+      "revisions_after_verification": 0,
+      "verified": 499
+    },
+    "US100|MINUTE_5": {
+      "bootstrap_polls": 5,
+      "bootstrapped": true,
+      "cached": 503,
+      "gaps": [
+        {
+          "after_ms": 1792789200000,
+          "before_ms": 1792965600000
+        }
+      ],
+      "invalid_responses": 4,
+      "last_poll_ns": 1793032860356896000,
+      "live_verified": 0,
+      "polls": 155,
+      "quarantined_days": {
+        "2026-10-26": "invalid_native_response"
+      },
+      "revisions_after_close": 0,
+      "revisions_after_verification": 0,
+      "verified": 499
+    },
+    "US500|MINUTE": {
+      "bootstrap_polls": 6,
+      "bootstrapped": true,
+      "cached": 511,
+      "gaps": [],
+      "invalid_responses": 6,
+      "last_poll_ns": 1793032860832179000,
+      "live_verified": 1,
+      "polls": 153,
+      "quarantined_days": {
+        "2026-10-26": "invalid_native_response"
+      },
+      "revisions_after_close": 0,
+      "revisions_after_verification": 0,
+      "verified": 500
+    },
+    "US500|MINUTE_5": {
+      "bootstrap_polls": 6,
+      "bootstrapped": true,
+      "cached": 503,
+      "gaps": [
+        {
+          "after_ms": 1792789200000,
+          "before_ms": 1792965600000
+        }
+      ],
+      "invalid_responses": 1,
+      "last_poll_ns": 1793032861329120000,
+      "live_verified": 1,
+      "polls": 158,
+      "quarantined_days": {
+        "2026-10-26": "invalid_native_response"
+      },
+      "revisions_after_close": 0,
+      "revisions_after_verification": 0,
+      "verified": 500
+    }
+  },
+  "native_strategy_status": {
+    "US100|MINUTE": {
+      "blocked": "invalid_native_response",
+      "breakout_buffer_cfd_ticks": 1,
+      "cost_model": "NOT_CALIBRATED_FOR_CFD",
+      "margin_percent": "5",
+      "mss_timeout_bars": 10,
+      "opening_range_bars": 15,
+      "opening_range_minutes": 15,
+      "parameter_profile": "CFD_NATIVE_EXPERIMENT_V1",
+      "pivot_left_bars": 2,
+      "pivot_right_bars": 2,
+      "point_value_quote_currency_per_unit": "1",
+      "price_basis": "NATIVE_BID",
+      "source": "CAPITAL_NATIVE_BID_ASK",
+      "tick_size": "0.1",
+      "verified_session_bars": 179,
+      "volume_use": "DISABLED_UNVERIFIED_BROKER_VOLUME"
+    },
+    "US100|MINUTE_5": {
+      "blocked": "invalid_native_response",
+      "breakout_buffer_cfd_ticks": 1,
+      "cost_model": "NOT_CALIBRATED_FOR_CFD",
+      "margin_percent": "5",
+      "mss_timeout_bars": 2,
+      "opening_range_bars": 3,
+      "opening_range_minutes": 15,
+      "parameter_profile": "CFD_NATIVE_EXPERIMENT_V1",
+      "pivot_left_bars": 2,
+      "pivot_right_bars": 2,
+      "point_value_quote_currency_per_unit": "1",
+      "price_basis": "NATIVE_BID",
+      "source": "CAPITAL_NATIVE_BID_ASK",
+      "tick_size": "0.1",
+      "verified_session_bars": 35,
+      "volume_use": "DISABLED_UNVERIFIED_BROKER_VOLUME"
+    },
+    "US500|MINUTE": {
+      "blocked": "invalid_native_response",
+      "breakout_buffer_cfd_ticks": 1,
+      "cost_model": "NOT_CALIBRATED_FOR_CFD",
+      "margin_percent": "5",
+      "mss_timeout_bars": 10,
+      "opening_range_bars": 15,
+      "opening_range_minutes": 15,
+      "parameter_profile": "CFD_NATIVE_EXPERIMENT_V1",
+      "pivot_left_bars": 2,
+      "pivot_right_bars": 2,
+      "point_value_quote_currency_per_unit": "1",
+      "price_basis": "NATIVE_BID",
+      "source": "CAPITAL_NATIVE_BID_ASK",
+      "tick_size": "0.1",
+      "verified_session_bars": 180,
+      "volume_use": "DISABLED_UNVERIFIED_BROKER_VOLUME"
+    },
+    "US500|MINUTE_5": {
+      "blocked": "invalid_native_response",
+      "breakout_buffer_cfd_ticks": 1,
+      "cost_model": "NOT_CALIBRATED_FOR_CFD",
+      "margin_percent": "5",
+      "mss_timeout_bars": 2,
+      "opening_range_bars": 3,
+      "opening_range_minutes": 15,
+      "parameter_profile": "CFD_NATIVE_EXPERIMENT_V1",
+      "pivot_left_bars": 2,
+      "pivot_right_bars": 2,
+      "point_value_quote_currency_per_unit": "1",
+      "price_basis": "NATIVE_BID",
+      "source": "CAPITAL_NATIVE_BID_ASK",
+      "tick_size": "0.1",
+      "verified_session_bars": 36,
+      "volume_use": "DISABLED_UNVERIFIED_BROKER_VOLUME"
+    }
+  },
+  "actual_forward_decisions": 4,
+  "actual_nonzero_candidates": 0,
+  "rejected_candidates": 0,
+  "duplicate_decisions": 0,
+  "new_quote_events": 294,
+  "new_orders": 0,
+  "positions_flat": true,
+  "working_orders_flat": true,
+  "daily_opening_attempts_preserved": 1,
+  "loss_counter_preserved": 1,
+  "kill_active": "kill",
+  "old_entry_budget_consumed": true,
+  "strict_news_certified": false,
+  "clock_bounds_current": {
+    "checked_at_ns": 1793032859252008000,
+    "offset_lower_ms": 37.991943359375,
+    "offset_upper_ms": 327.366943359375,
+    "request_ms": 289.375,
+    "source": "OFFICIAL_GET_TIME_RTT_BOUNDS"
+  },
+  "first_runtime_metrics": {
+    "transport_latency": "NOT_IDENTIFIABLE",
+    "window_limit": 2048,
+    "rest_request_ms": {
+      "n": 130,
+      "window_n": 130,
+      "p50": 645.752792,
+      "p95": 1195.363125,
+      "p99": 2118.224584,
+      "max": 2545.431792
+    },
+    "rest_source_age_ms": {
+      "n": 130,
+      "window_n": 130,
+      "p50": 267.55810546875,
+      "p95": 2734.2861328125,
+      "p99": 3371.319091796875,
+      "max": 5606.160888671875
+    },
+    "US100|MINUTE.native_request_ms": {
+      "n": 59,
+      "window_n": 59,
+      "p50": 662.845083,
+      "p95": 1434.0245,
+      "p99": 2922.480125,
+      "max": 4108.656875
+    },
+    "US100|MINUTE_5.native_request_ms": {
+      "n": 63,
+      "window_n": 63,
+      "p50": 652.728875,
+      "p95": 1138.862041,
+      "p99": 2989.552708,
+      "max": 6105.168041
+    },
+    "US500|MINUTE.native_request_ms": {
+      "n": 63,
+      "window_n": 63,
+      "p50": 632.762875,
+      "p95": 1164.972333,
+      "p99": 2292.80075,
+      "max": 2559.983167
+    },
+    "US500|MINUTE_5.native_request_ms": {
+      "n": 64,
+      "window_n": 64,
+      "p50": 647.269417,
+      "p95": 1362.342833,
+      "p99": 1969.367833,
+      "max": 2930.542083
+    },
+    "native_processing_ms": {
+      "n": 65,
+      "window_n": 65,
+      "p50": 2.86525,
+      "p95": 6.7235,
+      "p99": 21.330666,
+      "max": 547.6995
+    },
+    "US500|MINUTE.observed_publication_upper_s": {
+      "n": 1,
+      "window_n": 1,
+      "p50": 21.639788,
+      "p95": 21.639788,
+      "p99": 21.639788,
+      "max": 21.639788
+    },
+    "US500|MINUTE.verification_delay_s": {
+      "n": 1,
+      "window_n": 1,
+      "p50": 25.493115,
+      "p95": 25.493115,
+      "p99": 25.493115,
+      "max": 25.493115
+    },
+    "US500|MINUTE_5.observed_publication_upper_s": {
+      "n": 1,
+      "window_n": 1,
+      "p50": 22.157957,
+      "p95": 22.157957,
+      "p99": 22.157957,
+      "max": 22.157957
+    },
+    "US500|MINUTE_5.verification_delay_s": {
+      "n": 1,
+      "window_n": 1,
+      "p50": 26.295668,
+      "p95": 26.295668,
+      "p99": 26.295668,
+      "max": 26.295668
+    }
+  },
+  "current_runtime_metrics": {
+    "US100|MINUTE.native_request_ms": {
+      "max": 10629.147875,
+      "n": 13,
+      "p50": 389.64125,
+      "p95": 1013.353291,
+      "p99": 1013.353291,
+      "window_n": 13
+    },
+    "US100|MINUTE.native_validation_persist_ms": {
+      "max": 29.669458,
+      "n": 10,
+      "p50": 20.460041,
+      "p95": 26.240875,
+      "p99": 26.240875,
+      "window_n": 10
+    },
+    "US100|MINUTE_5.native_request_ms": {
+      "max": 1411.424333,
+      "n": 13,
+      "p50": 469.012708,
+      "p95": 1277.432834,
+      "p99": 1277.432834,
+      "window_n": 13
+    },
+    "US100|MINUTE_5.native_validation_persist_ms": {
+      "max": 32.97125,
+      "n": 11,
+      "p50": 22.55,
+      "p95": 26.096708,
+      "p99": 26.096708,
+      "window_n": 11
+    },
+    "US500|MINUTE.native_request_ms": {
+      "max": 1817.198708,
+      "n": 13,
+      "p50": 436.351875,
+      "p95": 966.856792,
+      "p99": 966.856792,
+      "window_n": 13
+    },
+    "US500|MINUTE.native_validation_persist_ms": {
+      "max": 38.311041,
+      "n": 13,
+      "p50": 24.689917,
+      "p95": 37.72775,
+      "p99": 37.72775,
+      "window_n": 13
+    },
+    "US500|MINUTE_5.native_request_ms": {
+      "max": 2270.690208,
+      "n": 13,
+      "p50": 484.574167,
+      "p95": 1172.008917,
+      "p99": 1172.008917,
+      "window_n": 13
+    },
+    "US500|MINUTE_5.native_validation_persist_ms": {
+      "max": 45.839625,
+      "n": 13,
+      "p50": 21.63975,
+      "p95": 29.859625,
+      "p99": 29.859625,
+      "window_n": 13
+    },
+    "native_processing_ms": {
+      "max": 572.780583,
+      "n": 13,
+      "p50": 2.986083,
+      "p95": 6.241708,
+      "p99": 6.241708,
+      "window_n": 13
+    },
+    "rest_request_ms": {
+      "max": 870.235167,
+      "n": 26,
+      "p50": 372.011458,
+      "p95": 570.873208,
+      "p99": 684.012,
+      "window_n": 26
+    },
+    "rest_source_age_ms": {
+      "max": 3609.22705078125,
+      "n": 26,
+      "p50": 200.966064453125,
+      "p95": 1175.238037109375,
+      "p99": 2365.230224609375,
+      "window_n": 26
+    },
+    "transport_latency": "NOT_IDENTIFIABLE",
+    "window_limit": 2048
+  },
+  "sqlite_integrity": "ok",
+  "actual_flat_crash_recovery": {
+    "crash_at_ns": 1793032533913996000,
+    "scope": "ACTUAL_PROCESS_SIGKILL_WHILE_BROKER_FLAT_NO_NEW_ORDERS",
+    "sqlite_integrity": "ok",
+    "snapshot_identical_after_crash": true,
+    "cached_bars_before": {
+      "US100|MINUTE": 507,
+      "US100|MINUTE_5": 502,
+      "US500|MINUTE": 506,
+      "US500|MINUTE_5": 502
+    },
+    "processed_before": 860,
+    "processed_digest_before": "5e7a530f54965c84ca9bafacc9545ec3a21a3cdccbd86db4fc89368271338da5",
+    "native_runtime_started_ns": 1793032142148017000,
+    "native_observation_at_ns": 1793032532249849000,
+    "intents_before": 2,
+    "daily_attempts_before": 1,
+    "losses_before": 1,
+    "kill_before": "kill",
+    "budget_used_before": true,
+    "quarantines_before": {
+      "US100|MINUTE": {
+        "2026-10-26": "invalid_native_response"
+      },
+      "US100|MINUTE_5": {
+        "2026-10-26": "invalid_native_response"
+      },
+      "US500|MINUTE": {
+        "2026-10-26": "invalid_native_response"
+      },
+      "US500|MINUTE_5": {
+        "2026-10-26": "invalid_native_response"
+      }
+    },
+    "restarted_pid": 64144,
+    "checked_at_ns": 1793032595458050000,
+    "sqlite_integrity_after_restart": "ok",
+    "runtime_starts_after": 2,
+    "cached_bars_after": {
+      "US100|MINUTE": 508,
+      "US100|MINUTE_5": 502,
+      "US500|MINUTE": 507,
+      "US500|MINUTE_5": 502
+    },
+    "processed_after": 860,
+    "processed_digest_after": "5e7a530f54965c84ca9bafacc9545ec3a21a3cdccbd86db4fc89368271338da5",
+    "intents_after": 2,
+    "daily_attempts_after": 1,
+    "losses_after": 1,
+    "kill_after": "kill",
+    "budget_used_after": true,
+    "flat_after": true,
+    "quarantines_after": {
+      "US100|MINUTE": {
+        "2026-10-26": "invalid_native_response"
+      },
+      "US100|MINUTE_5": {
+        "2026-10-26": "invalid_native_response"
+      },
+      "US500|MINUTE": {
+        "2026-10-26": "invalid_native_response"
+      },
+      "US500|MINUTE_5": {
+        "2026-10-26": "invalid_native_response"
+      }
+    },
+    "dedupe_identical": true,
+    "new_orders": 0
+  },
+  "actual_open_position_kill": "NOT_TESTED: no new opening permitted with uncertified feed",
+  "risk_verification": "LOCAL_CONTRACT_TESTS; actual prior DEMO roundtrip preserved; flat reconciliation and crash recovery verified this run",
+  "capital_tests_passed": 159,
+  "test_warnings": 5,
+  "protected_unchanged": 1667,
+  "previous_evidence_unchanged": true,
+  "blocking_requirements": [
+    "Stable valid native bid/ask OHLC and bounded availability",
+    "Longer multi-session forward validation",
+    "Certified strict news calendar",
+    "Independent financial strategy validation",
+    "Calibrated CFD costs and execution validation",
+    "Actual protected open-position kill/recovery only after safe feed eligibility"
+  ],
+  "instrument_contracts": {
+    "US100": {
+      "lotSize": 1,
+      "marginFactor": 5,
+      "marginFactorUnit": "PERCENTAGE",
+      "minDealSize": {
+        "unit": "POINTS",
+        "value": 0.001
+      },
+      "minSizeIncrement": {
+        "unit": "POINTS",
+        "value": 0.001
+      },
+      "native_tick_size_current": "0.1",
+      "currency": "USD",
+      "account_currency": "EUR",
+      "cost_model": "CFD_NOT_CALIBRATED_NO_CME_COSTS",
+      "spec_provenance": "Prior official DEMO instrument payload; runtime rediscovers and validates tick/lot/currency/margin every60s"
+    },
+    "US500": {
+      "lotSize": 1,
+      "marginFactor": 5,
+      "marginFactorUnit": "PERCENTAGE",
+      "minDealSize": {
+        "unit": "POINTS",
+        "value": 0.01
+      },
+      "minSizeIncrement": {
+        "unit": "POINTS",
+        "value": 0.01
+      },
+      "native_tick_size_current": "0.1",
+      "currency": "USD",
+      "account_currency": "EUR",
+      "cost_model": "CFD_NOT_CALIBRATED_NO_CME_COSTS",
+      "spec_provenance": "Prior official DEMO instrument payload; runtime rediscovers and validates tick/lot/currency/margin every60s"
+    }
+  },
+  "official_documentation": "https://open-api.capital.com/"
+}

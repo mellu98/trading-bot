@@ -1,0 +1,95 @@
+{
+  "acceptance": {
+    "absolute_mean_daily_net_one_sided95_lower_positive": true,
+    "adverse_cost_net_nonnegative": true,
+    "base_net_positive": true,
+    "base_pf_min": "1.15",
+    "bh_role": "ReportmatchedBHnetandDDandpaireddailyCI; outperformance nothardgatebecauseactivecapital/exposurediffers. Candidateonlymeansdeservesprospectivesignalcollectionnotfinancialapproval.",
+    "bootstrap": "Circular5UTCdayblocks,10000replicates,seed1729;blocks1and10sensitivity,notmultiplehypothesisselection. MTMdailyresamplingconditionalonobservedpath,notresimulatedrisk.",
+    "family_size": 1,
+    "max_hourclose_drawdown_usdt": "20",
+    "min_test_closed_trades": 20,
+    "no_latched_risk_halt": true,
+    "no_parameter_search": true,
+    "positive_test_quarters_min": 2,
+    "verdict": "Base net<=0 OR adversecostnet<0 OR latchedriskhalt=>RESPINTA. Else ifallcriteria=>CANDIDATA_A_FORWARD_TEST_SIGNALS_ONLY. ElseINCONCLUDENTE,notpromoted; no retuning/rescue."
+  },
+  "comparators": [
+    "Frozenstrategy",
+    "PassiveBuy&Hold100USDTcashincludingfee,oneentryfirstsegmentopen,oneexitlastclose;900idle",
+    "Cash1000USDT,nointerest,nooperations"
+  ],
+  "costs": {
+    "adverse": {
+      "adverse_slippage_each_side": "0.0005",
+      "fee_each_side": "0.0015",
+      "full_spread": "0.001"
+    },
+    "base": {
+      "adverse_slippage_each_side": "0.0001",
+      "fee_each_side": "0.001",
+      "full_spread": "0.0002"
+    },
+    "interpretation": "Predeclared3costscenarios,samefixedsignalsdefinition but costs/risk canchangeadmission/path; fullyresimulate, do notselectbest. HistoricalOHLCnotobservedBBO. Currenttick.01/step.00001/minnotional5 researchassumptionsnotPITexchangefiltercertification. FeesUSDTsettled,noBNBdiscount.",
+    "severe": {
+      "adverse_slippage_each_side": "0.001",
+      "fee_each_side": "0.002",
+      "full_spread": "0.002"
+    }
+  },
+  "data": {
+    "aggregation": "Four contiguous native1h bars in UTC buckets [00,04),[04,08)...; require all4complete before decision. Preserve originalinteger units and exactns; >=2025archiveus explicit. Native1h bars retain intrabar stop checking; never synthesize ticks.",
+    "development_observed": "2025-01-01T00:00:00Z <= t < 2026-01-01T00:00:00Z; already observed, descriptive only, no parameter selection",
+    "instrument": "Binance BTCUSDT spot fixed ex ante; no cross-asset winner selection. Listing/survivorship conditioning disclosed.",
+    "reserved_test": "2026-01-01T00:00:00Z <= t < 2026-10-01T00:00:00Z; no2026historicalBTCarchive paths found in current project cache beforefreeze; do not acquire/read until source/config/tests frozen",
+    "scope_independence": "Project-unseen historical chronological test, not prospective independence from all human/public market knowledge; all2025observed; no retuning aftertest",
+    "source": "Official Binance Vision monthly native1h ZIP plus original CHECKSUM, GET only, cache before any reuse; no private credentials.",
+    "warmup": "Existing2024-12 and2025 prices only, no positions/pending signals carried into test"
+  },
+  "frozen_at_unix_ns": 1793087780329074000,
+  "metrics": [
+    "net/gross/fees/spread/slippage",
+    "expectancy/profitfactor/winrate/trades",
+    "hourcloseMTMdrawdowninclliquidationcosts",
+    "monthlyandquarterlynet/trades",
+    "exposure/holdingdurations",
+    "riskrejections/halts",
+    "intrabarstopambiguity/hourboundexit",
+    "costscenariofullreruns",
+    "pairedUTCdailystrategy-minusmatchedBuyHold/absolute dailyblockbootstrap"
+  ],
+  "prospective_if_candidate": {
+    "mode": "SIGNALS_ONLY; technicaltradejournal separate, no simulatedstrategyfills/noautomaticorders",
+    "promotion": "Noautomaticpromotion; samenetPFDDcost/uncertaintycriteria predeclared, compareactualrecordedspreadandcostassumptions; missingbarsfailclosed",
+    "target": "Atleast90newUTCdaysAND20closedhypotheticalsignalsroundtrips; requirebothbeforeevaluation;newsstrictblockedandfeedguardsunchanged"
+  },
+  "protocol_id": "BTCUSDT_SPOT_4H_DONCHIAN20_10_ATR14_2_ONCE",
+  "purpose": "One new hypothesis only, never a retuned SMA168 replacement. Personal non-production historical research; live signals only if candidate, no orders.",
+  "rationale": {
+    "hypothesis": "Persistent investor attention and gradual information diffusion may sustain price trends after a confirmed multi-day price-range breakout. Long/flat avoids borrowing; a shorter channel exit and fixed volatility-scaled protective stop limit failed breakouts. This is a falsifiable hypothesis, not evidence that these horizons have an edge.",
+    "source": "https://www.nber.org/papers/w24877",
+    "source_limitation": "Published crypto momentum motivates a test only; does not validate this 4h rule. 20/10 bars is one conventional asymmetric channel choice, not derived from observed BTC PnL; ATR14 is a risk scale, not an extra entry signal."
+  },
+  "risk": {
+    "benchmark_risk": "Buy&Hold100USDTinitialcashinclfee andidle900 thenholdtoend uses sameprice/costgrid but ignores activeRiskexits bydefinition; disclose risk/durationdifference, do notpresentasdeployableunder20DDguard.",
+    "daily_loss_usdt": "10",
+    "engine": "Reuse original unchangedRisk and existing Spot accounting/journal via offline seam; dailyflatlocalhaltsresetUTCaspriorresearch,globalDDpersistssplit. No automatic livepaper.",
+    "max_consecutive_losses": 3,
+    "max_entry_cash_including_fee_usdt": "100",
+    "max_initial_modeled_loss_usdt": "1",
+    "max_trades_per_day": 10,
+    "portfolio_drawdown_usdt": "20",
+    "sizing": "Atnextopen use signalATRfixedstopdistance andactualmodeledaskfill. Largest quantity rounded DOWN to.00001BTC respecting cash100inclentryfee, availablecash, and modeledentrycash minus stopbidexitnet<=1USDT inclroundtripcosts. Minquantity.00001/minnotional5;rejectifinfeasible. Gapriskcanexceed1notguaranteed.",
+    "starting_cash_usdt": "1000"
+  },
+  "strategy": {
+    "atr": "TR[t]=max(H[t]-L[t],abs(H[t]-C[t-1]),abs(L[t]-C[t-1])); ATR14 arithmeticmean of mostrecent14completed4hTRs including t; noWilderorEWMAinterpretation.",
+    "execution_priority": "Atnextnative1hopen: existingstopgap beforependingchannelSELL; closepreviousposition beforeadmittingnew. No newentry atterminalsplitbar; terminalpendingentrycancelled.",
+    "exit_signal": "If long and C[t] < min(L[t-10:t]) at completed4hbar t, schedule SELL at NEXT native1hopen. Equality does not trigger.",
+    "position": "Long or flat only, no leverage, no short, oneposition, no pyramiding",
+    "signal": "At completed4hbar t, if flat and C[t] > max(H[t-20:t]) (strict; previous20completebars excludes t), schedule BUY at NEXT native1hopen. No same-closefill. No need a previouscross; a flat closedbar satisfying rule is a newcausal candidate.",
+    "stop": "Fixed initial virtualbidstop = floor_tick(modeledentryaskfill - 2*ATR14_at_signal). ATRfrozen at signal; no widening/trailing. Adversegap atnative1hopen fills currentmodeledbid withslippage; else bidlowtouch stopfirst, markedonlyhourboundtime. NoTP; no favorableintrabarordering.",
+    "time_exit": "None; channel/stop only, terminal liquidation at finalsplitbarclose withcosts andexplicitlabel. No futureperiodprice.",
+    "warmup": "Atleast21complete4hbars incl previous20channel and14TR; pricesonlywarmup. Splitstartflat, signalsstartonlywithinsegment."
+  }
+}

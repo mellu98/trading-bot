@@ -1,0 +1,28 @@
+{
+  "completeness": "ParseallrawJSON; FIFO raw prefix must extend beyond fixed windowend; any missing shutdown suffix explicitlyoutsidewindow. Wreceived==processed; no eventringoverwrite; >=50OS/iostatintervalsamples, no samplererror/forcedkill, allchildrenreturn0. Individual processingquantiles retainlast20000; counts/max lifetime; startup/cleanupretained notdiscarded.",
+  "duration": "300 conservative connected seconds for BOTH after first shared observation; startup/cleanup excluded; up to5s raw-proof flush grace excluded",
+  "freshness": "Existingbookreceipt/tradeoffset+uncertainty2sgates sampled250ms viaexisting20msheartbeat. Startupbeforefirsttruebit isUNKNOWN notfresh/stale; every laterfalsebit countedseparately. Sampledconditionsnotproofcontinuousfreshness. BooksourceTSabsent. Startuphistoricaltradegapblocksfullfeed; no resetting IDs toforcePASS.",
+  "frozen_at_ns": 1793172992654126000,
+  "mode": "ONLY B + independent raw W; no complete observer, no A, no full-service restore",
+  "pass_criteria": "processingPASS requiresboth>=300connected,0B/W>250ms/queueoverflow/unexpecteddisconnect andcompleteinstrumentation. OverallPASSalso requiresnoobservedfreshnessfailure/noinitializationunknown/no feedgapblock; strictnews andstrategy remainnotapproved regardless.",
+  "profiler_enabled": false,
+  "protected_manifest_sha256": "6fc25c4c56f1380771e2630811ac01da85a50ed4ee77efda086922ab9af2bfce",
+  "repeat_rule": "ExactlyONE B300repeat if first measurementcomplete + B/WprocessingPASS + initializedsampledfreshnessPASS. Persistentstartupgap/news keepsglobaloperationalBLOCKED; repeatonlycheckslocaltiming/freshness. Ifprocessingor2sfreshnessFAIL/INCOMPLETE,no repetition; noninvasivechecks only.",
+  "safety": "Unchanged production250msprocessing/2sfreshness/512WSreceivequeue/16jobIOworker/FULLjournal/Risk, TimestralOFF. Flat/spent1BUY1SELLverifiedbeforeeveryrun. No privateAPI/orders, no Databento/key access, no container/service commands.",
+  "sampling_enabled": false,
+  "source_sha256": {
+    "reports/binance-spot/pause-ab/external-v2.py": "1d05c68eb856b311db71de977ba8c73030085ef41d96eb06add35a076c7b35d7",
+    "reports/binance-spot/pause-ab/pause.py": "2049a6c411097a4157a329e5d010e13c11da841ee540c1891b3f55da60c56523",
+    "reports/binance-spot/pause-ab/reboot-20261028/control.py": "7132724b3c77cf33fb058c450bafbd268fe31a0a7868b67e1db3be0436395408",
+    "reports/binance-spot/pause-ab/reboot-20261028/test_control.py": "d8437227938c0ad6e53b6a5cea4befb9d457bc9157d2c4d2cebdd90b3dc7ebc8",
+    "reports/binance-spot/pause-ab/runtime-v2.py": "6fcc0d9ee2df022413e4cbbfda13e5db124337320e16e8ac2ff3084a8eb95079",
+    "reports/binance-spot/pause-ab/targets-v2.py": "2089330c1b257d886485b340d504eeb402f808d742ac334fe67ec893dbff9473",
+    "reports/binance-spot/stability-isolation/runner-fixed.py": "9480407ad7b112b8687ece4f5c30fe73cec650b0eeec4db1e3febcd0e0694bb4",
+    "reports/binance-spot/stability-isolation/sampler-v2.py": "f01dbf421d533308d33ba591f96e2ed716b2d9c834411bd6f40821b0ed636984"
+  },
+  "startup_timeout_seconds": 45,
+  "target_seconds": 300,
+  "tests": "4synthetic controller testsPASS0.02s afterREDmissingcontroller; no marketrequestyet.",
+  "user_date": "2026-10-28",
+  "wall_cap_seconds": 450
+}

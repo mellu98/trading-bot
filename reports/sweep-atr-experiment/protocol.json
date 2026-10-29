@@ -1,0 +1,57 @@
+{
+  "ATR": "Arithmetic mean last20 same-session TR using21completed bars, previous close within session, no Wilder smoothing",
+  "A_full": "Unmodified original StrategyReplay, original all signals/fixed15target8stop original09:45\u201315:30window; exact original ledger required both accounts",
+  "A_matched": "Only matched control, not selectable: same first-signal schedule and admission caps asB, original fixed15point target/8point stop, no5minute exit. Shared15:30open safety. Conditional stop/target prices same frozen engine.",
+  "B": {
+    "quantity": 1,
+    "stop": "ceil(1.5*signal_ATR20/0.25)*0.25, frozen at signal",
+    "target_R": 2,
+    "time_minutes": 5,
+    "trailing": false
+  },
+  "adverse_cost": "If base B diagnostic net<=0, skip as already economically rejected; otherwise exactly existing adverse broker0.50/exchange0.35/datedreg per side, spread1tick,slip2ticks each side, same frozen B and caps, both accounts; no parametersearch",
+  "cap": {
+    "all_in_initial_stop_usd": 100,
+    "budgets": "Reject if modeled stop loss exceeds remaining daily200+realized_day or global500-max(0,peak-realized)",
+    "includes": "stop distance*$2 + dated roundtrip broker/exchange/regulatory + assumed roundtrip slip/spread",
+    "justification": "1% original10000USD capital and half200daily budget, frozen without B economics",
+    "limitation": "Initial modeled risk only, not guaranteed realized loss: gaps and unmeasured fills can exceed cap",
+    "quantity": "Exactly1MNQmicro or reject; no fractional sizing or scale-up"
+  },
+  "costs": {
+    "broker_per_side": 0.25,
+    "empirically_measured": false,
+    "exchange_per_side": 0.35,
+    "regulatory_per_side": "0.02 before2026-07-01 otherwise0.01",
+    "slippage_ticks_each_side": 1,
+    "spread_ticks": 0
+  },
+  "data_status": "ALL120_PREVIOUSLY_OBSERVED_EXPLORATORY_FOREVER",
+  "dataset_sha256": "b5d3e676d1de881a8bd1a07eedccc14f286a615db0d7b4169f9950fead600ff5",
+  "decision": {
+    "independent_evidence": false,
+    "negative_fullcoverage_B_net": "REJECT_THIS_CONFIGURATION_ON_OBSERVED_SAMPLE, not universal proof; no stress rerun needed",
+    "promotion_minimum": "Continuous and diagnostic B net>0, PF>=1.15, >=60trades, no continuous globalhalt; family8 one-sided lower>0 on Babsolute and pairedBminusA_matched at blocks1/5/10, >=3of4 positive30session diagnostic blocks; adversecostnet>0. Otherwise INCONCLUSIVE_NOT_PROMOTED; an interrupted lowN primary alone never establishes profitable edge.",
+    "relative_only": "Improvement over losing A does not qualify; no parameter adjustment after results"
+  },
+  "excursions": "GrossUSD rawprice excursions: guaranteed completed pre-exitbars + execution/open endpoints; intrabar stop/target exitbar full extrema only POSSIBLE upper envelopes, may be postexit so never realized. Open exits exclude whole subsequent high/low. Intrabar durations1minute interval; open exact.",
+  "exit_priority": "Adverse stop gap at open first. Then deadline5complete minutes or safety15:30at open (before that minute OHLC). Then stop-first bracket collision; target fills atlevel,no favorable gap improvement. Then risk atclose. Lastbar close only emergency end_of_data; missing/incomplete sessions error.",
+  "experiment": "MNQ Sweep/MSS H1 ATR20 1.5 stop / 2R target / 5 complete minutes, ONE configuration",
+  "frozen_at_utc": "2026-10-26T21:48:50.717946+00:00",
+  "future_independent": {
+    "controls": "Freeze raw/normalized hashes, source/config, PIT rollovercalendar mapping, costs before one run; substantive change requires newfreeze+freshdata. No paiddata or connection authorized; quote/prints and certifiednews needed before promotion.",
+    "criteria": "Bnet>0;PF>=1.15; family8 one-sided95% lower Bnet and pairedparentdelta>0 with10000seed1729 circularblock5 and1/10sensitivity; >=2of3 positive30sessionblocks; no continuousriskhalt; existingadversecostnet>0",
+    "exclusions": "Predetermined XNYS fullcashcalendar; halfdays excluded bycalendar, missing/invalid/roll/gap/availability sessions reported unpriceable not silently dropped or PnLselected; failure to obtain90valid locked sessions=>INCONCLUSIVE, no date extension. Any inspected session ineligible.",
+    "minimum_trades_each_arm": 60,
+    "period": "First90complete XNYS cash sessions strictly after code/protocolfreeze; earliest2026-10-27, never inspected; no economics interim peeking/no extension",
+    "scope": "Only MNQ H1 and matchedparent; retain family8 conservative bounds, no H2 run orMES variant"
+  },
+  "marking": "Original minute-close net equity reserves FULL roundtrip fee and executioncost whileopen; DD from initialzero peak incl no-trade sessions. Not ticklevel DD.",
+  "network": "Denied socket.connect/connect_ex/create_connection/sendto in CLI; no credentials read; newsOFF exploratory, strictnews remains blocked",
+  "risk": "Config/Risk/entry_permission/close authority unchanged: daily200USD/global500USD/3losses; max10 original but research max1candidate/day. Continuous primary, daily-reset separate coverage diagnostic NEVER deployable.",
+  "rollback": "Delete only reports/sweep-atr-experiment; no production imports/dependencies changed",
+  "schedule": "First ATR-ready causal closed signal with10:00<=signal availability<15:00NY. At most1candidate perday; all signal-time/fill-time risk rejections consume day. Next available open; gap/roll causes safe error (owned cache is complete).",
+  "signal": "Unchanged PriceStrategy(StrategyConfig(sweep_mss)); closed causal pivot/sweep/MSS, no signal replacement",
+  "skill_resolution": "paths-injected",
+  "uncertainty": "Circular paired daily bootstrap10000 seed1729 primaryblock5 sensitivity1/10; family8 retained conservatively from existing decision. Pathconditional not independent and halted risk not reconstructed."
+}

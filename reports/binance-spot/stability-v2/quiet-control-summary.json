@@ -1,0 +1,170 @@
+{
+  "actual_seconds": 180.8471314170165,
+  "client_ms": {
+    "max": 988.945417,
+    "p50": 17.215,
+    "p95": 50.884208,
+    "p99": 447.788542
+  },
+  "errors": [],
+  "feed_counter_deltas": {
+    "book": 13890,
+    "closed_bars": 3,
+    "forming_bars": 78,
+    "previous_connection_events_discarded": 10,
+    "processing_delay_rejections": 106,
+    "trade": 4550,
+    "trade_gaps": 4,
+    "unrepairable_gap": 1
+  },
+  "limits": "No heavy work launched by executor during control; other host tasks not controlled. Stage quantiles are rolling/lifetime, not isolated control distributions; only count/record deltas claimed. Counter first/last endpoints exclude initial request latency.",
+  "metric_counter_deltas": {
+    "ws_messages_received": 18711,
+    "ws_queue_overflow": 0
+  },
+  "readiness": "REMAINS_BLOCKED;180scontrol cannot override failed620s",
+  "resources_end": {
+    "at_ns": 1793089477068283000,
+    "load": [
+      6.16455078125,
+      9.35546875,
+      10.94580078125
+    ],
+    "observer": "  PID ELAPSED  %CPU    RSS\n87703   11:42   3.9  47696\n",
+    "pressure": "kern.memorystatus_vm_pressure_level: 2\n",
+    "swap": "vm.swapusage: total = 26624.00M  used = 25697.00M  free = 927.00M  (encrypted)\n",
+    "vm_stat": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     4093.\nPages active:                                 155136.\nPages inactive:                               142167.\nPages speculative:                             12298.\nPages throttled:                                   0.\nPages wired down:                             250563.\nPages purgeable:                                   2.\n\"Translation faults\":                     7986717656.\nPages copy-on-write:                        54633477.\nPages zero filled:                        1611575376.\nPages reactivated:                        3125432706.\nPages purged:                              158663543.\nFile-backed pages:                            108397.\nAnonymous pages:                              201204.\nPages stored in compressor:                  3673532.\nPages occupied by compressor:                 442835.\nDecompressions:                           4510657295.\nCompressions:                             4659308103.\nPageins:                                    87772563.\nPageouts:                                    2273895.\nSwapins:                                   128418208.\nSwapouts:                                  134271488.\nPages tagged:                                 145637.\nPages tagged resident:                        107759.\nPages tagged compressed:                       37878.\nPages tag-storage:                             32768.\nPages tag-storage holding tags:                 4306.\nPages tag-storage free:                          171.\nPages tag-storage non-tag pageable:            28203.\nPages tag-storage non-tag wired:                  88.\nBytes of compressed tags:                    6088896.\nTagged compressions:                        70299636.\nTagged decompressions:                      69328695.\n"
+  },
+  "sampled_span_seconds": 179.7857182919979,
+  "samples": 174,
+  "stage_count_and_record_deltas": {
+    "certificate_hook": {
+      "count_delta": 18932,
+      "lifetime_max_after_ms": 292.240584,
+      "lifetime_max_before_ms": 292.240584,
+      "new_lifetime_max_during_control": false
+    },
+    "consumer_iteration": {
+      "count_delta": 18932,
+      "lifetime_max_after_ms": 2212.748792,
+      "lifetime_max_before_ms": 2212.748792,
+      "new_lifetime_max_during_control": false
+    },
+    "critical_journal_save": {
+      "count_delta": 3,
+      "lifetime_max_after_ms": 72.262834,
+      "lifetime_max_before_ms": 72.262834,
+      "new_lifetime_max_during_control": false
+    },
+    "critical_lock_wait": {
+      "count_delta": 3,
+      "lifetime_max_after_ms": 0.005458,
+      "lifetime_max_before_ms": 0.005292,
+      "new_lifetime_max_during_control": true
+    },
+    "dashboard_read": {
+      "count_delta": 174,
+      "lifetime_max_after_ms": 1670.796334,
+      "lifetime_max_before_ms": 1670.796334,
+      "new_lifetime_max_during_control": false
+    },
+    "dashboard_snapshot": {
+      "count_delta": 171,
+      "lifetime_max_after_ms": 828.776667,
+      "lifetime_max_before_ms": 828.776667,
+      "new_lifetime_max_during_control": false
+    },
+    "event_loop_lag": {
+      "count_delta": 8195,
+      "lifetime_max_after_ms": 5416.984707931988,
+      "lifetime_max_before_ms": 5416.984707931988,
+      "new_lifetime_max_during_control": false
+    },
+    "feed_process": {
+      "count_delta": 18711,
+      "lifetime_max_after_ms": 64.771709,
+      "lifetime_max_before_ms": 46.381833,
+      "new_lifetime_max_during_control": true
+    },
+    "filesystem_export": {
+      "count_delta": 171,
+      "lifetime_max_after_ms": 3866.697416,
+      "lifetime_max_before_ms": 3866.697416,
+      "new_lifetime_max_during_control": false
+    },
+    "io_queue_wait": {
+      "count_delta": 477,
+      "lifetime_max_after_ms": 3733.995208,
+      "lifetime_max_before_ms": 3733.995208,
+      "new_lifetime_max_during_control": false
+    },
+    "observation_publish": {
+      "count_delta": 171,
+      "lifetime_max_after_ms": 3966.929042,
+      "lifetime_max_before_ms": 3966.929042,
+      "new_lifetime_max_during_control": false
+    },
+    "owner_rest_encode": {
+      "count_delta": 110,
+      "lifetime_max_after_ms": 29.305167,
+      "lifetime_max_before_ms": 9.446,
+      "new_lifetime_max_during_control": true
+    },
+    "owner_snapshot_prepare": {
+      "count_delta": 171,
+      "lifetime_max_after_ms": 919.8255,
+      "lifetime_max_before_ms": 919.8255,
+      "new_lifetime_max_during_control": false
+    },
+    "owner_state_encode": {
+      "count_delta": 171,
+      "lifetime_max_after_ms": 531.570292,
+      "lifetime_max_before_ms": 531.570292,
+      "new_lifetime_max_during_control": false
+    },
+    "queue_wait": {
+      "count_delta": 18711,
+      "lifetime_max_after_ms": 3024.029792,
+      "lifetime_max_before_ms": 3024.029792,
+      "new_lifetime_max_during_control": false
+    },
+    "raw_write": {
+      "count_delta": 196,
+      "lifetime_max_after_ms": 1497.941958,
+      "lifetime_max_before_ms": 1497.941958,
+      "new_lifetime_max_during_control": false
+    },
+    "rest_compare_network_included": {
+      "count_delta": 29,
+      "lifetime_max_after_ms": 8737.028458,
+      "lifetime_max_before_ms": 8737.028458,
+      "new_lifetime_max_during_control": false
+    },
+    "rest_evidence_write": {
+      "count_delta": 110,
+      "lifetime_max_after_ms": 21.945417,
+      "lifetime_max_before_ms": 21.945417,
+      "new_lifetime_max_during_control": false
+    },
+    "sqlite_checkpoint": {
+      "count_delta": 171,
+      "lifetime_max_after_ms": 426.799375,
+      "lifetime_max_before_ms": 426.799375,
+      "new_lifetime_max_during_control": false
+    },
+    "ws_decode": {
+      "count_delta": 18711,
+      "lifetime_max_after_ms": 312.097375,
+      "lifetime_max_before_ms": 312.097375,
+      "new_lifetime_max_during_control": false
+    },
+    "ws_receive_wait_provider_idle_included": {
+      "count_delta": 18711,
+      "lifetime_max_after_ms": 3610.694959,
+      "lifetime_max_before_ms": 3610.694959,
+      "new_lifetime_max_during_control": false
+    }
+  },
+  "valid_percent": 10.919540229885058,
+  "valid_samples": 19
+}

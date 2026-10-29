@@ -1,0 +1,104 @@
+{
+  "H1": {
+    "availability": "Dailyfeaturebar endingD00UTC is usedonlyatD+1FULLhour primary orD+2FULLhours neighbor. Daily01/02UTC target, netdelta rebalance untilnextdaily target. No future dailyclose atD+1h and no same-boundaryD00fill.",
+    "base_weights": ".5 per eligibletriggeredasset, otherscash; neverrefillmissingwinnercash.",
+    "data": "CachednativeBTCETH1hforfills/marks in scored2022+2024segments; no168hourshockwindow used. Dailywarmup>=32closedbars precedingfirstfeature, plus eligibility/riskhistoricalcontext. No downloads.",
+    "mechanism": "Dailynegativepriceanomaly followed byreversal, conditioned on LOWrelativequotevolume; source-inspiredsign chosenbeforeoutcomes, not Farag5min or hourlyshock replication.",
+    "r_z": "r[t]=log(C[t]/C[t-1]); z=(r[t]-mean(r[t-30:t]))/sampleSD(r[t-30:t],ddof1), excludingt. Trigger r[t]<0 AND z<\u22121. Requires32validcloses, no fittedmodel.",
+    "segments_UTC_halfopen": {
+      "development_2022": [
+        "2022-01-01",
+        "2023-01-01"
+      ],
+      "stress_2024": [
+        "2024-01-01",
+        "2024-12-01"
+      ]
+    },
+    "selection": "Onlylocallycompletehourlyperiods selected bytimestampquality BEFOREH1outcomes.2020/21/2023hourlydefects excludedmechanically, notlosingperiodselection; allhistoryalreadyseen.",
+    "universe": [
+      "BTCUSDT",
+      "ETHUSDT"
+    ],
+    "volume": "L[t]=log(Q[t]/arithmeticMEAN(Q[t-30:t])), excludescurrentfrombaseline; additionallyL[t]<0."
+  },
+  "H2": {
+    "auxiliary_fields": "Rawbasevol/tradecount/takerbuyfieldsQUALITY/descriptiveonly. QisUSDTtradevolumeproxy, NOTobservedspread/orderbook/queue.",
+    "availability": "DailyUTC00executiondayi usesfeaturebar i\u22122 for primaryFULL1daylag, i\u22123 for neighborFULL2daylag. NETDELTArebalance, noforcedroundtripifcontinuingsignal.",
+    "mechanism": "One interpretable past-only dailyrelativequotevolume predictor; NOT momentum,return,tradecount,takerfloworAmihudscreen.",
+    "ranking": "ComputeL[t]=log(Q[t]/MEANprevious30Q excludingt); rankloweststrictlynegativeeligibleL, tieslexicographic; top2base.5each, one.5,nonecash.",
+    "segments_UTC_halfopen": {
+      "development_2020_2022": [
+        "2020-01-01",
+        "2023-01-01"
+      ],
+      "diagnostic_2023": [
+        "2023-01-01",
+        "2024-01-01"
+      ],
+      "stress_2024": [
+        "2024-01-01",
+        "2024-12-01"
+      ]
+    },
+    "universe": "Fixed20191229historicalCMCcohortBTCETHXRPBCHLTCEOSBNB, BSVexcludedpreanchorwithoutreplacement; preserveBCH/EOSlaterhistory."
+  },
+  "H3": "EXCLUDED_NOT_EVALUABLE: OHLC/tradeprints/singleL1bookTicker/finitecurrentfeeddiagnostics cannotprovidequeueposition/cancellation/latency/fillconditionaladverseselection; no fakefill-on-touch/makerPnL.",
+  "accounting_common": {
+    "capital": "1000USDT resetflat eachsegment, cash0yield, sumlongweights<=1, continuousresearchfractions notPITexchangegridcertification.",
+    "licensing": "ReusepreviouslyacquiredpublicBinancepersonalresearchcache/originalCHECKSUMreceipts. No paid/privateAPI/network/account/orders.",
+    "missing": "Currentmissingtargetprice=>INCOMPLETE(no ghostfill); heldmissingexecutableprice/requiredsourcegap=>affectedfamily-periodINCOMPLETE/no promotion. No executableffill/retrolast-goodbarliquidation/assetdrop. Per-periodquality, no oldglobalhourlycascade.",
+    "netting": "Sellbeforebuy, fee-reservecashscale, tradeNETDELTAs notforceddailyexit+reopen. Holduntilnexttarget; finalsegmentheldinventoryliquidatedatlastbarclose withallcosts andexplicitterminalresearchlabel.",
+    "prices": "Modeledtakerask=historicalopen*(1+FULLspread/2)*(1+slip);bid=open*(1\u2212FULLspread/2)*(1\u2212slip);feeonnotionaleachside. Notactualaccountfees/queue/observedL1.",
+    "reuse": "Onlyhash-pinnedpurePortfolio/Costs/cap/summarize fromexistingengine, dynamicreadonlyimportwithbytecodewritesdisabled. No oldstrategy runner/operationalRuntime/Risk/SQLiteimports.",
+    "valuation": "Everyclose liquidation-value NAV reservesexitspread/slip/fee WITHOUTrepeatedcashdebits; actualterminalliquidationrealizesonce. DailyprimaryDD/Sharpeforbothfamilies, H1hourlyDDsecondary."
+  },
+  "authority": "Root final choices before H1/H2 returns; scientific and adversarial agents verified feasibility. Not exact published-paper replication.",
+  "benchmarks": {
+    "fixed_cohort": "Start-only1/Nperinitiallyeligiblesleeve, ineligibleinitialsleevescash/no laterreplacement. Initialeligibilityknownonefullpreviousday; terminalcostsame.",
+    "individuals": "BTCBH,ETHBHstart-only;cash. Identicalcostmodel, differentrisk/exposureclearlydisclosed.",
+    "matched": "EligibleEW timesprimary-knownrequestedtotalexposure, netdelta/costs; requestedNOTexactrealizedexposurematching. H1inheritscandidate timing, diagnosticNOTindependentveto. H2relative-rankingcontrast, legitimateincrementalrankingtest, not independentglobalstrategy.",
+    "primary_riskcap": "ExanteeligibleEWcohortH1BTCETH/H2seven; same targetvolcap, dailyrebalance cadence and variant-primaryinformationage/filllag, no signaltiming/rankfilter.",
+    "uncapped": "SameeligiblecohortEWdailyrebalancewithoutvolcap; NOTstaticBH."
+  },
+  "cost_meaning": "Fee/slip rates eachside, spreadFULL;approxroundtrip24/50/80bp. Sameforallarms/allscenariosfullyresimulated, neverchoosebest; no makerfee/rebate assumed.",
+  "cost_scenarios": {
+    "adverse": {
+      "fee": 0.0015,
+      "slip": 0.0005,
+      "spread": 0.001
+    },
+    "base": {
+      "fee": 0.001,
+      "slip": 0.0001,
+      "spread": 0.0002
+    },
+    "severe": {
+      "fee": 0.002,
+      "slip": 0.001,
+      "spread": 0.002
+    }
+  },
+  "eligibility_common": "Atleast30fullconsecutivecompletedbars and31finitepositivecloses; medianlast30completedquotevolumeincludingfeaturet>=10000000USDT. Lbaselineprevious30EXCLUDESt; zprior30returnsEXCLUDEt. BCH2019Nov28partialnotfull, noBCHABCpricebackfill, nofuturevolumeeligibility/cohortdrop.",
+  "historical_role": "All2020\u201324and2025/JanSep2026previouslyobservedprojecthistory. Thisrounduses2020\u201324ONLYandcallsallresultsEXPLORATORY, including2024stress, neverfreshholdout. PriorBleftfrozen/notreevaluated.",
+  "id": "EDGE_DISCOVERY_ROUND2_PREREGISTERED_20261028",
+  "locks": "freeze.json bindsnewcode/config/protocol/tests+allusedoriginalZIP/CHECKSUMandoldB8sources/followupprospectiveprotocol/3oldreports/179beforeNEWfinancialtables. Cblindreview+rootrelease.json boundtofreezehashrequired;resultsdirneveroverwritten;no sourcechanges/retuneafteroutcomes.",
+  "metrics": "Netreturn,CAGRvalidcalendar365,dailySharpe/SortinoRF0all-daydownsideRMS, DAILYPNLprofitfactor(notroundtripPF),dailyDD,H1hourDDsecondary;costs/turnover/exposure/cash/activecalendardays,year/month,causalBTC90regime(descriptiveONLY),best/worstdayconcentration,fixedpathremovebest5diagnosticnotexecutabletest. Reportordersnotfakeindependenttrades.",
+  "promising_screen_pre_results": {
+    "H1_incremental": "StressBASESharpeDIFF>0vsriskcappassive; matchedtimingEWnotindependentveto.",
+    "H2_incremental": "StressBASESharpe>=riskcappassive ANDmeanDAILYRETURNexcessvsrequestedexposurematchedEW>0.",
+    "all_reported_segments": "Primarybase>0 ANDadverse>0 ANDsevere>=0 inH1bothperiods/H2all3.",
+    "bootstrap": "PairedcircularDAILY7and30dayblocks,10000replicates,seed20261028,sameindices;one-sidedBonferroni2PRIMARYfamiliesalpha.05/2=.025lower>0BOTHblocks. H1SharpeDIFF,H2meandailyexcess. StressBASEonlyinferentialgate; otherperiodbootstrapsdescriptive.",
+    "limits": "CONDITIONAL EXPLORATORY screenONLY, alreadyobservedhistory. NOindependentOOS/globalp/futureprofitproof. GlobalDSRunknownhistoricaltrialcountnotestimable;donotsetN=2/4asglobal. Undefinedstats/dataincomplete=>noeligible.",
+    "no_new_concentration_threshold": "Reportconcentration/stabilitywithoutpost-resultsnewpasscutoff.",
+    "promotion_boundary": "Atmostcandidateforseparatefuturebefore-outcomeobservation ifALLscreenpass, neverfinancialapproval/paperactivation/runtimeintegration.",
+    "stress_daily_DD": "PrimaryBASE<=exantevolcappassiveBASE.",
+    "stress_neighbor": "2024neighborbase/adverse>0, cannotrescuefailedprimary.",
+    "stress_sample": "Atleast180scoreddays AND30activecalendardays(anybaropenexposure>0), unchangedthresholds."
+  },
+  "purpose": "Bounded exploratory falsification of2newfamilies usingexistingseenhistory; no runtime or Bstrategy changes.",
+  "risk_common": "MultiplycurrentBASEweights bymin(1,.20/(sampleSD(last30closedDAILYLOGportfolio returns evaluatedatcurrentBASEweights)*sqrt365)),ddof1. RiskwindowINCLUDESfeaturetreturn, unlikez/volumebaselines. Invalid/nonfinite/zeroriskvol=>cash. No leverage/short/pyramiding/stops/old1USDTguard; targetvolnotrealizedloss/exposureguarantee.",
+  "skill_resolution": "paths-injected",
+  "testing_note": "InitialREDisactualmoduleabsence,notclaimedbehavioralbugrepair. Syntheticbehaviorregressionsprovefeatureexclusions,fulllags,riskincludescurrent,strictsignals/ties,auxfieldsnotfilters,netdelta/cash/fees,terminal/sourcequality/units,periodlocalguards and release/bootstrapalpha.",
+  "trial_budget": "Exactly4variants: H1lag1hprimary/2hneigh;H2lag1dprimary/2dneigh.3costscenarios+benchmarks+segments notindependentdiscoveries. No parametersearch/extraH. H3notbacktested."
+}

@@ -1,0 +1,71 @@
+{
+  "accepted": 4,
+  "ambiguities": 1,
+  "bars_processed": 780,
+  "bars_total": null,
+  "broker_connected": false,
+  "complete": true,
+  "costs": {
+    "daily_max_loss": 200.0,
+    "fee_per_side": 0.61,
+    "max_consecutive_losses": 3,
+    "max_drawdown": 500.0,
+    "max_trades": 10,
+    "session": "2026-10-19",
+    "slippage_ticks": 1,
+    "strategy": "vwap_v1",
+    "strict": false
+  },
+  "execution": "LOCAL_SYNTHETIC_EXECUTION_NOT_BROKER_PAPER",
+  "fees": 4.88,
+  "financial_validation": false,
+  "gross": -19.0,
+  "halt": "consecutive_losses",
+  "intrabar_policy": "Observed post-submission BBO for live simulation; conservative original OHLC matcher for explicitly offline bars only",
+  "max_drawdown": 42.66,
+  "mode": "OFFLINE_CME_REPLAY_NOT_LIVE",
+  "net": -23.88,
+  "news_certified": false,
+  "orders": 12,
+  "positions": {
+    "MES": {
+      "average": 7734.5,
+      "cycle_execs": [],
+      "mark": 7734.75,
+      "quantity": 0
+    },
+    "MNQ": {
+      "average": 29681.75,
+      "cycle_execs": [],
+      "mark": 29721.75,
+      "quantity": 0
+    }
+  },
+  "real_money_routing": false,
+  "rejected": 35,
+  "replay_time": "2026-10-19T20:00:00+00:00",
+  "runtime_policy": "UNCHANGED_V3_ORDER_OWNER_AND_RISK; OFFLINE_TECHNICAL_UNCERTIFIED_NEWS",
+  "session": "2026-10-19",
+  "simulated_entries_enabled": true,
+  "source": {
+    "actual_input_kind": "OWNED_HISTORICAL_OHLCV_1M",
+    "configured_live_schemas": [
+      "trades",
+      "mbp-1"
+    ],
+    "dataset": "GLBX.MDP3",
+    "fault": null,
+    "provider_counts": {},
+    "quote_fresh": {
+      "MES": false,
+      "MNQ": false
+    },
+    "source_event_ns_preserved": true
+  },
+  "strategy": "vwap_v1",
+  "strategy_approved": false,
+  "strict_news": false,
+  "timestral": "DISABLED",
+  "trades": 4,
+  "working_orders": []
+}

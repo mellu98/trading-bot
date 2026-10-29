@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mnq-timestral-research"
+version = "0.1.0"
+description = "Simulation-only causal MNQ/MES Timestral research"
+requires-python = ">=3.11,<3.14"
+dependencies = ["numpy==2.3.4"]
+
+[project.optional-dependencies]
+model = ["timestral @ git+https://github.com/mistralai/timestral.git@a534bdbd244d64f3d9d743f46c7bf6fc330ed4ff"]
+
+[dependency-groups]
+dev = ["pytest==8.4.2"]
+
+[project.scripts]
+mnq-research = "mnq_timestral.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+markers = ["real_model: requires explicitly provisioned licensed local checkpoint"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

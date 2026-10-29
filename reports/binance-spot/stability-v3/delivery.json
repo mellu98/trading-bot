@@ -1,0 +1,40 @@
+{
+  "actionable_strategy": "BLOCKED",
+  "actual_new_forward_signal_count": 0,
+  "at_ns": 1793103340481178000,
+  "budget_spent": true,
+  "buy_count": 1,
+  "cash": "999.76609237980375000000000",
+  "current_source_checks": {
+    "run-binance-paper.sh": true,
+    "src/mnq_local/binance_app.py": true,
+    "src/mnq_local/binance_spot.py": true,
+    "src/mnq_local/dashboard.html": true,
+    "tests_local/test_binance_correlated.py": true,
+    "tests_local/test_binance_spot.py": true,
+    "tests_local/test_binance_stability.py": true
+  },
+  "forward_operational_status": "data/binance-spot/forward-signals/operational-status.json",
+  "forward_recorder_pid": 48288,
+  "forward_status": "RUNNING_SIGNALS_ONLY_NON_ACTIONABLE",
+  "forward_warmup": {
+    "at_ns": 1793103179008307000,
+    "bars": 256,
+    "first_ns": 1789416000000000000,
+    "kind": "warmup_only",
+    "last_end_ns": 1793102400000000000,
+    "no_prospective_signal": true
+  },
+  "global_stability": "FAIL_BLOCKED",
+  "instantaneous_certificate_not_stability_certification": true,
+  "model_jobs": 0,
+  "no_new_orders": true,
+  "observer": "RUNNING_RAW_QUOTES_OBSERVE_ONLY",
+  "observer_pid": 46903,
+  "observer_url": "http://127.0.0.1:8767",
+  "position": null,
+  "protocol_sha256": "b4ffe3cfa2027d81c70596663008d780d63af6801eb0956a7aaa922cb5243a36",
+  "sell_count": 1,
+  "skill_resolution": "paths-injected",
+  "timestral": "DISABLED"
+}

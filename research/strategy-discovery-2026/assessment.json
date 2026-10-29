@@ -1,0 +1,68 @@
+{
+  "any_promoted_to_forward_candidate": false,
+  "families": {
+    "A": {
+      "concentration_and_regimes_are_required_descriptive_evidence_not_posthoc_pass_thresholds": true,
+      "eligible_for_signals_only_forward_research": false,
+      "gates": {
+        "holdout_adverse_net": true,
+        "holdout_base_net": true,
+        "holdout_daily_drawdown_not_worse_than_exante_riskcap": true,
+        "holdout_family3_adjusted_inference_block30": false,
+        "holdout_family3_adjusted_inference_block7": false,
+        "holdout_risk_adjusted_comparator": false,
+        "holdout_severe_net": true,
+        "neighbor_holdout_adverse_positive": true,
+        "neighbor_holdout_base_positive": true,
+        "positive_incremental_mean_excess_vs_exposure_matched_EW": false,
+        "validation_adverse_net": true,
+        "validation_base_net": true,
+        "validation_severe_net": true
+      },
+      "global_DSR": "NOT_ESTIMABLE_UNKNOWN_PRIOR_TRIAL_COUNT",
+      "not_financial_approval": true
+    },
+    "B": {
+      "concentration_and_regimes_are_required_descriptive_evidence_not_posthoc_pass_thresholds": true,
+      "eligible_for_signals_only_forward_research": false,
+      "gates": {
+        "holdout_adverse_net": true,
+        "holdout_base_net": true,
+        "holdout_daily_drawdown_not_worse_than_exante_riskcap": true,
+        "holdout_family3_adjusted_inference_block30": false,
+        "holdout_family3_adjusted_inference_block7": false,
+        "holdout_risk_adjusted_comparator": true,
+        "holdout_severe_net": true,
+        "neighbor_holdout_adverse_positive": true,
+        "neighbor_holdout_base_positive": true,
+        "validation_adverse_net": true,
+        "validation_base_net": true,
+        "validation_severe_net": true
+      },
+      "global_DSR": "NOT_ESTIMABLE_UNKNOWN_PRIOR_TRIAL_COUNT",
+      "not_financial_approval": true
+    },
+    "C": {
+      "concentration_and_regimes_are_required_descriptive_evidence_not_posthoc_pass_thresholds": true,
+      "eligible_for_signals_only_forward_research": false,
+      "gates": {
+        "holdout_adverse_net": false,
+        "holdout_base_net": false,
+        "holdout_daily_drawdown_not_worse_than_exante_riskcap": false,
+        "holdout_family3_adjusted_inference_block30": false,
+        "holdout_family3_adjusted_inference_block7": false,
+        "holdout_risk_adjusted_comparator": false,
+        "holdout_severe_net": false,
+        "neighbor_holdout_adverse_positive": false,
+        "neighbor_holdout_base_positive": false,
+        "validation_adverse_net": false,
+        "validation_base_net": false,
+        "validation_severe_net": false
+      },
+      "global_DSR": "NOT_ESTIMABLE_UNKNOWN_PRIOR_TRIAL_COUNT",
+      "not_financial_approval": true
+    }
+  },
+  "future_profit_guarantee": false,
+  "statistical_gate_period": "holdout only; validation has frozen economic conjunction, not fitted parameters"
+}

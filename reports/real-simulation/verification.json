@@ -1,0 +1,33 @@
+{
+  "status": "pass",
+  "original_baseline": {
+    "checked_paths": 90,
+    "all_original_hashes_unchanged": true,
+    "primary_37_unchanged": true
+  },
+  "all20_frozen_planner_paths_unchanged": true,
+  "unique_paid_queries": 10,
+  "all_acquired_http200": true,
+  "duplicate_paid_queries": 0,
+  "rows": 3900,
+  "raw_partitions": 10,
+  "raw_data_sha256": "a3ba489f2937a94d5416508bef85eaef1db891159565b6a11367f647d0da8b2c",
+  "replay_no_network_proof": {
+    "status": "pass",
+    "network_attempts": 0,
+    "market_data": "existing local Databento cache only",
+    "broker_orders": 0
+  },
+  "restart": {
+    "status": "pass",
+    "interrupted_at_event": 250,
+    "all_summary_trade_order_decision_equity_hashes_equal": true,
+    "hashes": {
+      "decisions_sha256": "6254395675a80b0e4177824b5faeaf6c26324b8c54abb3bc6b6d1fdd4418b33f",
+      "equity_sha256": "af9e8eeaad690c2ed97c95d21fe717c0de67495d24f4a84b22d52b346a144896",
+      "orders_sha256": "dab6ed1d0d8ad50bd19e86c9c985dce20b15823830e9ad03e3913ea9c4cb0d06",
+      "summary_sha256": "27268ba4ac4d5a536b2f9cfef4311718a45ad0666324f3fe11e6c9753c1b52c3",
+      "trades_sha256": "544936708f7ca28811d1efbda5990c34f34dc58f381571e9606f5d8d22f1c832"
+    }
+  }
+}

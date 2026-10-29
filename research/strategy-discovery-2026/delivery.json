@@ -1,0 +1,25 @@
+{
+  "C_2024": "UNCOMPUTED_FROZEN_ALL_HISTORY_PREREQUISITE; raw2024timestampsvalid; actual2023validationgap",
+  "files": {
+    "README.md": "51732afe1042c11e7e77be0bb7a6c7d50dcb137422caecb2c74201d047288a64",
+    "assessment.json": "bceb400d4a0b438559ddda75bd3dfef7c8881aff939e4fa7f26aa3e4b34ce2d5",
+    "blind-data-proof.json": "d193652292dac2602377d4d0092bb264595f0c37689cdd92a9962936a396c328",
+    "blind-holdout-proof.json": "da601d5dc81bbd8002af233d070529ca8fa7d4467bc47c7fa72f7c69c3b40164",
+    "compact-results.csv": "d4a031ea0663fbe29ec6ce4425f1cbf87fbb1e6ed0593b62c5b8942adba464fa",
+    "data-freeze-development-validation.json": "768dd3c23050d09948d287fea0c1587d17683acb281ef7fa972612af8b4dd60d",
+    "data-freeze-holdout.json": "3b737c1b0325ea6a3eec3ede5073b0831ce4963ba2354be3a70fd3f69c174f34",
+    "primary-summary.json": "f2f1978c13142490e917fc60d2f6b42b60460f559366bd4e57157468c1b33ce6",
+    "reproducibility.json": "da078be359a51a70362a3954b9fb05689608867a915d8c01f9ae658183748a98",
+    "results-development-validation/results.json": "eb58d14e51c30138763ff59fed1e4d3d6d715d6623c012d819337fc33c01453a",
+    "results-holdout/results.json": "f6103de9f45b26f800979e831b94ad494c37bc15b92c1586739ba0f89ba97526",
+    "source-freeze.json": "17d58cc404464ff6e812755cf514f98e14eaa7e29ae608310d03f073b1e0b410"
+  },
+  "market_data_download_pairs": 559,
+  "new_variants_after_outcomes": 0,
+  "offline_reproduced_artifacts": 219,
+  "private_or_order_requests": 0,
+  "protected179_unchanged": true,
+  "skill_resolution": "paths-injected",
+  "sources_unchanged": true,
+  "status": "COMPLETE_FIXED_SCOPE_NONE_PROMOTED"
+}

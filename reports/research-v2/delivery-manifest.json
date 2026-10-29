@@ -1,0 +1,26 @@
+{
+  "code_files": [
+    "src/mnq_sim/strategies.py",
+    "src/mnq_sim/research_v2.py",
+    "tests_sim/test_strategies_v2.py",
+    "tests_sim/test_research_v2.py",
+    "run-research-v2.sh"
+  ],
+  "files": {
+    "ASSESSMENT.md": "1079b4b7b3002287813212c2368b6fe5a1cff53aaff88d7a55526cbcdeaf6805",
+    "RESEARCH-REPORT.md": "9f253b3cfd3267f25fe4e0f0b58b74ad01f6cad885c7b54574d71c639776fb26",
+    "future-independent-test.json": "f4575ead61e7f925c46c1aa83cc4149009180709d509882c96011f3bb4eea072",
+    "protocol.json": "be3a90a878bddf1d5be5a28ff2f95e8663bb18102123aabe559c9dd5461cdf6d",
+    "reproduction-proof.json": "13b13faf60b425c64d3713da4bae7d05e43ed3ddccdec745bed490c1a24f5985",
+    "results.json": "0110217c5f19f562aa5c88ea81f87b1f1b8fb2b252b57c153926d8e1101438ca",
+    "tests.txt": "d36c673638393c9f73d5ad74e8f36f1e48832891a414fcca4747a1e9d8d8aef0",
+    "unseen-data-plan.json": "9deebba8b9896c356f7dc0c50fcd0d9329a9158c0fb9beccb9437b5f2a47f43b",
+    "verification.json": "25367de02d109320ec6c2de3a167026f62a6a668500a87b0a100c2c2218e65f6"
+  },
+  "independent_validation": false,
+  "live_trading": false,
+  "new_agents": 0,
+  "purchases": 0,
+  "status": "completed_exploratory_no_edge_promoted",
+  "tests_passed": 48
+}

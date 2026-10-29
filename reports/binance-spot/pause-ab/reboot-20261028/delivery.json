@@ -1,0 +1,19 @@
+{
+  "at_ns": 1793174007772026000,
+  "protected_count": 179,
+  "protected_all_unchanged": true,
+  "report_previous_prefix_sha256": "2527f9b08fe50f7836a1bc4904fe2e137223aa3bfdd2a7c82c9662591ec24a7a",
+  "report_prefix_preserved": true,
+  "report_sha256": "28979ea034cbca74e4cdf1f4da193a32a330c7e096ce23397d8c43a9144cdea2",
+  "results_sha256": "cdf41557c8c435be79a072e5c512bacd6b633b14ce81407fec77674c22886873",
+  "protocol_sha256": "a3bc01ef0eb583e92ffbad86260eebaf2140d3251f88789bc701f6f186e61e6c",
+  "no_service_restored": true,
+  "expected_child_pids": [
+    19275,
+    19276,
+    19277,
+    19278
+  ],
+  "final_listener_connect_ex": 61,
+  "external_events_retained": 3
+}

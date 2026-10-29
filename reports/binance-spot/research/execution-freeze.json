@@ -1,0 +1,41 @@
+{
+  "config": {
+    "account": "OFFLINE_BTC_RESEARCH",
+    "client_id": 0,
+    "daily_max_loss": 10.0,
+    "deadline_seconds": 604800,
+    "entry_cash_cap": "100",
+    "fee_rate": "0.001",
+    "max_consecutive_losses": 3,
+    "max_contracts": 1,
+    "max_drawdown": 20.0,
+    "max_trades": 10,
+    "mode": "technical_paper",
+    "slippage_rate": "0.0001",
+    "stale_seconds": 2.0,
+    "stop_fraction": "0.05",
+    "strategy_id": "btcusdt_technical_once",
+    "virtual_cash": "1000"
+  },
+  "data_not_opened": true,
+  "fixed_technical_interpretations": {
+    "daily_bootstrap": "UTC daily changes of hour-close marked equity incl liquidation reserve; realized filldate ledger retained separately; terminalclose uses lastsegmentbarclose only",
+    "one_shot_override": "Researchonlyreset entrybudget per newcausal candidate; historicalclock context binds only isolatedprocessmodule; cyclecashorigin supplied toexistingone-shotPNLassert thenrestorecumulative1000origin. No livefile/journal edits.",
+    "risk_count_defaults": "Original Risk defaults10trades/day,3consecutive losses; dailyhaltresetsUTCwhenflat; globaldrawdownhaltpersists withinsplit",
+    "split": "No pending signal carried from warmup/previoussplit, pricesonlywarmup; terminalpendingentrycanceled, no nextsplitprice used",
+    "stop": "Stop is modeled bid threshold, frozen5%below actual modeled entryfill tickdown. Adverse bid gap open first; intrabar modeled bid low touch fills stop*(1-slip), hourbound timestamp. NoTP collision.",
+    "unobserved_size": "Synthetic size unbounded for<=100USDT historicalfillmodel; no measured2025BBO/queue/liquidity claim"
+  },
+  "frozen_at": "2026-10-27T06:56:19.778254+00:00",
+  "parameter_search": false,
+  "protocol_sha256": "8230d5ad3d7f0e11133c515020aca348b04656d452735dc530a55aca54304653",
+  "sources": {
+    "reports/binance-spot/research/runner.py": "9235027d1817300e1f95d3b07572137e6e03f3793e1f9ea3e6a7d4f7630563f9",
+    "reports/binance-spot/research/test_research.py": "90c7cc432757f72e406ff155d4b668ec5abd7ef2e90f683f52b717a2a7505e23",
+    "src/mnq_local/binance_spot.py": "686173f0b73fb7c0269a87b2092d46dbc5720d87652509be1ba96f7a0629b943",
+    "src/mnq_local/replay.py": "d6188adeb7a76b85001566efb96ea8906e7a13997c9f02cb07ae89c0d0055825",
+    "src/mnq_paper/core.py": "623d21802736c4f69283ce57631c0357c360e2fc109ec91494f1a2a491565d29",
+    "src/mnq_timestral/strategy.py": "8dd17b8963a8ba26987b303e5fcf08043ce1098e02e9c702849b2d8369d0ff7d"
+  },
+  "unit_policy": "2024ms,2025us explicitly; originalintsretained;exactns"
+}

@@ -1,0 +1,7 @@
+{
+  "decisions_sha256": "6c89ecdf06e4733dd0126b3aa8248a02e156bc6b9e1f373c725962304b46e421",
+  "equity_sha256": "de5af35bf7bc799adb8283e65826b92f210bdba4f51cdab832151bf4215d5d18",
+  "orders_sha256": "5f7a302cd4f5237891b7dddd7aae85f79bf60b684986736dc690f32dafd8f6a5",
+  "summary_sha256": "9d6f5c6d2bfbf37ee96ba2a15d54e4db26abe831fcec6fec2742d46c2c45b94f",
+  "trades_sha256": "5f7a302cd4f5237891b7dddd7aae85f79bf60b684986736dc690f32dafd8f6a5"
+}

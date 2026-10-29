@@ -1,0 +1,51 @@
+{
+  "account": {
+    "capital_usdt": "1000",
+    "daily_loss_usdt": "10",
+    "drawdown_usdt": "20",
+    "max_entry_cash_including_fee_usdt": "100",
+    "min_notional_usdt": "5",
+    "qty_step_btc": "0.00001000",
+    "risk": "Reuse existing Spot local cash/sizing/fees/stop/journal or execution functions and original Risk. No production or financial activation. Grid is current conservative scenario, not certified2025point-in-timeexchangefilters."
+  },
+  "costs": {
+    "assumed_full_spread_fraction": "0.0002",
+    "fee_per_side": "0.001",
+    "price_model": "Historical kline trade OHLC is not bid/ask; approximate bid=tradeprice*(1-.0001),ask=tradeprice*(1+.0001),then adverse slippage1bp and fee10bp/side; estimated assumptions not measured historical book. Quote-volume/liquidity not proof of fill quality.",
+    "slippage_per_side": "0.0001"
+  },
+  "data": {
+    "development": "2025-01-01T00:00:00Z through2025-06-30T23:00:00Z",
+    "independence": "Not previously acquired/inspected by this project as far as current memory/cache evidence; do not claim independent strategy proof beyond this untouched temporal split. Current2026live technical quotes outside all2025splits. Freeze exact code/config before opening test prices.",
+    "independent_historical_test": "2025-10-01T00:00:00Z through2025-12-31T23:00:00Z",
+    "quality": "Explicit original timestamp unit: Spot2025\u00b5s vs2024ms per official README, retain original integers and exact ns; UTC hourly OHLCV, chronological unique continuous bars, finite positive OHLC, nonnegative volume, checksum provenance. No future or forming candles.",
+    "source": "Official Binance Vision monthly Spot BTCUSDT 1h klines with individual SHA256 CHECKSUM; CC BY-NC-SA4.0 personal non-production research only",
+    "validation": "2025-07-01T00:00:00Z through2025-09-30T23:00:00Z",
+    "warmup": "2024-12-01T00:00:00Z through2024-12-31T23:00:00Z"
+  },
+  "economic_acceptance": {
+    "drawdown_usdt": "<=20 with no risk halt",
+    "minimum_test_roundtrips": 20,
+    "test_net_after_costs": "strictly>0",
+    "test_profit_factor": ">=1.15",
+    "uncertainty": "Circular daily5day-block bootstrap10000 seed1729 one-sided95% lower dailymean>0, 1/10sensitivity; family1 one hypothesis; descriptive under lowN/pathdependent risk. Do not relax after data.",
+    "verdict": "Any negative test net rejects this exact configuration for promotion; positive but insufficient trades/CI/risk=>INCONCLUSIVE; only all criteria=>exploratory candidate requiring FUTURE paper-independent evidence and finer execution. Never economically valid from technical roundtrip."
+  },
+  "frozen_at_utc": "2026-10-27T06:22:56.356880+00:00",
+  "hypothesis": "Slow hourly trend persistence after weekly average crossing may offset low turnover spot friction; an economic hypothesis, not financial approval.",
+  "market": "BTCUSDT spot, long/flat only, no leverage, no futures rules",
+  "prohibitions": "No private endpoints, accounts, keys, purchases, real orders, optimization, changes to futures evidence or prior baseline; technical test trades excluded entirely.",
+  "signal": {
+    "entry": "At closed hour t, C[t]>SMA168[t] AND C[t-1]<=SMA168[t-1]; long next hour open; require169 completed closes; no same-bar fill. At most one position.",
+    "exit": "C[t]<SMA168[t] queues next-hour-open full liquidation; protective stop and time deadline remain active. No short, pyramiding, trailing or profit target.",
+    "priority": "At each open adverse stop gap first; then pending signal/time exit, then pending BUY if allowed; intrabar low stop for held/newly-entered long; no optimistic extrema. Stop price frozen from fill, rounded down to.01. Terminal split close is forced and separately counted, never use subsequent split prices.",
+    "protective_stop_fraction": "0.05",
+    "sma_hours": 168,
+    "time_exit_hours": 168,
+    "timeframe": "1h native closed candles"
+  },
+  "split_policy": "Start each evaluation split flat with1000cash and independent original risk budget; use prior split prices solely as causal SMA warmup. Development/validation are diagnostics, not parameter selection. Never retune after validation/test. Previous test prices must not be read for code debugging before code/test/configfreeze. Forced terminalclose uses only segmentlastclose, costs applied. No pooling to hide split failure.",
+  "status": "FROZEN_BEFORE_DOWNLOAD_OR_INSPECTION_OF_2025_BTC_HISTORICAL_PRICES",
+  "technical_prerequisite": "Actual public-feed protected local BUY/restart/SELL already reported successful06:20\u201306:21UTC2026-10-27; independent parent reconciliation pending.",
+  "universe": "One BTCUSDT symbol; one fixed configuration, no parameter search"
+}

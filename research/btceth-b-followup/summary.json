@@ -1,0 +1,374 @@
+{
+  "all_original_inputs_179_unchanged": true,
+  "diagnosis_2023": {
+    "Aug14_requested_BTC_ETH_weights": [
+      0.4784278026241904,
+      0.5
+    ],
+    "Aug21_requested_BTC_ETH_weights": [
+      0.0,
+      0.0
+    ],
+    "BTC_ETH_net_attribution": [
+      25.94899923563642,
+      6.275202641063714
+    ],
+    "January_B_vs_passive_PnL": [
+      39.4537567669156,
+      199.89039418286825
+    ],
+    "October_B_vs_passive_PnL": [
+      0.18976379240689312,
+      139.51201300080334
+    ],
+    "actual_costs": {
+      "fee": 7.837189164294648,
+      "slippage": 0.7837193248805684,
+      "spread": 0.7837197411688696,
+      "total": 9.404628230344086
+    },
+    "additional_B_execution_cost": 2.5632118639572576,
+    "cost_gap_identity_reconciled": true,
+    "decisions": 52,
+    "first_nonzero_target": {
+      "BTC": "2023-01-16T00:00:00+00:00",
+      "ETH": "2023-01-16T00:00:00+00:00"
+    },
+    "interpretation": "Delayed participation atturns plus exposures during declines explain observed path. This is not a causal estimated counterfactual, evidence that90days is defective, or permission to optimize. The20%voltarget is NOT exposure/drawdown/daily-loss cap.",
+    "pathwise_net_gap_to_riskcap": 418.8296736427376,
+    "quarters_B": [
+      107.18385138631197,
+      -38.28119449396763,
+      -125.31441668035745,
+      88.63596166471325
+    ],
+    "quarters_riskcap": [
+      285.9612102566839,
+      31.896617338847363,
+      -145.9453773149271,
+      279.14142523883356
+    ],
+    "raw_marked_pnl_gap": 416.2664617787804,
+    "worst_day": {
+      "date": "2023-08-17",
+      "net_pnl": -71.81072402000041,
+      "return": -0.07004196932624006
+    },
+    "zero_target_weeks_BTC_ETH": {
+      "BTC": 13,
+      "ETH": 17
+    }
+  },
+  "evidence_files": [
+    {
+      "path": "reports/binance-spot/research/acquisition.json",
+      "sha256": "f7ed24ea4e367da51ff4b6c6741dbdbbab95e4fd7f6aa942f9e41911df66e53d"
+    },
+    {
+      "path": "reports/binance-spot/research/execution-freeze.json",
+      "sha256": "5a8be80c1541cf2e865b4042d11b6bc92aecf55559afa2a2a19ec5f240aee77d"
+    },
+    {
+      "path": "reports/binance-spot/breakout-4h/acquisition.json",
+      "sha256": "c3cd5a68efc9eb79fad01464b0edaef1a131590025f33dfa688ea97700ba31fb"
+    },
+    {
+      "path": "reports/binance-spot/breakout-4h/run-1/results.json",
+      "sha256": "b052317d22ad203cd3e25e6a48859ffa35510d58b108bd2be1194e1aea221af0"
+    },
+    {
+      "path": "reports/binance-spot/timestral-abc/execution-freeze.json",
+      "sha256": "fe947dd22fe92ba0ff1769792ad5fba5d73952146b43ecb4dea00d439942bc75"
+    },
+    {
+      "path": "reports/binance-spot/timestral-abc/run-1/results.json",
+      "sha256": "58332fd55e3b355d8622d5f19df4b5f5e98099ab3e2b362c38c8211215004145"
+    },
+    {
+      "path": "research/strategy-discovery-2026/source-freeze.json",
+      "sha256": "17d58cc404464ff6e812755cf514f98e14eaa7e29ae608310d03f073b1e0b410"
+    },
+    {
+      "path": "research/strategy-discovery-2026/protocol.json",
+      "sha256": "72c4a902c03edd558b98de880fd41f815a3ccc1187674e34f3a4bcb917ea54e8"
+    },
+    {
+      "path": "research/strategy-discovery-2026/config.json",
+      "sha256": "a52e0d3aa1679939d2ff78a33b7b7e9496c8d19696b3c2e5a871741c497ccaab"
+    }
+  ],
+  "future_protocol": {
+    "path": "research/btceth-b-followup/prospective-protocol.json",
+    "prospective_requires_real_before_outcome_records": "No collector presently running. Archive-only replay afteryear is future-historical, not issued-before-outcome prospective validation.",
+    "sha256": "45c1d0a40f931ffae157e3ca1e5f33ecbcd8cc0f337268e27b0d1a223d535840",
+    "status": "PREPARED_NOT_RUNNING",
+    "window": "[2026-11-01T00:00:00Z,2027-11-01T00:00:00Z)"
+  },
+  "inference_2024_original": {
+    "blocks": {
+      "30": {
+        "ci95": [
+          -0.4726926090848869,
+          1.4281063761226152
+        ],
+        "lower_family3": -0.5327016359767053,
+        "status": "OK"
+      },
+      "7": {
+        "ci95": [
+          -0.730914884036778,
+          1.6614466595111217
+        ],
+        "lower_family3": -0.8278284721700626,
+        "status": "OK"
+      }
+    },
+    "limitation": "Conditional current-family block resampling, not correction for unknown prior project trials or future success probability",
+    "metric": "sharpe_difference",
+    "one_sided_alpha": 0.016666666666666666,
+    "paired_same_indices": true,
+    "replicates": 10000,
+    "seed": 20261028
+  },
+  "periods": {
+    "development": {
+      "base": {
+        "best_daily_return": 0.053381602913062896,
+        "best_month": {
+          "days": 31,
+          "end": "2020-08-01T00:00:00+00:00",
+          "net_pnl": 180.15104734079569,
+          "period": "2020-07",
+          "return": 0.20126732707242745,
+          "start": "2020-07-01T00:00:00+00:00"
+        },
+        "cash_fraction_mean": 0.8368932624741506,
+        "daily_drawdown_detail": {
+          "daily_liquidation_NAV_not_intraday": true,
+          "drawdown": 0.20045786127605847,
+          "peak_at": 1581724800,
+          "peak_to_trough_days": 27.0,
+          "peak_utc": "2020-02-15T00:00:00+00:00",
+          "recovery_at": 1596326400,
+          "recovery_utc": "2020-08-02T00:00:00+00:00",
+          "trough_at": 1584057600,
+          "trough_utc": "2020-03-13T00:00:00+00:00",
+          "underwater_days_to_recovery_or_end": 169.0
+        },
+        "fully_cash_days": 396,
+        "mean_daily_return": 0.0005034560343261133,
+        "median_daily_return": 0.0,
+        "negative_month_count": 16,
+        "net_attribution_BTC_ETH": [
+          255.4766866602003,
+          405.8451311455026
+        ],
+        "positive_month_count": 13,
+        "realized_daily_vol_annualized_sqrt365": 0.17028375142357788,
+        "worst_daily_return": -0.11917989204186007,
+        "worst_month": {
+          "days": 31,
+          "end": "2020-04-01T00:00:00+00:00",
+          "net_pnl": -120.13148532231571,
+          "period": "2020-03",
+          "return": -0.11929945285133559,
+          "start": "2020-03-01T00:00:00+00:00"
+        }
+      },
+      "base_adverse_severe_net_return": [
+        0.6613218178057025,
+        0.6451634624496176,
+        0.6267046737257185
+      ],
+      "base_metrics": {
+        "annualized_two_way_turnover": 2.509652015738315,
+        "average_exposure": 0.1631067375258493,
+        "cagr": 0.18417950834212982,
+        "capital_final": 1661.3218178057025,
+        "capital_initial": 1000.0,
+        "daily_pnl_profit_factor": 1.188481868381761,
+        "daily_sharpe_365": 1.0791484859405478,
+        "daily_sortino_365_rf0_all_day_downside_rms": 1.4953916350852159,
+        "days": 1096,
+        "fees": 11.112454783297823,
+        "label": "primary_strategy",
+        "max_drawdown": 0.20045786127605847,
+        "maximum_exposure": 0.6508987341712249,
+        "net_pnl": 661.3218178057025,
+        "net_return": 0.6613218178057025,
+        "order_count": 191,
+        "scenario": "base",
+        "segment": "development",
+        "slippage": 1.1112522137850305,
+        "source": "results-development-validation/development-B-base-primary_strategy.json",
+        "spread": 1.1112589603528678,
+        "two_way_turnover": 7.535831806162173
+      }
+    },
+    "holdout": {
+      "base": {
+        "best_daily_return": 0.05372101572228322,
+        "best_month": {
+          "days": 29,
+          "end": "2024-03-01T00:00:00+00:00",
+          "net_pnl": 201.0287581366017,
+          "period": "2024-02",
+          "return": 0.20002119885880054,
+          "start": "2024-02-01T00:00:00+00:00"
+        },
+        "cash_fraction_mean": 0.7421133199059277,
+        "daily_drawdown_detail": {
+          "daily_liquidation_NAV_not_intraday": true,
+          "drawdown": 0.08712596131782369,
+          "peak_at": 1710201600,
+          "peak_to_trough_days": 51.0,
+          "peak_utc": "2024-03-12T00:00:00+00:00",
+          "recovery_at": 1717632000,
+          "recovery_utc": "2024-06-06T00:00:00+00:00",
+          "trough_at": 1714608000,
+          "trough_utc": "2024-05-02T00:00:00+00:00",
+          "underwater_days_to_recovery_or_end": 86.0
+        },
+        "fully_cash_days": 77,
+        "mean_daily_return": 0.0010985232290500876,
+        "median_daily_return": 0.0,
+        "negative_month_count": 5,
+        "net_attribution_BTC_ETH": [
+          230.36400391203927,
+          195.03649702516637
+        ],
+        "positive_month_count": 6,
+        "realized_daily_vol_annualized_sqrt365": 0.17159405771386338,
+        "worst_daily_return": -0.03131804833993405,
+        "worst_month": {
+          "days": 30,
+          "end": "2024-05-01T00:00:00+00:00",
+          "net_pnl": -62.614473589981344,
+          "period": "2024-04",
+          "return": -0.049011521618656184,
+          "start": "2024-04-01T00:00:00+00:00"
+        }
+      },
+      "base_adverse_severe_net_return": [
+        0.42540050093720616,
+        0.41666507300434064,
+        0.4066475490224064
+      ],
+      "base_metrics": {
+        "annualized_two_way_turnover": 5.186140388671861,
+        "average_exposure": 0.2578866800940723,
+        "cagr": 0.47137137163342224,
+        "capital_final": 1425.400500937206,
+        "capital_initial": 1000.0,
+        "daily_pnl_profit_factor": 1.487090596469592,
+        "daily_sharpe_365": 2.336683355736547,
+        "daily_sortino_365_rf0_all_day_downside_rms": 4.211921796141904,
+        "days": 335,
+        "fees": 5.988226351415562,
+        "label": "primary_strategy",
+        "max_drawdown": 0.08712596131782369,
+        "maximum_exposure": 0.6152154136161393,
+        "net_pnl": 425.40050093720606,
+        "net_return": 0.42540050093720616,
+        "order_count": 72,
+        "scenario": "base",
+        "segment": "holdout",
+        "slippage": 0.5988269550170988,
+        "source": "results-holdout/holdout-B-base-primary_strategy.json",
+        "spread": 0.5988312808809542,
+        "two_way_turnover": 4.759882274534448
+      }
+    },
+    "validation": {
+      "base": {
+        "best_daily_return": 0.043188056958459245,
+        "best_month": {
+          "days": 31,
+          "end": "2023-04-01T00:00:00+00:00",
+          "net_pnl": 71.11587165053356,
+          "period": "2023-03",
+          "return": 0.0686401597592754,
+          "start": "2023-03-01T00:00:00+00:00"
+        },
+        "cash_fraction_mean": 0.6727249536181195,
+        "daily_drawdown_detail": {
+          "daily_liquidation_NAV_not_intraday": true,
+          "drawdown": 0.184184665550578,
+          "peak_at": 1681689600,
+          "peak_to_trough_days": 124.0,
+          "peak_utc": "2023-04-17T00:00:00+00:00",
+          "recovery_at": null,
+          "recovery_utc": null,
+          "trough_at": 1692403200,
+          "trough_utc": "2023-08-19T00:00:00+00:00",
+          "underwater_days_to_recovery_or_end": 259.0
+        },
+        "fully_cash_days": 92,
+        "mean_daily_return": 0.00013103587333952355,
+        "median_daily_return": 0.0,
+        "negative_month_count": 6,
+        "net_attribution_BTC_ETH": [
+          25.94899923563642,
+          6.275202641063714
+        ],
+        "positive_month_count": 6,
+        "realized_daily_vol_annualized_sqrt365": 0.17942324138759388,
+        "worst_daily_return": -0.07004196932624006,
+        "worst_month": {
+          "days": 31,
+          "end": "2023-09-01T00:00:00+00:00",
+          "net_pnl": -101.6020525120748,
+          "period": "2023-08",
+          "return": -0.0968828086039547,
+          "start": "2023-08-01T00:00:00+00:00"
+        }
+      },
+      "base_adverse_severe_net_return": [
+        0.032224201876700054,
+        0.021926761178470144,
+        0.010163928619804974
+      ],
+      "base_metrics": {
+        "annualized_two_way_turnover": 7.661829655807818,
+        "average_exposure": 0.32727504638188054,
+        "cagr": 0.032224201876700054,
+        "capital_final": 1032.2242018767001,
+        "capital_initial": 1000.0,
+        "daily_pnl_profit_factor": 1.031982725736292,
+        "daily_sharpe_365": 0.2665657659455915,
+        "daily_sortino_365_rf0_all_day_downside_rms": 0.37917025236241697,
+        "days": 365,
+        "fees": 7.8371891642946485,
+        "label": "primary_strategy",
+        "max_drawdown": 0.184184665550578,
+        "maximum_exposure": 0.9791667384084479,
+        "net_pnl": 32.224201876700135,
+        "net_return": 0.032224201876700054,
+        "order_count": 85,
+        "scenario": "base",
+        "segment": "validation",
+        "slippage": 0.7837193248805685,
+        "source": "results-development-validation/validation-B-base-primary_strategy.json",
+        "spread": 0.7837197411688697,
+        "two_way_turnover": 7.661829655807818
+      }
+    }
+  },
+  "provenance": {
+    "B_freeze_ns": 1793193488681563000,
+    "B_freeze_utc": "2026-10-28T13:18:08.681563+00:00",
+    "B_optimized_on_2025_claim": "NOT_ESTABLISHED; do not make it. B frozen calculations exclude2025/26; prior project observation motivated strategy change, which prevents untouched-project-holdout status.",
+    "B_protocol_history": "Former BTC4h archived/nonpromoted. Dec2024\u2013Sep2026 already observed; no financial data from those periods included in new tests. Earlier public history can still be known to humans/publications; not prospective independence.",
+    "metadata_chronology_limits": "Embedded original receipts and unchanged source/result hashes, not independent external timestamp notarization. File mtime not used as evidence.",
+    "old_SMA_2025_acquisition_completed": "2026-10-27T06:57:16.400575+00:00",
+    "old_SMA_freeze": "2026-10-27T06:56:19.778254+00:00",
+    "old_Timestral_already_observed": true,
+    "old_Timestral_freeze_ns": 1793091925619972000,
+    "old_breakout_2026_acquisition_completed_ns": 1793088882255625000,
+    "old_breakout_completed_utc": "2026-10-27T08:14:42.255625+00:00",
+    "pristine_2025_2026_project_holdout": false,
+    "run_2025_2026_authorized_here": false
+  },
+  "scope": "Existing frozen B only. No strategy/backtest run,2025/26price evaluation,downloads,newvariants,collector,service,runtime or orders.",
+  "status": "INSUFFICIENT_EVIDENCE_NO_PROMOTION_PREPARED_NOT_RUNNING"
+}

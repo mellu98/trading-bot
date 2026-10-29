@@ -1,0 +1,38 @@
+{
+  "A": "OfficialWS rawreceive queue/counters only,noJSON/runtime/persistence/dashboard. Endonlyboundedtelemetrydump.",
+  "B": "SameWS+JSONparsing, noRuntime/persistence/dashboard. Endonlytelemetrydump; sourceageuncorrectednotnetwork.",
+  "C": "SameWS+existingFeed/RESTcomparison+originalRisk onflatread-onlystate; frozenoriginal4hdecisionONLYactualclosedUTC4h/240minutes and contiguous existingwarmup. Noaccount/broker/order/runtime/persistence/dashboard.0actual4hcloses=>strategyworkloadNA, notactiveeconomicloadclaim.",
+  "D": "Existingfullbinance_app originalspentjournal/Runtime/Risk/dashboard/atomicFULLpersistence. Isolatedharnessexternalizeshost_sampletoNOOP, addsconnection/receiptobservation+smallstatusfields. PRODUCTIONFIDELITYCAVEAT: samefinancialcore/fullpersistence, but internal4OScommands/5sremovedandseparateequalOSsamplerused. Originalfilesnotedited.",
+  "aggregate_per_arm_target_seconds": 600,
+  "criteria": "Technicalreadiness remainsFAILif any measuredDdelay>250ms/queueoverflow/unexpecteddisconnect/unrepairedgap orfullsoak<1800actualconnected; instantaneouscertisnotglobalPASS. EvenboundedtechnicalPASSnotfinancialstrategyapproval; strictnewsremainsblocked. Rootcauseonlycorrelateddifferentialevidence,otherwiseUNRESOLVED; original22unattributed. Noautoretuning/retries.",
+  "frozen_at_ns": 1793110892178550000,
+  "full_D_soak_two_portions_connected_target_each_seconds": 951,
+  "minimum_full_D_soak_actual_connected_seconds": 1800,
+  "order": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "D",
+    "C",
+    "B",
+    "A"
+  ],
+  "planned_flat_restart": "Between2soakportions; exclude backoff/startup/restart downtime. Sameoriginalspentjournal, verifiedcash/1BUY1SELL/flatbeforeeachstatus.",
+  "protected_manifest_sha256": "08748f752768cd20df9331fb5e36a7f0261634bb9df4fa0c50aa03289a16c2cd",
+  "safety": "250msprocessing/2sfreshness unchanged; ArawentrycapabilityNA; C/Dnewentriesdisabled/spent. Allsignaloutputsnon-actionable/stabilitynewsblocked. SourceE/Tagewhereprovidednevernetworklatency; booksourceTSabsent. NoOSchanges/appsquit/reboot.",
+  "scope": "Technical publicBTCUSDT latency isolation ONLY; no orders/accounts/modelinference/economicbacktests/privateAPI. Databentoallpathsbyteimmutable/nocredentialsSDKnetwork.",
+  "segment_actual_connected_target_seconds": 300,
+  "sources": {
+    "reports/binance-spot/breakout-4h/runner.py": "511c3f18aae35ab84639c9061367f99910c64340879308e2f9f0daa539ff34c1",
+    "reports/binance-spot/forward-signals/recorder.py": "db43ae5e46b69a5e60e8f5c68719cfb34f752ab8e29ee933162daedfce6db5d4",
+    "reports/binance-spot/stability-isolation/control.py": "b134d7e399eb8b5b239df0680feef3599e3b819ea45aa22019e5762dc5ec9cf9",
+    "reports/binance-spot/stability-isolation/runner.py": "000e1696e98d9eecee577ec0a5d8ded0d988bdb28cbc18fbf9ad7145ab8094b4",
+    "reports/binance-spot/stability-isolation/test_isolation.py": "4c35fbbe926e4c70b8114d0f9f6c184b3df48e9f338bc16282c92b6ea8910a46",
+    "src/mnq_local/binance_app.py": "c158a13f3790aa7cb1cbff73bc3c3c783d3e0f7be4b59d776b6b88aeab5f5da6",
+    "src/mnq_local/binance_spot.py": "686173f0b73fb7c0269a87b2092d46dbc5720d87652509be1ba96f7a0629b943",
+    "src/mnq_timestral/strategy.py": "8dd17b8963a8ba26987b303e5fcf08043ce1098e02e9c702849b2d8369d0ff7d"
+  },
+  "telemetry": "A/B/C/W samebounded PipelineMetrics/gc/sleep20msprobe/1sCPUqueuecounters, dumpatend. D originalfullmetrics/dump+GC; periodrolling20k countmaxlifetime. External5s sampler SAME acrossallphases:psRSSCPUtimepagein,vm_stat,swap,pressure,load,topCPU,iostatdisk; samplerCPU/childrenCPU/wallmeasuredperiteration. Hostcounterssystemwide, notbotfaults. DstatusGET1s includedasrealUIload; A/B/C noUI. Noheavyjobs/testsduringmeasurement.",
+  "witness": "OneadditionalminimalrawWSprocess throughout, noJSON; samehost/network. Correlatedloopstalls/arrivalgaps notproofproviderlatency; A/Wsourceage/tradeIDsNA."
+}

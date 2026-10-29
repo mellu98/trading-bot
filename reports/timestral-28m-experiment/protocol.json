@@ -1,0 +1,59 @@
+{
+  "accuracy_grid_stride_minutes": 15,
+  "costs": {
+    "adverse_slippage_ticks": 1,
+    "fee_per_side": 0.61
+  },
+  "data_status": "PREVIOUSLY_OBSERVED_EXPLORATORY_ONLY",
+  "execution": "Unchanged V5 conservative stop-first, target penetration and intrabar-entry ambiguity policy",
+  "features": "Close price target; past-only returns, volume, rolling volatility and VWAP distance. No future covariates.",
+  "filter": {
+    "edge": 0.25,
+    "forecast_lag_bars": 1,
+    "horizon": 5,
+    "selected_on_test": false,
+    "tail_level": 0.5,
+    "ttl": 90.0
+  },
+  "forecast_horizons": [
+    1,
+    3,
+    5,
+    10,
+    15
+  ],
+  "independent_evidence": false,
+  "limitations": [
+    "Five already observed sessions cannot establish statistical advantage",
+    "Quantiles are not TP-before-SL probabilities",
+    "OHLC1m cannot verify intrabar event sequence",
+    "Historical feed and orchestration latency not measured; CPU timing alone is not an operational SLA",
+    "All 120 sessions previously studied; no independent test period exists in this local dataset"
+  ],
+  "live_enabled": false,
+  "model": "28M",
+  "news": "UNCERTIFIED_EXPLORATORY_ONLY; strict mode remains blocked",
+  "revision": "49b26409ac87b5935539a5d8ffe7f397b720db47",
+  "risk": "Unchanged V3 final authority; V5 daily independent diagnostic accounts, not a continuous deployable portfolio",
+  "scope": "Initial controlled technical comparison: five complete owned CME sessions, both micros",
+  "sessions": [
+    "2026-10-19",
+    "2026-10-20",
+    "2026-10-21",
+    "2026-10-22",
+    "2026-10-23"
+  ],
+  "source_revision": "a534bdbd244d64f3d9d743f46c7bf6fc330ed4ff",
+  "strategies": [
+    "vwap_v1",
+    "orb_v2",
+    "sweep_mss_v2"
+  ],
+  "strategy_promoted": false,
+  "timing": "At decision close t use forecast from t-1 minute only if measured CPU latency <=60s. Synthetic historical ready_at=origin+measured latency; wall timestamps retained separately. No inference at t is allowed to fill the open at t. V5 next-bar bounded orders unchanged.",
+  "variants": [
+    "target_only",
+    "past_covariates"
+  ],
+  "version": 1
+}

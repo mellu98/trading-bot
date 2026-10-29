@@ -1,0 +1,107 @@
+{
+  "accounts": {
+    "continuous": "Original persistent global risk; primary operational comparison",
+    "daily_reset_diagnostic": "Fresh10000USD virtual account each session; keeps intraday risk but removes cross-session global halt. NOT a deployable portfolio or unchanged baseline."
+  },
+  "baseline": "VWAP/Z-score2.5 fixed TP/SL, frozen V1 engine; signal-time VWAP-target arm remains archived",
+  "common_config": {
+    "commission_per_side": 0.25,
+    "daily_max_loss": 200.0,
+    "entry_slippage_ticks": 1.0,
+    "exchange_per_side": 0.35,
+    "exit_slippage_ticks": 1.0,
+    "exit_variant": "fixed",
+    "max_consecutive_losses": 3,
+    "max_drawdown": 500.0,
+    "max_trades": 10,
+    "news_required": false,
+    "regulatory_per_side": 0.01,
+    "spread_ticks": 0.0,
+    "threshold": 2.5,
+    "virtual_capital": 10000.0
+  },
+  "costs": "Broker0.25+exchange0.35 per side scenario; NFA0.02throughJune30 then0.01; entry and exit1tick each, zero spread assumption. Not account-specific fees.",
+  "data_status": "ALL120_SESSIONS_PREVIOUSLY_OBSERVED_EXPLORATORY_ONLY",
+  "dataset_sha256": "b5d3e676d1de881a8bd1a07eedccc14f286a615db0d7b4169f9950fead600ff5",
+  "execution": "Next available minute open only, same original fixed target/stop distances: MES4/2points MNQ15/8points; adverse stop-gap fill and stop-first collision. One contract/account, flatten15:30NY, entry09:45\u201315:30exclusive. No pyramiding.",
+  "frozen_at": "2026-10-26T06:22:29.839648+00:00",
+  "future_independent": {
+    "candidates": [
+      "MNQ/orb",
+      "MES/orb",
+      "MNQ/sweep_mss",
+      "MES/sweep_mss"
+    ],
+    "parameters": "Exactly frozen strategy/common_config above. No winner selection or refit from these120sessions.",
+    "period": "First60 complete XNYS cash sessions strictly after2026-10-26; collect sequentially only after separate price/scope authorization, never inspect before freeze.",
+    "procedure": "Immutable raw/normalized checksums and PITcontract/news audit before one locked run. Four candidates including failures, Bonferroni4 block5CI; block1/10 sensitivity. Baseline descriptive. No early economic peeking or extension after failure. Any change resets experiment on new unseen data.",
+    "promotion": {
+      "cost_1_5ticks_each_side_net_positive": true,
+      "family4_one_sided95_lower_daily_mean_above": 0,
+      "global_risk_halt_allowed": false,
+      "independent_sessions": 60,
+      "minimum_trades": 60,
+      "net_positive": true,
+      "positive_20session_blocks_min": 2,
+      "profit_factor_min": 1.15,
+      "strict_news_and_finer_execution_required_before_paper": true
+    },
+    "purchase": "Not authorized. One official metadata.get_cost quote for exact missing point-in-time contracts/schema/cash scopes, exclude cache, then manual approval. One-minute screening first; matched1s/trades/MBP1 for execution only later with separate approval.",
+    "regimes": "Separate replication on an earlier disjoint year/regime only after manifest/provenance confirms never observed; do not silently substitute an already viewed period."
+  },
+  "ict_archive": "No ICT2022archive found in project (excluding environments/rawdata); no ICT provenance claimed",
+  "lean": "No live/broker adapter activation. Stable replay remains simulation; LEAN native execution/reconciliation certification pending",
+  "news": "OFF_EXPLORATORY; strict mode must block because complete PITcalendar uncertified",
+  "orb": "15bars09:30\u201309:45NY; first later close >= rangehigh+0.25 long or <= rangelow-0.25 short; one candidate per side/day, even if risk rejects it",
+  "parameter_search": false,
+  "risk": "Original daily200USD, global500USD drawdown,10trades/day,3consecutive losses; same for every arm. Different stop-dollar risk MNQ16 vs MES10; also report netR.",
+  "robustness": "6instrument/strategy arms; bootstrap5000seed1729 blocks1/5/10, one-sided family6adjustment; 6consecutive20session blocks, calendar months, timebuckets, lagged20session opening-range-volatility median. Subgroups descriptive, no filter selection.",
+  "source_sha256": {
+    "run-research-v2.sh": "3b5ac6fc410d327dc89b48b6a5f27b39b90200def672e532e47080e9e70ec0f2",
+    "src/mnq_sim/research_v2.py": "f677be9046fd1b444d001a5c64479cdecb31597639fe88c8d2881cfde3134329",
+    "src/mnq_sim/strategies.py": "c4bc97c5349a0c8b10aaa9ce3120af5d9503b9f9a8c143462916a637f4fa44fe",
+    "tests_sim/test_research_v2.py": "ad4bebff3f365949fa5ea59cbff45e2f8be786af512a2c03f605319c8c3913c3",
+    "tests_sim/test_strategies_v2.py": "7d516ae364b43a12bbdb34b41fe1cebb272dbde22ad96ed96b97a641257325b4"
+  },
+  "sources": [
+    {
+      "support": "General opening-range breakout concept only; our exact15minute/fixed-risk rule is a research choice",
+      "url": "https://onlinelibrary.wiley.com/doi/10.1002/9781119203933.ch11"
+    },
+    {
+      "support": "Pivots require bars on both sides; right-side confirmation must be delayed",
+      "url": "https://www.fidelity.com/learning-center/trading-investing/technical-analysis/technical-indicator-guide/pivot-points-high-low"
+    },
+    {
+      "support": "False/failed breakout concepts only; our sweep/MSS state machine is a price-only operational hypothesis",
+      "url": "https://www.fidelity.com/bin-public/060_www_fidelity_com/documents/learning-center/Idenitfying-Chart-Patterns.pdf"
+    }
+  ],
+  "strategies": {
+    "orb": {
+      "buffer_ticks": 1,
+      "kind": "orb",
+      "mss_timeout": 10,
+      "opening_minutes": 15,
+      "pivot_left": 2,
+      "pivot_right": 2
+    },
+    "sweep_mss": {
+      "buffer_ticks": 1,
+      "kind": "sweep_mss",
+      "mss_timeout": 10,
+      "opening_minutes": 15,
+      "pivot_left": 2,
+      "pivot_right": 2
+    }
+  },
+  "stress_ticks_each_side": [
+    1.0,
+    1.5,
+    2.0
+  ],
+  "sweep_mss": "Strict2left2right pivot, usable only after rightbars close. Sweep previously confirmed low by>=0.25 and close back above (long), symmetric high(short). Freeze opposite confirmed pivot. A strictly later bar within10bars must close>=0.25 past opposite level. Cancel if extreme exceeded or timeout. Consume each pivot on its first breach, even without reclaim. Dual sweep or already-through-structure samebar rejected. No volume/book liquidity claim.",
+  "timestral": "Optional disabled; real checkpoints blocked pending modifiedMIT revenue-eligibility attestation; no financial predictive claim",
+  "v1_manifest_sha256": "741fc37eb77ae78f6116f15c278bcade1fd0cd9317020171b5b33bd053430b3d",
+  "version": 2
+}

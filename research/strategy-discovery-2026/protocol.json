@@ -1,0 +1,107 @@
+{
+  "A_rules": {
+    "benchmarks": "weekly eligible EW with identical portfolio volcap; weekly eligible EW uncapped; start-only fixed7cohort EW, ineligible initial sleeves staycash/no reallocation; BTC/ETH individual start-only BH;cash. Exposurematched eligibleEW uses exactly candidate known lagged target total exposure, DIAGNOSTIC + required relative-ranking contrast, not independent discovery.",
+    "eligibility": "At least30 full consecutive daily observations plus31 valid closes for30returns; median last30 completed daily quote-volume>=10000000USDT; BCH28Nov2019 partial listing day not full. No prior BCHABC stitching.",
+    "information": "At execution day i, last completed daily bar is i-2, ending i-1 at00UTC; a FULL daily bar separates feature close and fill. Latest Sunday00 close for Monday00 fill. All prices/volume/volatility use this cutoff.",
+    "risk": "Multiply current baseweights by min(1,.20/(sampleSTD of last30 portfolio DAILY LOGreturns at current weights *sqrt365)); ddof1; nonpositive/invalid forecastvol=>cash; no leverage/no refillcash.",
+    "signal": "Simple close ratio return14days primary/7days neighbor, strictly positive; rank descending, ties lexicographic symbol; top2 weight.5 each, one winner weight.5 leavescash.",
+    "weekly": "Monday00UTC, first scheduled Monday inside each segment (no unscheduled first-day momentum rebalance)"
+  },
+  "B_rules": {
+    "assets": [
+      "BTCUSDT",
+      "ETHUSDT"
+    ],
+    "benchmarks": "BTCETH same sleeve riskcap no trend weekly; unmanaged BTCETH.5each weekly; BTC/ETH individual start-only BH;cash; candidate-known exposurematched EW diagnostic only.",
+    "signal": "Simple close ratio return90days>0; neighbor60days only. Each sleeve .5*positiveflag*min(1,.20/(sampleSTD30 DAILY LOGreturns*sqrt365)),ddof1; invalid/nonpositivevol=>cash.",
+    "timing": "WeeklyMonday00, same full daily availability lag, trailing30full-bar quote-volume eligibility."
+  },
+  "C_rules": {
+    "benchmarks": "ETHBH; dailyUTC ETH20% annual volcap using30 completed DAILY LOGreturns/fullonedaylag; BTCBH; start-onlyBTCETH EW;cash. No matched-entryETH as primary comparator because it is same strategy.",
+    "capital": "100%AVAILABLEcash ETH after fee reserve, no leverage/voltarget. Singleposition.",
+    "finite_boundary": "No entry if exitopen would not exist inside segment. Remaining holdings all modes liquidated explicitly at finite finalbarclose including costs; this is research accounting not guaranteed production terminalfill.",
+    "signal": "BTC hourly LOGreturn r[t], z=(r[t]-mean(r[t-168:t]))/sampleSTD(r[t-168:t]), excludes current; strictz>1. Invalid/zeroSTD=>no signal.",
+    "timing": "Feature bar t startsT/endsH=T+1hour. EntryH+1hour primary/H+2hours neighbor. Holdonehour, exitnextopen. Signals created independent of occupancy; sell dueexit before entry at same boundary; skip+log if stilloccupied; no free continuation on reopen."
+  },
+  "download_budget": {
+    "404_retry": false,
+    "attempts_transient_max": 3,
+    "compressed_hard_bytes": 67108864,
+    "decoded_hard_bytes": 268435456,
+    "development_validation_pairs": 460,
+    "global_GETs_per_second_max": 4,
+    "holdout_pairs": 99,
+    "max_concurrent": 4,
+    "maximum_pairs_allphases": 559,
+    "public_allowlist": "Official data.binance.vision monthly klines ZIP andoriginalCHECKSUM only. No private API/key/account/order endpoint. KnownBCHSep/Oct2019 prelisting not requested."
+  },
+  "execution_accounting": {
+    "known_identity": "FixedCMC20191229 top8nonstable intersect Binancelisted => BTCETHXRPBCHLTCEOSBNB; BSVexcluded preanchor, no replacement. EOS requires preanchor officialarchive proof. BCH2019Nov28 partial; no earlierfetch/tickerbackfill.",
+    "limitations": "No historicalL1/queue/impact/accountfees/PITgrids certification; candle open following a whole bar delay is a conservative modeled availability assumption, not empirical fill guarantee. USDT treated cash atpar; depeg risk unmodeled. No stops/short/borrow/leverage/old1USDT riskguard reused.",
+    "missing": "Missing/unlisted execution buy skip+log, no ghostfill. Held missing executableprice, identity uncertainty or required-source continuity gap => whole affected family-periodINCOMPLETE/NOPROMOTION, never ffill executable/retroterminaldrop. A-only errors do not block validB/C.",
+    "model": "Synthetic ask=rawOpen*(1+fullspread/2)*(1+slippage); bid=rawOpen*(1-fullspread/2)*(1-slippage); fee each notional side; all initial/rebalance/terminal costs; sellbeforebuy; simultaneous buys proportionally cash-scaled to fund fees; no negativecash/qty.",
+    "valuation": "Dailyclose realizable liquidation value reserves spread/slip/exitfee without subtracting it repeatedly from cash; actual terminaltrade realizes once. Initialcapital1000 included in DD. A/B dailyDD;C dailyprimary/hourlysecondary."
+  },
+  "frozen_before_any_new_price_returns": true,
+  "history": "Former BTC4h archived/nonpromoted. Dec2024\u2013Sep2026 already observed; no financial data from those periods included in new tests. Earlier public history can still be known to humans/publications; not prospective independence.",
+  "hypotheses": {
+    "A": "Slow diffusion/relative strength across a fixed historically anchored spot cohort, challenged by weekly trading costs and weak relative selection.",
+    "B": "Medium-term persistent attention/adoption trends, long/cash with no-leverage volatility-scaled sleeves.",
+    "C": "BTC common-information impulse might precede ETH; full-hour delay and spot costs deliberately falsify short-lived predictive effects. Not a minute-paper/LASSO/long-short replication."
+  },
+  "id": "CRYPTO_THREE_FAMILIES_FIXED_20261028",
+  "inference": {
+    "method": "10000paired circular dailyblock bootstrap,seed20261028,blocks7and30. Same resampled day indicescandidate/comparator. A meanDAILYRETURN excess vs candidate-known exposurematched eligibleEW;B/C annualized DAILYSharpe difference vs ex-ante riskcap passive.",
+    "multiple_testing": "One-sidedalpha .05/3, lowerquantile .016666666666666666 >0 for BOTHblocks. Conditional currentthreeprimaryfamilies only; sixneighbors correlated, not independent discoveries. Unknown pastprojecttrialcount =>globalDSRNOTESTIMABLE, not fakeN3/6.",
+    "period": "Holdout BASE only for inferential gates. Validation economic gates only; no validation selection or tuning.",
+    "undefined": "Any nonfinite/zerovariance bootstrap result or<30days=>no inferentialPASS. Conditional observedpath, not re-simulated allocations/risk or proof future profit."
+  },
+  "locks": {
+    "data": "data-freeze-PHASE.json pins originalarchives+checksums+acquisition+quality after approved blindquality; before financial results.",
+    "devval": "financial-release.json root authorization must bind source/datafreeze hashes.",
+    "holdout": "holdout-release.json rootrequired for acquisition/decode; separatefinancial-holdout-release.json binding source+holdoutdatafreeze required for results.",
+    "results": "Neveroverwriteexistingresults/source/datafreeze; no newvariants/recovery basedPnL.",
+    "source": "source-freeze.json pins protocol/config/code/tests/universe before download/newreturns."
+  },
+  "metrics": {
+    "C_extra": "HourlySharpe sqrt8760/DDsecondary, actualclosedroundtrip PF/count/topwinners.",
+    "diagnostics": "Two-way rawnotional/pretradeequity turnover,fees/spread/slip,timeavg/max exposure,cashcapital,calendar-year return/PnL,BTCcausal90day positive/nonpositive regime PnL, descriptiveBTCbeta/excessmeans,top5dailyPNL+leavebestdayoutNOTexecutabletest,topCroundtrips.",
+    "primary": "Netreturn,CAGR with actual elapsedUTCdays and365annualization,dailySharpe sqrt365,Rf0 Sortino meanreturn/downsideRMS overALLdays sqrt365, maxdailyDD, DAILYPNL PF not roundtrip PF forA/B.",
+    "zero_variance": "UndefinedSharpe/Sortino/PF where denominatorzero =>null, never infinite PASS."
+  },
+  "no_carry_positions_between_segments": true,
+  "promotion_conjunction": {
+    "A_relative": "HoldoutBASE positive meanexcess vs candidate-knownexposurematched eligibleEW AND Sharpe>=riskcapEW",
+    "B_C_relative": "HoldoutBASE Sharpe>exanteriskcap-passive; matchedexposure diagnostics not veto",
+    "coverage": "Allrequireddata/identities valid; incomplete=>NOPROMOTION.",
+    "holdout_daily_DD": "PrimaryBASE <= exantevolcap-passiveBASE samefamily",
+    "holdout_neighbor": "Base/adverse net>0; no rescue ifprimaryfails.",
+    "meaning": "Only candidate for later signals-only forwardresearch, nofinancialapproval. Root decides A/B/C mission recommendation, never forcebestfamily winner.",
+    "statistical": "HoldoutBASE family3-adjustedlower>0 both7/30blocks asabove",
+    "validation_and_holdout": "Primary base/adverse net>0, severe net>=0 separately in BOTHperiods."
+  },
+  "skill_resolution": "paths-injected",
+  "splits_utc_halfopen": {
+    "development": [
+      "2020-01-01",
+      "2023-01-01"
+    ],
+    "holdout_locked": [
+      "2024-01-01",
+      "2024-12-01"
+    ],
+    "validation": [
+      "2023-01-01",
+      "2024-01-01"
+    ],
+    "warmup_daily": [
+      "2019-09-01",
+      "2020-01-01"
+    ],
+    "warmup_hourly": [
+      "2019-12-01",
+      "2020-01-01"
+    ]
+  },
+  "test_evidence": "tdd-red.txt is actual initial module-absence collection RED, not claimed behavioral repair proof; focused synthetic tests cover costs/cash/availability/zeroSTD/gaps/familyisolation/reentry/end/release/timestampunits. No marketfinancialruns before root/Cgate."
+}

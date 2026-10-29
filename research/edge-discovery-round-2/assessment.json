@@ -1,0 +1,53 @@
+{
+  "H3": "EXCLUDED_NOT_EVALUABLE_NO_MAKER_BACKTEST",
+  "all_results_exploratory_seen_history": true,
+  "any_promising_screen": false,
+  "families": {
+    "H1": {
+      "gates": {
+        "conditional_bootstrap_lower_block30": false,
+        "conditional_bootstrap_lower_block7": false,
+        "development_2022_adverse_primary_net": false,
+        "development_2022_base_primary_net": false,
+        "development_2022_severe_primary_net": false,
+        "stress_2024_adverse_primary_net": false,
+        "stress_2024_base_primary_net": false,
+        "stress_2024_severe_primary_net": false,
+        "stress_base_sharpe": false,
+        "stress_daily_DD": true,
+        "stress_days_180_active_days_30": true,
+        "stress_neighbor_adverse": false,
+        "stress_neighbor_base": false
+      },
+      "not_OOS_or_global_significance": true,
+      "not_financial_approval": true,
+      "promising_for_future_observation_ONLY": false
+    },
+    "H2": {
+      "gates": {
+        "conditional_bootstrap_lower_block30": false,
+        "conditional_bootstrap_lower_block7": false,
+        "development_2020_2022_adverse_primary_net": false,
+        "development_2020_2022_base_primary_net": false,
+        "development_2020_2022_severe_primary_net": false,
+        "diagnostic_2023_adverse_primary_net": false,
+        "diagnostic_2023_base_primary_net": false,
+        "diagnostic_2023_severe_primary_net": false,
+        "stress_2024_adverse_primary_net": true,
+        "stress_2024_base_primary_net": true,
+        "stress_2024_severe_primary_net": false,
+        "stress_base_sharpe": false,
+        "stress_daily_DD": true,
+        "stress_days_180_active_days_30": true,
+        "stress_mean_daily_excess_positive": true,
+        "stress_neighbor_adverse": false,
+        "stress_neighbor_base": true
+      },
+      "not_OOS_or_global_significance": true,
+      "not_financial_approval": true,
+      "promising_for_future_observation_ONLY": false
+    }
+  },
+  "global_DSR": "NOT_ESTIMABLE_UNKNOWN_PAST_PROJECT_TRIAL_HISTORY",
+  "variant_count": 4
+}

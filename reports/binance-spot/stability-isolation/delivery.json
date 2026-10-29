@@ -1,0 +1,17 @@
+{
+  "at_ns": 1793117384294836000,
+  "buy_count": 1,
+  "cash": "999.76609237980375000000000",
+  "dashboard": "http://127.0.0.1:8767",
+  "flat_spent": true,
+  "forward_new4h_closes": 0,
+  "forward_pid": 90259,
+  "global_stability": "FAIL_BLOCKED",
+  "models": "DISABLED",
+  "observer": 90258,
+  "observer_report": "reports/binance-spot/stability-isolation/observer",
+  "protected177_unchanged": true,
+  "residual_exact_cause": "INCONCLUSIVE",
+  "sell_count": 1,
+  "skill_resolution": "paths-injected"
+}

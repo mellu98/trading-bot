@@ -1,0 +1,12 @@
+{
+  "deterministic_analytical_outputs": {
+    "attribution-2023.json": "5b2886ba3ccefae18d80cfc6caa389333836e38b0504dccc929827bb1186a469",
+    "diagnosis-2023.json": "10bbb81616cb8f1d90c579c419f59305a14fd8b464ad384870365ccdbf4ebd79",
+    "findings.json": "f88b7f5c7c134174cfc62f719f8563ad47e7e1f160eeb58245457feaae870cfd",
+    "metrics.csv": "9226893a578367baa47c7013e43881379724d68b5f7628f5f914b81ad3795b17"
+  },
+  "no_network": true,
+  "no_new_backtest": true,
+  "old_inputs_unchanged": true,
+  "status": "PASS"
+}

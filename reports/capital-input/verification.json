@@ -1,0 +1,15 @@
+{
+  "phase": "LOCAL_INPUT_VERIFIED",
+  "dummy_only_input_tests": true,
+  "hidden_tty_and_keychain_passed": true,
+  "no_tty_echo_fallback_blocked": true,
+  "password_exact_preservation_verified": true,
+  "actual_api_key_present": true,
+  "actual_api_key_validation_passed": true,
+  "actual_pending_credentials_present": false,
+  "actual_verified_credentials_present": false,
+  "actual_authentication_attempted": false,
+  "orders_enabled": false,
+  "actual_api_key_absent_from_artifacts": true,
+  "timestral_strategies_risk_dashboard_unchanged": true
+}

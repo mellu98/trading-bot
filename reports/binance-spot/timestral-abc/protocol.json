@@ -1,0 +1,111 @@
+{
+  "baseline": {
+    "arms": [
+      "A: unchanged baseline withoutfilter",
+      "B: exactsamebaseline with28Mentryveto",
+      "C: exactsamebaseline with209Mentryveto"
+    ],
+    "execution_freeze_sha256": "258d555a0b83f8a389e34fe8cc0222bb56fdc4ac238896e0b36041611e4a9c48",
+    "protocol_path": "reports/binance-spot/breakout-4h/protocol.json",
+    "protocol_sha256": "70bea1510b04f67cfb65db7881ed6319534fbf009b71b514afd07d49918fd3c4",
+    "rules": "EXACT existing4h20highbreakout/10lowexit/2ATR14fixedstop/nextnative1hopen. No newstrategy, exits/risk/sizing/fees/terminal behavior unchanged.",
+    "same_costs": "Threealreadyfrozenbase/adverse/severescenariosfullyrerunidenticallyforallarms; reportbaseprimary. FilterhurdlefixedtoBASEcostsforallstressscenarios,no retuning. Same1USDTinitialrisk/100cashcap/1000capital/daily10/DD20; eacharmseparateinitialaccount."
+  },
+  "data": {
+    "pretraining_overlap": "Officialmodelcards do not disclose verifiabletrainingdatecutoff/datasetinventory; historical overlapnotruledout eveniftimeperiodproject-unseen. Onlyfutureforecastsissuedbeforeoutcomescanestablishprospectiveeffect.",
+    "primary_diagnostic": "2026-01-01T00:00:00Z <= t < 2026-10-01T00:00:00Z",
+    "scope": "Cached2024-12through2026-09native1h/BTCUSDT; hash/provenance verified byexistingloader,4hUTCaggregationunchanged;NOnewhistoricaldownloads. Both2025andJanSep2026alreadyobserved byproject, diagnostics ONLY, NEVERnewindependentholdout.",
+    "secondary_descriptive": "2025-01-01T00:00:00Z <= t < 2026-01-01T00:00:00Z; no thresholds/variantchoiceusingresults"
+  },
+  "economic_metrics": [
+    "net/gross/fees/spread/slippage",
+    "trades/expectancy/PF/winrate",
+    "hourcloseMTMDD",
+    "monthly/quarterlynet",
+    "allowed/vetoed/Riskrejections",
+    "matchedpositivebaselineopportunitiesvetoed",
+    "pairedUTCdailyB-A/C-Abootstrap",
+    "coststressfullreruns",
+    "baselineAoriginalhash/metricsreproduced"
+  ],
+  "filter": {
+    "accept": "IFvalidcachedforecastANDmeasuredinference<=300sANDorigin+measuredinference<decisionTANDmedian_step2/currentcloseT-1 > basecosthurdle THENalloworiginalcandidate ELSEveto. Equalityrejects. Noquantileprobabilitythresholdsearch,noalteredsizing/exits. CurrentcloseTnotfutureknownonlycandidate timestamp.",
+    "causal_cache_rule": "Precomputeforecastat EVERY completed4horigin O. Atbaselinecandidateclosedbar timestamp T, use ONLY forecastorigin O=T-4h (onecompletedbarlag); targetforecaststep2 => T+4h. This makesinference availableBEFOREcandidate withoutchangingbaseline nextopenfills orusingpredictionbeforeitexists. NeversubstitutefreshoriginTlookaheadinstantaneousprediction.",
+    "fixed_base_roundtrip_hurdle_fraction": "0.002402882974988590390614641",
+    "hurdle_derivation": "(1+halfspread)*(1+slip)*(1+fee)/((1-halfspread)*(1-slip)*(1-fee))-1 withbasefee.001slip.0001halfspread.0001. No price return is a TP-before-SL probability.",
+    "rejections": "Persistmissing/invalid/late/originmismatch/nonpositiveforecastedge distinct fromoriginalRiskrejections. Neverinventforecast. Vetoedopportunitycounterfactuals reportmatchedbaseline-tradecounterfactual notactualprofitlostcausalestimate; newarmpositionscanalterfuturecandidates.",
+    "timestamps": "PersistoriginalUNIXns origin/target/asof/inputlastrawtime,wallinferstart/end/runavailabilityandlogicalcounterfactualhistoricalavailability separately. Neverclaimforecastsactuallyissuedhistorically."
+  },
+  "forecast_evaluation": {
+    "horizons_steps": [
+      1,
+      2,
+      3,
+      6
+    ],
+    "hours": [
+      4,
+      8,
+      12,
+      24
+    ],
+    "latency": "Coldload+warmupseparate. Perorigininferencewallandthread/processCPU,p50p95p99max,totalwall/CPU,peakRSSbytesusingmacOSru_maxrssunits. SequentialmodelsCPU1,noinferenceinfeedloop.",
+    "metrics": [
+      "MAE/RMSEprice",
+      "MAEcumulativereturn",
+      "directionaccuracywithzero/tietreatmentexplicit",
+      "pinballloss21levels",
+      "80%q10q90coverage/width",
+      "quantilecrossing/nonfinite/missing",
+      "pairedabsoluteerrorimprovementrelativepersistence",
+      "SpearmanreturnICifnondegenerate"
+    ],
+    "naive_distribution": "For eachh, empirical h-step cumulative returns fromthe same256pastcloses,applyquantilestoP[O];pastonly,notfittedtestreturns. Naivequantilemedian maydifferpointpersistence,clearlylabel.",
+    "naive_point": "PricepersistenceP_hat[O+h]=P[O] is identical to zero-cumulative-returnforecast; reportasONEbaseline,notindependentcompetitors.",
+    "primary_horizon_steps": 2,
+    "scope": "Everyeligibleoriginin2026primary/2025secondary,notonlyacceptedtrades. Sameoriginsandmaturetargetsforallmodels/naive;endtargetsoutsideperiodexcludedfromscorebutlastforecastscanstillfiltercausallyinsideperiod."
+  },
+  "frozen_at_unix_ns": 1793091395441139000,
+  "id": "BTCUSDT_EXISTING_4H_BREAKOUT_TIMESTRAL_28M_209M_CACHED_FILTER_ONCE",
+  "inference_failure_policy": {
+    "reproducibility": "Freezeexperimentcode/tests/modelhashes before fullpredictionrun; includeallpredictionJSONLinputschecksum andquantiles,version/coverage. Reusecachedforecastsforeconomicrerun; realinference1samplepermodelrepeatedtoverifydeterminism/tolerance separately.",
+    "timeouts": "300sperforecastglobalworkbudgetguard,recordactualtimeouts,nocachefabrication;headlessworkerprocessnotfeedthread. Noautomaticretrywithdifferentsettings."
+  },
+  "models": {
+    "209M": {
+      "revision": "9874d252ab0aae16f7f7c999f98f98d6ad7d8365",
+      "weights_sha256": "1456effb9927e3daa8c7234f10497e3424233869245a9c72b8ecebaf7ad2b7fa"
+    },
+    "28M": {
+      "revision": "49b26409ac87b5935539a5d8ffe7f397b720db47",
+      "weights_sha256": "dfc83c6220937ce5fc6687b35a4df94cd25e28a2cfe6fb92a23dad6301b2015d"
+    },
+    "input": "Exactly256completed4hcloses endingorigin,univariatetargetonly,float32rawpositiveprices,no covariates/futurefeatures/no fine-tuning. Same officialAPIbothmodels; reuse verifiedOfficialAdapter loaderwithoutCME-onlyRequestschema.",
+    "output": "All21officialquantiles; assertfinite/strictlypositivepriceforecastandnoncrossing. Do NOTsortrepairinvalidoutput;markerrorandblockentry.",
+    "settings": {
+      "clip_nonnegative": false,
+      "device": "cpu",
+      "fine_tuning": false,
+      "models_resident_concurrently": false,
+      "prediction_length_steps": 15,
+      "symmetric_averaging": true,
+      "torch_interop_threads": 1,
+      "torch_threads": 1
+    },
+    "source_revision": "a534bdbd244d64f3d9d743f46c7bf6fc330ed4ff"
+  },
+  "prospective_protocol": {
+    "bootstrap": "Pairedcircular5UTCdayblocks10000seed1729;1/10blocksensitivitynotselection;conditionalMTMpathnotrerunRisk. Nooptimizeatinterim.",
+    "issuance": "Onlycompletednative4hbars,sourceintervalsUTC,contiguous256context,noformingbars. Neverbackfillmissedforecastsasprospective;logmissed/late/warmuponly. Forecastavailablewithin300sofnewclosedbar publicationandbeforelaggednextcandidate. Recordsappend-only beforetargets;realissued_at/available_at/targets/newobservations stored separately.",
+    "minimum": "Atleast90newUTCdays AND30closedbaselinecounterfactualtrades AND20perfilteredarm beforefinancialconclusion; otherwiseINCONCLUSIVE.",
+    "mode": "PREPAREorstartread-onlySIGNALS_ONLYshadowusingexistingBinancepublicREST/WSproviderandexistingmodelcode,noorders/noapporRiskchanges. Distinctrecordsfromtechnicalfills/economicpaperpositions. Do notcreateautomaticpaperentries.",
+    "no_deployment": "Existingfeedunstable/strictnewsblocked remains. Ifpublicingestionunhealthyonlyloganomaly,suppressactionabledecision. No fabricatedOHLC/restsnapshots. Replay/forecastjobsnotinliveeventloop.",
+    "promotion_per_model": "positivebaseandadverse net,PF>=1.15,DD<=20/noRiskviolations,pairedB-A(orC-A)dailymeanlower97.5%one-sided>0(Bonferroni2models),primaryMAEbeatsnaivewithpaired97.5%lower>0,coveragewithin.75..85fornominal.80,>=2positivequartersevaluatedwhenavailable;noautopromotionorrealtrading."
+  },
+  "verdicts": {
+    "INCONCLUDENTE": "Otherhistoricaloutcomes,insufficientforecast/tradecounts/modelerrors,wideuncertainty,orpositivehistoricalimprovementwithnoindependentfutureevidence.",
+    "NON_UTILE_NELLA_CONFIGURAZIONE_TESTATA": "Diagnosticforecastcoverage>=99% and>=1000pairedprimaryhorizonorigins ANDmodelprimaryMAE>=persistenceMAE ANDfilteredbaseeconomicnet<=AANDno convincingpositivepairednetlowerbound: descriptivefailureoftheexactfrozenentryfilter,notproofofuniversaluselessness.",
+    "UTILE": "ONLYprospectiveissued-before-target cohort passes belowcrediblecriteria; cannotbeachievedmerelybythisobservedhistory.",
+    "historical_scope": "NoUTILEdeclarationfromtheseobserveddataperiodsalone. Modeltrainingoverlapunknown. VeredictpermodelneverabsoluteTimestralutility."
+  }
+}

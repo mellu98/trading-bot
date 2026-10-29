@@ -1,0 +1,42 @@
+{
+  "actual_authenticated_ib_tests": 0,
+  "actual_paper_orders_accepted": 0,
+  "credentials_saved": false,
+  "external_blocks": [
+    "Maclocked: no native authenticated Paper UI observation",
+    "Paperlogin/2FA unavailable",
+    "Authorizedaccount not configured",
+    "No independently observed session proof",
+    "APIReadOnly/entitlements not verified through real responses"
+  ],
+  "live_orders": 0,
+  "new_subscriptions": 0,
+  "original_paths_unchanged": 90,
+  "planner20_unchanged": true,
+  "primary37_unchanged": true,
+  "sdk_source_files_verified": 235,
+  "status": "PASS_LOCAL_NOT_BROKER_CERTIFIED",
+  "strict_news_blocked": true,
+  "test_suites": {
+    "databento": {
+      "passed": 123
+    },
+    "original": {
+      "passed": 54,
+      "skipped": 2
+    },
+    "paper_v3_v4": {
+      "passed": 54
+    },
+    "planner": {
+      "passed": 44
+    },
+    "simulation": {
+      "passed": 48
+    }
+  },
+  "timestral_enabled": false,
+  "total_passed": 323,
+  "total_skipped": 2,
+  "v1_v2_paths_unchanged": 309
+}

@@ -1,0 +1,71 @@
+{
+  "ended_ns": 1793099586483838000,
+  "feed": {
+    "actual_connected_seconds": 18.189081709,
+    "book_receipt_fresh": true,
+    "book_source_timestamp": "NOT_PROVIDED_BY_BINANCE",
+    "clock_offset_ms": 97.6795,
+    "clock_uncertainty_ms": 376.1635,
+    "economic_strategy": "NONE_TECHNICAL_ONLY",
+    "max_fresh_seconds": 2,
+    "max_spread_bps": 10,
+    "native_closed_candles": 1,
+    "passed": false,
+    "processing_delay_ms": {
+      "last": 0.152875,
+      "max_observed": 1.647125
+    },
+    "rest_comparison": {
+      "book_bid_ask_match": true,
+      "candle": null,
+      "checked_at": "2026-10-27T11:12:58.128877+00:00",
+      "checked_mono_ns": 283451811865375,
+      "closed_candle_match": false,
+      "missing_trade_ids_remaining": 0,
+      "passed": false,
+      "request_intervals": [
+        {
+          "path": "/api/v3/time",
+          "received_ns": 1793099576951776000,
+          "start_ns": 1793099576157900000
+        },
+        {
+          "path": "/api/v3/trades",
+          "received_ns": 1793099577693040000,
+          "start_ns": 1793099576951847000
+        },
+        {
+          "path": "/api/v3/ticker/bookTicker",
+          "received_ns": 1793099578128769000,
+          "start_ns": 1793099577693992000
+        }
+      ],
+      "trade_gaps_repaired": 0,
+      "trade_values_match": true,
+      "trades_shared": 43
+    },
+    "source_age_ms": {
+      "last": 244.5435,
+      "max": 1040.9335,
+      "min": 53.983
+    },
+    "source_age_not_network_latency": true,
+    "stats": {
+      "book": 872,
+      "closed_bars": 1,
+      "forming_bars": 8,
+      "trade": 162
+    },
+    "strict_news": "BLOCKED_UNCERTIFIED",
+    "timestral": "DISABLED",
+    "trade_fresh": true
+  },
+  "formed4h_context": 0,
+  "message_counts": {
+    "messages": 1043
+  },
+  "mode": "SIGNALS_ONLY_NO_ACCOUNT_NO_ORDERS",
+  "model_jobs_launched": 0,
+  "no_orders": true,
+  "prospective_mature_outcomes_claimed": false
+}

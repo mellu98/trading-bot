@@ -1,0 +1,14 @@
+{
+  "actual_broker_paper_verified": false,
+  "frozen_v1_v2_files": 309,
+  "mock_unique_executions": 66,
+  "mock_unique_orders": 99,
+  "new_live_orders": 0,
+  "new_market_data_acquisitions": 0,
+  "note": "SDK source and serialization tested; no authenticated paper broker session available",
+  "official_sdk_source_files_verified": 235,
+  "original_paths_unchanged": 90,
+  "primary37_unchanged": true,
+  "sqlite_integrity": "ok",
+  "status": "PASS_LOCAL_ONLY"
+}

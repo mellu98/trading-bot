@@ -1,0 +1,134 @@
+{
+  "status": "OFFLINE_READY_LIVE_LICENSE_GATE_BLOCKED",
+  "live_test_performed": false,
+  "live_connections_attempted": 0,
+  "purchases": 0,
+  "real_orders": 0,
+  "simulated_entries_enabled_for_live": false,
+  "live_trial_max_seconds": 600,
+  "real_money_route_exists": false,
+  "new_tests_passed": 49,
+  "pertinent_tests_total_passed": 95,
+  "test_duration_seconds": 120.09,
+  "warnings": 4,
+  "warnings_scope": "Pre-existing frozen V2/Pandas deprecation; no failed selected test",
+  "not_claimed": "No live feed quality, actual entitlement, network latency or financial strategy certification",
+  "excluded_legacy_ib_tests": "Optional tests_paper/test_ib_feed.py and test_v4.py were not run: ibapi absent in this venv. Initial collection error is retained in optional-ib-sdk-collection.txt. IB sources untouched; not needed for Databento/local-simulator path.",
+  "offline_cme_session": {
+    "session": "2026-10-19",
+    "bars_processed": 780,
+    "trades": 4,
+    "orders": 12,
+    "gross": -19.0,
+    "fees": 4.88,
+    "net": -23.88,
+    "max_drawdown": 42.66,
+    "halt": "consecutive_losses",
+    "ambiguities": 1,
+    "positions": {
+      "MES": {
+        "quantity": 0,
+        "average": 7734.5,
+        "mark": 7734.75,
+        "cycle_execs": []
+      },
+      "MNQ": {
+        "quantity": 0,
+        "average": 29681.75,
+        "mark": 29721.75,
+        "cycle_execs": []
+      }
+    },
+    "working_orders": [],
+    "execution": "LOCAL_SYNTHETIC_EXECUTION_NOT_BROKER_PAPER"
+  },
+  "offline_cme_session_interpretation": "Known 2026-10-19 CME historical OHLCV, old conservative ambiguity handling, same baseline result; not live and not independent holdout",
+  "owned_120_sessions_sha256": "b5d3e676d1de881a8bd1a07eedccc14f286a615db0d7b4169f9950fead600ff5",
+  "local_fixture_throughput": {
+    "input": "OFFLINE_OFFICIAL_SDK_RECORD_FIXTURES_NOT_LIVE",
+    "sdk_version": "0.88.0",
+    "records": 4096,
+    "batch_size": 256,
+    "duration_seconds": 0.10367241597850807,
+    "records_per_second": 39509.062862479506,
+    "batch_ms": {
+      "p50": 6.376874502166174,
+      "p95": 7.059167022816837,
+      "max": 11.816208017989993
+    },
+    "real_network_latency_measured": false,
+    "fault": null,
+    "journal_bytes": 6977656,
+    "orders": 0,
+    "purpose": "Local persistence throughput only, not a live-feed capacity certification"
+  },
+  "persistence": "One existing V3 Runtime and V5 AtomicJournal/ReplayBroker owner; batched SQLite transaction; rollback and restart exercised",
+  "dedup_policy": "Durable bounded event IDs; unknown older out-of-order event latches integrity fault rather than revising bars",
+  "reconnect_policy": "Official SDK reconnects observation; no supported automatic gap replay, gap latches simulated entry lock",
+  "clock_policy": "Source/capture/local receipt UNIX ns retained. Legacy Bar availability/clock explicitly ceil to microseconds, never earlier; not a measured transport latency",
+  "contracts": "MESZ6 / MNQZ6, exact known dated IDs independently checked against SDK mappings; no forward-volume selection; expiry blocked",
+  "strict_news": "BLOCKED_NOT_CERTIFIED",
+  "strategy_approved": false,
+  "timestral": "OPTIONAL_DISABLED_BY_DEFAULT; existing nonblocking observation seam only",
+  "source_unchanged_evidence": {
+    "saved_api_key_present": true,
+    "saved_api_key_transport_valid": true,
+    "reports/capital-v63/delivery-sha256.json": {
+      "files_checked": 25,
+      "mismatches": []
+    },
+    "reports/local-v5/prior-evidence-sha256.json": {
+      "files_checked": 1489,
+      "mismatches": []
+    },
+    "reports/capital-forward/before-sha256.json": {
+      "files_checked": 1671,
+      "mismatches": [
+        "src/mnq_local/capital_app.py",
+        "src/mnq_local/capital.py",
+        "tests_local/test_capital_identifier.py",
+        "tests_local/test_capital_auth.py"
+      ]
+    },
+    "live_connections_attempted": 0,
+    "reports/market-data-closeout/checksums.json": {
+      "files_checked": 6,
+      "mismatches": []
+    },
+    "older_manifest_mismatches_note": "Four pre-existing changes at Capital V6 closeout, not current Databento edits. Current V6.3 delivery and V5 protected manifests match exactly."
+  },
+  "applicable_cost_status": "NOT_CONFIRMED; see cost-status.json and unsent vendor-request.txt",
+  "single_external_trial_gate": "Written Databento/CME classification, applicable tax-inclusive quote, actual entitlement and explicit user spending authorization recorded as one bounded grant",
+  "guard_test": {
+    "status": "BLOCKED",
+    "phase": "LICENSE_ENTITLEMENT_AND_COST_AUTHORIZATION",
+    "reason": "verified_scoped_live_authorization_required",
+    "network_connections": 0,
+    "simulated_orders_enabled": false,
+    "real_money_routing": false
+  },
+  "existing_dashboard": {
+    "http_status": 200,
+    "url": "http://127.0.0.1:8765/",
+    "mode": "HISTORICAL_REPLAY",
+    "bars_processed": 780,
+    "complete": true,
+    "broker_connected": false,
+    "phase": "COMPLETE"
+  },
+  "versions": {
+    "python": "3.13.14",
+    "databento": "0.88.0",
+    "databento-dbn": "0.70.0",
+    "numpy": "2.3.4",
+    "pandas": "3.1.0"
+  },
+  "commands": {
+    "tests_from_project_root": "PYTHONPATH=src:tests_local:adapters/databento/src:adapters/databento_planner/src PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m pytest tests_local/test_databento_live.py tests_local/test_databento_paper.py tests_local/test_databento_cli.py tests_local/test_replay.py tests_local/test_dashboard.py tests_paper/test_runtime.py -q",
+    "offline_readonly": "./run-databento-live.sh offline --session 2026-10-19",
+    "offline_technical_simulation": "./run-databento-live.sh offline --session 2026-10-19 --technical-simulation --run-dir data/databento-live/offline-reproduction/2026-10-19",
+    "safe_preflight": "./run-databento-live.sh preflight",
+    "after_written_access_and_spending_approval_only": "./run-databento-live.sh app --seconds 600 --port 8768"
+  },
+  "authorization_instructions": "authorization.json deliberately has all approval flags false. Only after documented vendor eligibility/entitlement and user cost approval record exact references, all-in price/cap, one-use ID and UNIX-ns start/expiry covering max600s. This command cannot make purchases or enable orders. Use current NY RTH session and independently reverify dated contracts after expiry; no unapproved live test."
+}

@@ -1,0 +1,36 @@
+{
+  "frozen_at": "2026-10-25T23:36:39.841779+00:00",
+  "skill_resolution": "paths-injected",
+  "files": {
+    "adapters/databento_planner/uv.lock": "4c6f9abc02419e649b99d3eec5c73435dfe32519f6ce978e46b87bcb7af4aee5",
+    "adapters/databento_planner/pyproject.toml": "d66d98cd40a26b6590017e7a79c84d7dc08886a57dd30ee7f58abbe5629c2dd9",
+    "adapters/databento_planner/README.md": "08a098ae4d664ef7a8ec044eda823436180db60d60d9236ae14d6f6ffcb01388",
+    "adapters/databento_planner/tests/test_planner.py": "ad4ecc520825b50e4e90724cc0b4beeb67807aa782bd92bc6b6094e3746e4c80",
+    "adapters/databento_planner/tests/test_frozen_corrections.py": "db250b626d741fef98b91dc518c182888f0867015d91df4d59375746c69b7caf",
+    "adapters/databento_planner/src/databento_planner/planner.py": "3214771eb7f4570c98ba5659712b83d5ff38e445488df749cec1affe795f2df3",
+    "adapters/databento_planner/src/databento_planner/paths.py": "0eb659158befe054032676e40da718c8e89e7a8185b6b24a008e704b632f33ca",
+    "adapters/databento_planner/src/databento_planner/security.py": "2426cd1842f8d04e51605a7364789f6543d173c8a4a6e66b79a389a5e8ad0ad1",
+    "adapters/databento_planner/src/databento_planner/cache.py": "70633def0f0c47773f88f2a4d6b1eaa2af92e7daae7bd995522df02fcf007983",
+    "adapters/databento_planner/src/databento_planner/__init__.py": "253d13d424b67e5f806332a74df1def6669255a5caa546b9461d00c3454fdeb8",
+    "adapters/databento_planner/src/databento_planner/checkpoints.py": "25914cebd8fe56a98eef65b242c55a78b7f5b24a5db1890092d88c213569b7c5",
+    "adapters/databento_planner/src/databento_planner/cli.py": "cf126375b1f5a1a117cd72e7d2904d7d6f17569c0b54aa2f9515a7713488a435",
+    "adapters/databento_planner/src/databento_planner/gate.py": "7f5dd53ef0334d6cb8d8704232414ff14453eb93140b3aeba1b409b63c9a6097",
+    "adapters/databento_planner/src/databento_planner/__main__.py": "79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4",
+    "adapters/databento_planner/src/databento_session_planner.egg-info/PKG-INFO": "5c70493f46bb3a25828c10433f47fed62c3b26446ec69323c8514ffa9bfb1263",
+    "adapters/databento_planner/src/databento_session_planner.egg-info/SOURCES.txt": "4b010e850fef156197d857cf778128b795bf732cc3c132c67ab53e170dac7ec1",
+    "adapters/databento_planner/src/databento_session_planner.egg-info/entry_points.txt": "5cdac6deef4c04e7bbaedab296c398576033e00b28a5fc997287d20f9e08ea78",
+    "adapters/databento_planner/src/databento_session_planner.egg-info/requires.txt": "29720b0e05df13a0605544f52d512044010eb566f689184bb1dac4f0bdb45aa1",
+    "adapters/databento_planner/src/databento_session_planner.egg-info/top_level.txt": "6b721fb80f7e9d2afd59e0091cdc522c56e7c46ccf43b7ef79e7dffbd572009f",
+    "adapters/databento_planner/src/databento_session_planner.egg-info/dependency_links.txt": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+  },
+  "new_tests": "44 passed,29 warnings in2.21s",
+  "root_tests": "54 passed,2 skipped in9.06s",
+  "existing_adapter_tests": "123 passed in0.96s",
+  "source_changed_lines": 308,
+  "regression_changed_lines": 121,
+  "source_forecast": [
+    280,
+    360
+  ],
+  "native_receipt": null
+}

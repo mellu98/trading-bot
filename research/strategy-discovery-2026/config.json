@@ -1,0 +1,60 @@
+{
+  "annualization_daily": 365,
+  "annualization_hourly_secondary": 8760,
+  "bootstrap_circular_blocks_days": [
+    7,
+    30
+  ],
+  "bootstrap_replicates": 10000,
+  "capital": 1000,
+  "cash_yield": 0,
+  "costs": {
+    "adverse": {
+      "fee": 0.0015,
+      "slip": 0.0005,
+      "spread": 0.001
+    },
+    "base": {
+      "fee": 0.001,
+      "slip": 0.0001,
+      "spread": 0.0002
+    },
+    "severe": {
+      "fee": 0.002,
+      "slip": 0.001,
+      "spread": 0.002
+    }
+  },
+  "family_alpha": 0.016666666666666666,
+  "max_aggregate_long_weight": 1,
+  "neighbors": "predeclared robustness only; cannot rescue failed primary",
+  "quantity": "continuous fractional research assumption; no historical exchange grids certified",
+  "seed": 20261028,
+  "trial_count_primary": 3,
+  "trial_count_variants": 6,
+  "variants": {
+    "A": {
+      "neighbor_formation_days": 7,
+      "primary_formation_days": 14,
+      "sleeve_weight": 0.5,
+      "target_annual_vol": 0.2,
+      "vol_days": 30,
+      "winners": 2
+    },
+    "B": {
+      "neighbor_formation_days": 60,
+      "primary_formation_days": 90,
+      "sleeve_weight": 0.5,
+      "target_annual_vol": 0.2,
+      "vol_days": 30
+    },
+    "C": {
+      "allocation_fraction_cash": 1,
+      "holding_hours": 1,
+      "neighbor_delay_hours": 2,
+      "past_z_window_hours": 168,
+      "primary_delay_hours": 1,
+      "threshold_strict_z": 1
+    }
+  }
+}

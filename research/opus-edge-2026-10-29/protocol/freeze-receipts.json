@@ -1,0 +1,61 @@
+[
+ {
+  "label": "E1-freeze-before-results",
+  "frozen_at_utc": "2026-10-29T09:29:53.313096+00:00",
+  "protocol": {
+   "path": "protocol/E1-funding-carry.json",
+   "sha256": "4568eb5d59f8a300730f9124ab692d049c30a9938a4462a3e9dcc527b042f6d6"
+  },
+  "sources": {
+   "src/common.py": "32e9adeec0896c4e65bbeefaef1106564d8061198f33ec32576c1595299bbcf4",
+   "src/carry.py": "27aa5ec73ea084362771e6d099b3d3911037ad5996ba80f848c612c9824f8fc1",
+   "src/run_e1.py": "1786fa059b095bc5853f6c5a0933e9cbb4b404a7cd7a2915dd5028e55e09af28",
+   "src/test_carry.py": "319c050e5b5f9ada6f03bbf1cfd42e629a61efc30e4c3f0c9079225595d89a77",
+   "src/quality.py": "d752af933339c56fa75e1aa263c6d784f5ef6df5ad6e79214a704fdd155e65d9",
+   "src/acquire.py": "5455dd0a2ec9468e1344b973ddbf77e33fa07d53eaec39b8a0f84bbc386b10e9",
+   "src/summarize.py": "4a9a1a801e9e46e3a907f712a743852b34f7c12cd914442491f221fc9255098d"
+  },
+  "results_present_at_freeze": [
+   "results/power.json"
+  ]
+ },
+ {
+  "label": "E2-freeze-before-results",
+  "frozen_at_utc": "2026-10-29T09:31:56.375181+00:00",
+  "protocol": {
+   "path": "protocol/E2-turn-of-month.json",
+   "sha256": "b14182f4ffb2eb12db38774c254ed8cf2f0743e5aea512b21d177baf5429b5e6"
+  },
+  "sources": {
+   "src/common.py": "32e9adeec0896c4e65bbeefaef1106564d8061198f33ec32576c1595299bbcf4",
+   "src/tom.py": "1b230015115dad58f504e4662032884201cf72e23f052b69b6f42c5fe4dfcc6b",
+   "src/summarize.py": "4a9a1a801e9e46e3a907f712a743852b34f7c12cd914442491f221fc9255098d"
+  },
+  "results_present_at_freeze": [
+   "results/E1/D_exploratory/E1A_always_on-adverse.json",
+   "results/E1/D_exploratory/E1A_always_on-base.json",
+   "results/E1/D_exploratory/E1A_always_on-severe.json",
+   "results/E1/D_exploratory/E1B_hysteresis_10_0-adverse.json",
+   "results/E1/D_exploratory/E1B_hysteresis_10_0-base.json",
+   "results/E1/D_exploratory/E1B_hysteresis_10_0-severe.json",
+   "results/E1/D_exploratory/E1B_neighbor_20_0-adverse.json",
+   "results/E1/D_exploratory/E1B_neighbor_20_0-base.json",
+   "results/E1/D_exploratory/E1B_neighbor_20_0-severe.json",
+   "results/E1/D_exploratory/benchmark-buyhold-base.json",
+   "results/E1/E_segregated_evaluation/E1A_always_on-adverse.json",
+   "results/E1/E_segregated_evaluation/E1A_always_on-base.json",
+   "results/E1/E_segregated_evaluation/E1A_always_on-severe.json",
+   "results/E1/E_segregated_evaluation/E1B_hysteresis_10_0-adverse.json",
+   "results/E1/E_segregated_evaluation/E1B_hysteresis_10_0-base.json",
+   "results/E1/E_segregated_evaluation/E1B_hysteresis_10_0-severe.json",
+   "results/E1/E_segregated_evaluation/E1B_neighbor_20_0-adverse.json",
+   "results/E1/E_segregated_evaluation/E1B_neighbor_20_0-base.json",
+   "results/E1/E_segregated_evaluation/E1B_neighbor_20_0-severe.json",
+   "results/E1/E_segregated_evaluation/benchmark-buyhold-base.json",
+   "results/E1/diag-markprice.json",
+   "results/E1/funding-descriptives.json",
+   "results/assessment.json",
+   "results/power.json"
+  ]
+ }
+]

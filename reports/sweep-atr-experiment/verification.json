@@ -1,0 +1,34 @@
+{
+  "archive_manifest_files_verified_each_run": 459,
+  "before_after_sha256_equal": true,
+  "checks": {
+    "continuous": {
+      "exact_matched_signal_schedule": 108,
+      "maximum_modeled_initial_all_in_stop_usd": 98.22,
+      "quantity_cap_time_exit_tickrounding_and_excursion_bounds": "PASS",
+      "trades_verified": 86
+    },
+    "daily_reset_diagnostic": {
+      "exact_matched_signal_schedule": 108,
+      "maximum_modeled_initial_all_in_stop_usd": 98.22,
+      "quantity_cap_time_exit_tickrounding_and_excursion_bounds": "PASS",
+      "trades_verified": 90
+    }
+  },
+  "codegraph_fallback": "Inherited preflight: noGitrepo,gentle-aifacadeabsent,CodeGraphNotInitialized; scoped direct source reads only, no lifecycle/admin commands",
+  "commits": "none",
+  "formal_review_receipt": "Unavailable: noGitrepository andgentle-aifacade absent; isolated research artifact only, no commit/push/production promotion",
+  "freeze_files_unchanged": true,
+  "identical_frozen_parameter_and_code_replays": 2,
+  "protected_files_unchanged": 2428,
+  "reproducible_results_sha256": "699c67eb283668d73c6df2b52d0cd370a2f9c874b62a4652e923552c772eaa6c",
+  "rollback": "Delete only reports/sweep-atr-experiment",
+  "skill_resolution": "paths-injected",
+  "status": "PASS",
+  "tests": {
+    "focused": 11,
+    "pertinent_existing": 39,
+    "total_passed": 50,
+    "warnings": "4 existing pandas timezone deprecations"
+  }
+}

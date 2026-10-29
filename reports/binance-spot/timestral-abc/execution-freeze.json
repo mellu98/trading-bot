@@ -1,0 +1,48 @@
+{
+  "at_ns": 1793091925619972000,
+  "fixed_technical_interpretations": {
+    "boundary": "Forecast evaluation excludes targets>=segmentend; no futureperiodprice used. Missing first2025warmup recorded; inference attempted only after256completecloses.",
+    "data": "Existing verified loader reused with dataquality write redirected only to this isolated report; no new downloads.",
+    "direction": "Allorigins tie-inclusive directionaccuracy plus nonzero forecast/actual conditionalcalls; ties counted explicitly. Spearmanaverage-tie rank correlation, None if degenerate.",
+    "input_hash": "Canonical littleendian256float32 tensor bytes and normalizeddataset SHA bind each origin. Decimalrawprices converted once to explicitfloat32 model input. Naive uses same256observedcloses in float64 for scoring.",
+    "invalid": "Nonpositive/nonfinite/crossedoutput never sorted/clipped/repaired; error row thenveto. No settings retries. Supervisor kills worker ifoneforecast/coldloadprogress exceeds300s.",
+    "naive": "ONEpointpersistence=zero-cumulative-return baseline. Past empiricalhreturnquantiles linear interpolation fromsame256closes, notfittedoutcomes; naivequantilemedian isnotpointpersistence.",
+    "time": "OriginO one4hbeforebaselinecandidateT. Step2targetO+8h=T+4h. Historicalavailability=O+ceilmeasuredwallns is counterfactual only, separately actualwallissuance. NooriginTsubstitution.",
+    "uncertainty": "Circular1/5/10UTCdayblock10000seed1729; dailymeanorigin error improvement for forecasts, dailyMTMnetdiff for economics. One-sided97.5lower=2.5percentile for2models; diagnostic not independent proof."
+  },
+  "full_forecasts_not_run": true,
+  "hurdle": "0.002402882974988590390614641",
+  "model_pins": {
+    "209M": {
+      "config_sha256": "1764139bb6d37ee5ff543f470495c086cfa6c373f7134fc61c7e3d844538bfd8",
+      "repo": "mistralai/Timestral-209M",
+      "revision": "9874d252ab0aae16f7f7c999f98f98d6ad7d8365",
+      "weights_bytes": 837271648,
+      "weights_sha256": "1456effb9927e3daa8c7234f10497e3424233869245a9c72b8ecebaf7ad2b7fa"
+    },
+    "28M": {
+      "config_sha256": "0cdf44b8ea981191de53078e0a5ecbbd437046bd939a546d5dbe17868f71281f",
+      "repo": "mistralai/Timestral-28M",
+      "revision": "49b26409ac87b5935539a5d8ffe7f397b720db47",
+      "weights_bytes": 111296464,
+      "weights_sha256": "dfc83c6220937ce5fc6687b35a4df94cd25e28a2cfe6fb92a23dad6301b2015d"
+    }
+  },
+  "parameter_search": false,
+  "protocol_sha256": "e4852ae6a1e3c9ff37c08b724e54f3bef23c1d3c12179baa0a09123ae5d2b3ab",
+  "source_revision": "a534bdbd244d64f3d9d743f46c7bf6fc330ed4ff",
+  "sources": {
+    "reports/binance-spot/breakout-4h/runner.py": "511c3f18aae35ab84639c9061367f99910c64340879308e2f9f0daa539ff34c1",
+    "reports/binance-spot/breakout-4h/test_breakout.py": "2e1cbb46a92eec6cf0de24f7168bde9f8f0c08c79be495ef24ccc6e044809187",
+    "reports/binance-spot/research/runner.py": "9235027d1817300e1f95d3b07572137e6e03f3793e1f9ea3e6a7d4f7630563f9",
+    "reports/binance-spot/timestral-abc/runner.py": "4f436f31c26f9ddd15d51c0cd3bf1bf5003bd06025b492b4bfb02dcb4ff60a17",
+    "reports/binance-spot/timestral-abc/test_abc.py": "a7236031ecaaf71643589e40442e3dd60e5b9a2b43b957880624d7cadf80d372",
+    "src/mnq_local/binance_spot.py": "686173f0b73fb7c0269a87b2092d46dbc5720d87652509be1ba96f7a0629b943",
+    "src/mnq_local/replay.py": "d6188adeb7a76b85001566efb96ea8906e7a13997c9f02cb07ae89c0d0055825",
+    "src/mnq_paper/core.py": "623d21802736c4f69283ce57631c0357c360e2fc109ec91494f1a2a491565d29",
+    "src/mnq_timestral/data.py": "fc26367b4084c4aec8229e9b258f4b6b7f2acc0bf60e9cf1bd713c0988ad80e5",
+    "src/mnq_timestral/model.py": "918f8c6c5e81818fdfa0bfad4ea77e2bb63fc869ad4f9c8216e5399722a7d01e",
+    "src/mnq_timestral/schema.py": "6887573b6079122bcf74e7e55b2bd5973aa81bf7b804810b6055efae51b706f6",
+    "src/mnq_timestral/strategy.py": "8dd17b8963a8ba26987b303e5fcf08043ce1098e02e9c702849b2d8369d0ff7d"
+  }
+}

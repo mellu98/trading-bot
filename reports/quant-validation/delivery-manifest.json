@@ -1,0 +1,31 @@
+{
+  "additional_granular_data_acquired": false,
+  "duplicate_paid_queries": 0,
+  "files": {
+    "QUANTITATIVE-REPORT.md": "c9e4c767d59b556c85815abf826d4dd6df5c64cc9069c244fc7874b043892214",
+    "data-quality120.json": "0b225b681da73c1af15a6bdecabd228aa4b121a4a7c2171cb7e5bff58ba3b695",
+    "data-verification.json": "a3744779bc086c783fe30106dbfa8692f9294490310a0cd3d4a7a95297d529fc",
+    "economic-verification.json": "dfaa386b57176ff4c2042fd0751b1da4440916710e2bd2dfa52812b1b687fe80",
+    "granular-mnq-quote.json": "f3555ebe66c3a6ba67c75c7ea2150d691bd1bd55eb53c192dd2b14bf4f3080da",
+    "granular-quote.json": "bed587268fa6cb33da233e1edba7af5c0ddcd65bd57ec148f5413d79bbb4f046",
+    "holdout-access.json": "6a98c95e3a925991186d9cfc01126390dfb1f94d17caee38554bbff23b658590",
+    "news-pit-assessment.json": "9a301677d69e146c1620b90faa9409b3a4ccfdecfcbdd585b6bfa08c19206b10",
+    "oos-predeclared-subgroups.json": "75ba0dc2ee504bf79d9270555a8424658e6b7ebb59d6773a5ed0f0a8e3d0dca4",
+    "preregistered-protocol.json": "060123d1b70c6fb3bcdc57d6e3bf4a37c138cc2c8f1e0ed425e2725e0f2cf51f",
+    "protocol-amendment-01.json": "0d837209451aece7e6748969c306a33951341421d4a787dfcf97de01e84d6dd3",
+    "quant-results.json": "7975c98fc302d8e9120629c57ea97b9b0bf7e062ea590f7bdfd4262e4788c56d",
+    "quote115.json": "470021dbe53267c91a2ffc53e3536c4f0811e08f09988411b6f9ddf63649267a",
+    "reproduction-proof.json": "ab229fa7fe43867adaace383b7d7df2d1d943cc200b2c3fe9af3982653aecfd2",
+    "tests-local.txt": "d77415ae4ecc4c00c415523dfd33346c15ca1a9c496f8369af027d61f3e1fb71",
+    "validation-only-selection.json": "e82b446322ddf08c39c6a11e85a46f484339b7d58ad4c1abc710b13b933fb504"
+  },
+  "new_agents_created": 0,
+  "new_data_cost_estimate_usd": "0.327475368960",
+  "new_paid_queries": 115,
+  "original_engine_unchanged": true,
+  "real_orders": 0,
+  "run_command": "\"/Users/locoframe/Desktop/TRADING BOT/run-validation.sh\"",
+  "status": "completed_exploratory_strict_news_blocked",
+  "timestral_enabled": false,
+  "user_cap_usd": "0.50"
+}

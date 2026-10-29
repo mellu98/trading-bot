@@ -1,0 +1,42 @@
+{
+  "at_ns": 1793088773238448000,
+  "costs": {
+    "adverse": [
+      ".0015",
+      ".0005",
+      ".001"
+    ],
+    "base": [
+      ".001",
+      ".0001",
+      ".0002"
+    ],
+    "severe": [
+      ".002",
+      ".001",
+      ".002"
+    ]
+  },
+  "fixed_interpretations": {
+    "benchmark": "100USDTentrycashinclfee,900idle, same model/grid; no1risk/daily10/DD20control, not deployable under active risk guard.",
+    "initial_risk": "One USDT all-in entrycash minus stopbid netexit; quantitylargestgrid satisfyingcash100and1risk, original Risk admission also unchanged.",
+    "intrabar": "Only native1hstopbidtouch, noTP; stop timestamp is hourbound, not observedsequence or tick time. Exposurehourcount upperbound.",
+    "precision_bridge": "Use original Spot fixed-fraction helper with fraction mapping into desired stop tick cell; resulting stop asserted exactly floor(entryaskfill-2ATR14), qty asserted exact risk/cash grid floor. No copied accounting engine.",
+    "risk_time": "Historical UTC clock/cumulative cash seam reused from frozen SMA research; original Risk unchanged. Dailyflat10USDT/3losses resets UTC; global20 drawdown remains split.",
+    "source_units": "2024ms;2025and2026us;originalintegersretained",
+    "terminal": "No entry at final nativehour; cancel pending terminal BUY; final held position liquidation at last nativehourclose only.",
+    "test": "JanSep2026 only project-unseen historical; no prospective independence. Missing/incomplete month => BLOCKED/INCONCLUSIVE without substitution."
+  },
+  "new_test_data_not_acquired_or_opened": true,
+  "parameter_search": false,
+  "protocol_sha256": "70bea1510b04f67cfb65db7881ed6319534fbf009b71b514afd07d49918fd3c4",
+  "sources": {
+    "reports/binance-spot/breakout-4h/runner.py": "511c3f18aae35ab84639c9061367f99910c64340879308e2f9f0daa539ff34c1",
+    "reports/binance-spot/breakout-4h/test_breakout.py": "2e1cbb46a92eec6cf0de24f7168bde9f8f0c08c79be495ef24ccc6e044809187",
+    "reports/binance-spot/research/runner.py": "9235027d1817300e1f95d3b07572137e6e03f3793e1f9ea3e6a7d4f7630563f9",
+    "src/mnq_local/binance_spot.py": "686173f0b73fb7c0269a87b2092d46dbc5720d87652509be1ba96f7a0629b943",
+    "src/mnq_local/replay.py": "d6188adeb7a76b85001566efb96ea8906e7a13997c9f02cb07ae89c0d0055825",
+    "src/mnq_paper/core.py": "623d21802736c4f69283ce57631c0357c360e2fc109ec91494f1a2a491565d29",
+    "src/mnq_timestral/strategy.py": "8dd17b8963a8ba26987b303e5fcf08043ce1098e02e9c702849b2d8369d0ff7d"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "actual_seconds": 620.1602299169754,
+  "client_response_ms": {
+    "max": 177.212958,
+    "p50": 15.812875,
+    "p95": 29.53325,
+    "p99": 53.960666
+  },
+  "controlled_restart": true,
+  "errors": [],
+  "final_flat_spent": true,
+  "pids": [
+    45907,
+    46903
+  ],
+  "samples": 602
+}

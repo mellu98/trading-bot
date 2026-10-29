@@ -1,0 +1,60 @@
+{
+  "accepted": 1,
+  "ambiguities": 0,
+  "bars_processed": 780,
+  "bars_total": 780,
+  "broker_connected": false,
+  "complete": true,
+  "costs": {
+    "daily_max_loss": 200.0,
+    "fee_per_side": 0.61,
+    "max_consecutive_losses": 3,
+    "max_drawdown": 1,
+    "max_trades": 10,
+    "session": "2026-10-19",
+    "slippage_ticks": 1,
+    "strategy": "vwap_v1",
+    "strict": false
+  },
+  "execution": "LOCAL_SYNTHETIC_EXECUTION_NOT_BROKER_PAPER",
+  "fees": 1.22,
+  "financial_validation": false,
+  "future_broker_paper": "NOT_CONNECTED",
+  "gross": -1.25,
+  "halt": "max_drawdown",
+  "intrabar_policy": "stop-first; target penetration; intrabar-entry bar target deferred; no path accuracy claim",
+  "max_drawdown": 5.61,
+  "mode": "HISTORICAL_REPLAY",
+  "net": -2.47,
+  "news_certified": false,
+  "orders": 4,
+  "positions": {
+    "MES": {
+      "average": 7733.5,
+      "cycle_execs": [],
+      "mark": 7734.75,
+      "quantity": 0
+    }
+  },
+  "rejected": 38,
+  "replay_time": "2026-10-19T20:00:00+00:00",
+  "runtime_policy": "Unchanged V3: 20-bar warmup; 09:45\u201315:30 entries; one-tick bounded entry limit; fixed symbol brackets. V2 plugins use this operational envelope, not the frozen research execution model.",
+  "session": "2026-10-19",
+  "source": {
+    "availability_assumption": "interval end; historical feed latency not measured",
+    "bars": 780,
+    "contract_selection": "explicit acquired MNQZ6/MESZ6 for October; no volume-based future mapping",
+    "dataset": "GLBX.MDP3",
+    "duplicates": 0,
+    "gap_count": 0,
+    "schema": "ohlcv-1m",
+    "session": "2026-10-19",
+    "source_sha256": "a3ba489f2937a94d5416508bef85eaef1db891159565b6a11367f647d0da8b2c",
+    "timezone": "America/New_York"
+  },
+  "strategy": "vwap_v1",
+  "strategy_approved": false,
+  "strict_news": false,
+  "timestral": "DISABLED",
+  "trades": 1
+}

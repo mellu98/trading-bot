@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "mnq-databento-research"
+version = "0.1.0"
+requires-python = ">=3.11,<3.14"
+dependencies = ["databento==0.88.0"]
+[dependency-groups]
+dev = ["pytest==8.4.2"]
+[project.scripts]
+mnq-data = "mnq_data.cli:main"
+[tool.setuptools.packages.find]
+where = ["src"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

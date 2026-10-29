@@ -1,0 +1,30 @@
+{
+  "B_followup_prospective_protocol_unchanged": true,
+  "B_unchanged": true,
+  "H3": "EXCLUDED_NOT_ASSESSED_NO_FAKE_MAKER_FILLS",
+  "all_historical_results": "EXPLORATORY_SEEN_HISTORY_NOT_INDEPENDENT_OOS",
+  "files": {
+    "README.md": "b4d997cd0491174bdfa384d06fa2775251c1b4fe39f93d82f7cfb1baa0d7a505",
+    "assessment.json": "1773ae0a3107f6326c18d74e89b437fe21b645fe77b4d42123fffd78651a2e6a",
+    "compact-results.csv": "49f23642449a940e40761b068a66fd36ccff3dbd4539f1e9f596d4ebaa55bfff",
+    "config.json": "083410186620b304f6708dd5052c9bd304640b82f27024a6d5adfd8238d64b14",
+    "freeze.json": "7babd1856493c95ad201a2c0b0d6a5c8786e2c91c958cef14027133652e1149f",
+    "protocol.json": "dd68e4cad16eec58bbb83881b4e77f89fe0ded9a1d4cb423275993cb1e190c33",
+    "release.json": "aee6ccb22f829ece893d5e946d8e712fe1264cb617db5c50ad030b80ae2bb8c5",
+    "reproducibility.json": "be4a110ceb8bc3fd65db9d5c10c0896c558fc96681f0196b9c9b8842c77ee03a",
+    "results/results.json": "0e80b048c6628c17f2f3df6cff7369e7e91a6ee984ea58d68662600bf62ecf2c",
+    "summary.json": "5580f97fd7e2ebdbd2cc7cf554105f33e8dd8babdea6b47cdb6eeaba3c286d07",
+    "tests-green.txt": "7f93bc43afc95267c0e35273a11ad60e5b37262b98e4c6fa02b6d95ef1f057f5"
+  },
+  "financial_variants": 4,
+  "input_count": 986,
+  "new_downloads": 0,
+  "new_source_count": 8,
+  "old_three_reports_unchanged": true,
+  "post_result_rule_parameter_source_changes": 0,
+  "protected_unchanged": 179,
+  "report_rows_not_independent_trials": 135,
+  "reproduced_JSON": 137,
+  "skill_resolution": "paths-injected",
+  "status": "COMPLETE_NONEW_CANDIDATE_PROMOTED"
+}

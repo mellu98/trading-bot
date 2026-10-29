@@ -1,0 +1,79 @@
+{
+  "H1": {
+    "L_strict_negative": true,
+    "assets": [
+      "BTCUSDT",
+      "ETHUSDT"
+    ],
+    "base_per_trigger_weight": 0.5,
+    "current_return_strict_negative": true,
+    "daily_z_prior_returns_excluding_current": 30,
+    "neighbor_lag_hours": 2,
+    "primary_lag_hours": 1,
+    "rebalance": "dailyUTC01or02NETDELTA",
+    "signal": "dailynegativepricez_and_lowrelativequotevolume",
+    "volume_baseline_prior_days_excluding_current": 30,
+    "z_threshold_strict": -1
+  },
+  "H2": {
+    "L": "log(currentquotevolume/arithmeticMEANprevious30quotevol excludingcurrent)",
+    "assets": [
+      "BTCUSDT",
+      "ETHUSDT",
+      "XRPUSDT",
+      "BCHUSDT",
+      "LTCUSDT",
+      "EOSUSDT",
+      "BNBUSDT"
+    ],
+    "neighbor_lag_days": 2,
+    "per_winner_base_weight": 0.5,
+    "primary_lag_days": 1,
+    "rebalance": "dailyUTC00NETDELTA",
+    "signal": "lowest_strictlynegative_L_only",
+    "ties": "symbollexicographic",
+    "winners": 2
+  },
+  "H3": "EXCLUDED_NOT_EVALUABLE_NO_MAKER_BACKTEST",
+  "annual_vol_cap": 0.2,
+  "bootstrap": {
+    "alpha": 0.025,
+    "circular_daily_blocks": [
+      7,
+      30
+    ],
+    "current_primary_families": 2,
+    "global_DSR": "NOT_ESTIMABLE_UNKNOWN_PAST_TRIALS",
+    "replicates": 10000,
+    "seed": 20261028
+  },
+  "capital_usdt": 1000,
+  "cash_yield": 0,
+  "continuous_fractional_research_quantity": true,
+  "costs": {
+    "adverse": {
+      "fee": 0.0015,
+      "slip": 0.0005,
+      "spread": 0.001
+    },
+    "base": {
+      "fee": 0.001,
+      "slip": 0.0001,
+      "spread": 0.0002
+    },
+    "severe": {
+      "fee": 0.002,
+      "slip": 0.001,
+      "spread": 0.002
+    }
+  },
+  "daily_annualization": 365,
+  "daily_risk_return_window": 30,
+  "ddof": 1,
+  "max_aggregate_long_weight": 1,
+  "no_B_evaluation": true,
+  "no_tuning": true,
+  "stress_min_active_calendar_days": 30,
+  "stress_min_days": 180,
+  "variants": 4
+}

@@ -1,0 +1,16 @@
+{
+  "commission_per_side": 0.25,
+  "daily_max_loss": 200.0,
+  "entry_slippage_ticks": 1.0,
+  "exchange_per_side": 0.35,
+  "exit_slippage_ticks": 1.0,
+  "exit_variant": "fixed",
+  "max_consecutive_losses": 3,
+  "max_drawdown": 500.0,
+  "max_trades": 10,
+  "news_required": true,
+  "regulatory_per_side": 0.01,
+  "spread_ticks": 0.0,
+  "threshold": 2.5,
+  "virtual_capital": 10000.0
+}

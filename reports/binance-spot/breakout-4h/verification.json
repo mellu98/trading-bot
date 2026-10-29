@@ -1,0 +1,20 @@
+{
+  "complete_pertinent_tests": 92,
+  "dataset_sha256": "a32da0e732d8eb1f271e3e55ba42ec916e6fbfc13a68e293e09002d9801880ac",
+  "execution_freeze_sha256": "258d555a0b83f8a389e34fe8cc0222bb56fdc4ac238896e0b36041611e4a9c48",
+  "no_live_strategy_enabled": true,
+  "no_remote_orders": true,
+  "no_retuning": true,
+  "parent_independent_checks": 41,
+  "predata_tests": 8,
+  "protocol_sha256": "70bea1510b04f67cfb65db7881ed6319534fbf009b71b514afd07d49918fd3c4",
+  "results_sha256": "b052317d22ad203cd3e25e6a48859ffa35510d58b108bd2be1194e1aea221af0",
+  "same_hash_rerun": {
+    "differences": [],
+    "files_compared": 73,
+    "run1_results_sha256": "b052317d22ad203cd3e25e6a48859ffa35510d58b108bd2be1194e1aea221af0",
+    "run2_results_sha256": "b052317d22ad203cd3e25e6a48859ffa35510d58b108bd2be1194e1aea221af0",
+    "status": "PASS"
+  },
+  "skill_resolution": "paths-injected"
+}

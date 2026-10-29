@@ -1,0 +1,1457 @@
+{
+  "at_ns": 1793173311348063000,
+  "model_jobs": 0,
+  "observer_restored": false,
+  "offline_analysis": {
+    "REST_time_request_RTT_ms_minmax": [
+      239.751875,
+      3993.994667
+    ],
+    "book_interreceipt_gaps_above_2s": [
+      {
+        "REST_snapshots_inside_gap": [],
+        "after": {
+          "a": "80939.18000000",
+          "b": "80939.17000000",
+          "u": 101986906754
+        },
+        "before": {
+          "a": "80939.18000000",
+          "b": "80939.17000000",
+          "u": 101986906723
+        },
+        "interreceipt_gap_ms": 4914.32125
+      },
+      {
+        "REST_snapshots_inside_gap": [
+          {
+            "ask": "80940.21000000",
+            "bid": "80940.20000000",
+            "response_received_mono_ns": 29911729437125
+          }
+        ],
+        "after": {
+          "a": "80940.21000000",
+          "b": "80940.20000000",
+          "u": 101986931864
+        },
+        "before": {
+          "a": "80940.21000000",
+          "b": "80940.20000000",
+          "u": 101986931720
+        },
+        "interreceipt_gap_ms": 2121.049125
+      }
+    ],
+    "boot_Europe_Rome": "2026-10-28T00:22:54+01:00",
+    "boot_UTC": "2026-10-27T23:22:54+00:00",
+    "clock_offset_ms_minmax": [
+      -318.114,
+      1981.9035
+    ],
+    "clock_samples": 56,
+    "comparison": {
+      "interpretation": "Same code/guards but different host state/time/market message rate (~half); association with better local timings is not unique proof of swap or reboot causality.",
+      "postreboot_B_frames_per_second": 36.48472471460261,
+      "postreboot_CPU_seconds_per_1000_frames": 0.7391960909672116,
+      "previous_B_CPU_percent_one_core": 5.96,
+      "previous_B_frames_per_second": 75.54,
+      "previous_B_raw_rejections": 8,
+      "previous_B_uncensored_max_ms": 1112.105,
+      "previous_B_uncensored_rejections": 5,
+      "previous_CPU_seconds_per_1000_frames": 0.7894059292542179
+    },
+    "frame_counter_checks": {
+      "B_feed_process_count": 10949,
+      "B_received": 10949,
+      "W_processed": 10971,
+      "W_received": 10971,
+      "raw_receipt_monotonic_non_decreasing": true
+    },
+    "host_window": {
+      "first_numeric_iostat_row_excluded": true,
+      "interval_samples": 60,
+      "load1_minmax": [
+        1.46435546875,
+        2.60546875
+      ],
+      "swap_used_mib_minmax": [
+        0.0,
+        0.0
+      ],
+      "system_CPU_busy_percent_minmax": [
+        7.0,
+        36.0
+      ],
+      "system_VM_counter_deltas": {
+        "Pageins": 231143,
+        "Pageouts": 2608,
+        "Swapins": 0,
+        "Swapouts": 0
+      }
+    },
+    "initial_gap_evidence": {
+      "difference": 827121,
+      "first_new_recorded_trade_id": 6796855216,
+      "internal_recorded_trade_ID_gaps": 0,
+      "interpretation": "Persistent pre-existing ID is older than first new stream by >1000, causing original failclosed initial gap. No IDs were reset; raw window sequence is contiguous. This is not evidence of missing packets inside this window.",
+      "persisted_snapshot_last_trade_id": 6796028095
+    },
+    "max_new_trade_receipt_minus_source_T_UNCORRECTED_ms": 4228.002,
+    "max_trade_interreceipt_gap_ms": 5168.52275,
+    "raw_last_trade_source_T_ms": 1793173310621,
+    "raw_recorded_trade_count": 2647,
+    "raw_trade_internal_ID_gaps": [],
+    "relative_availability": {
+      "REST_precedes_WS_count": 40,
+      "count_above_250ms": 38,
+      "interpretation": "Relative data availability in this run, NOT isolated network latency or universal provider delay. Unknown relay/network/socket contribution; local event loop maximum29.9ms cannot alone explain measured positive relative gaps.",
+      "max_ms": 1436.592792,
+      "pairs": [
+        {
+          "REST_full_parsed_response_received_mono_ns": 29752793486791,
+          "REST_precedes_WS_ms": 415.8085,
+          "REST_record_zero_based_index": 80,
+          "WS_application_received_mono_ns": 29753209295291,
+          "identity_verified": {
+            "id": true,
+            "price": true,
+            "quantity": true,
+            "source_T": true
+          },
+          "price": "80939.17000000",
+          "quantity": "0.00020000",
+          "source_E_ms": 1793173118629,
+          "source_T_ms": 1793173118628,
+          "trade_id": 6796855869
+        },
+        {
+          "REST_full_parsed_response_received_mono_ns": 29752793486791,
+          "REST_precedes_WS_ms": 672.420375,
+          "REST_record_zero_based_index": 80,
+          "WS_application_received_mono_ns": 29753465907166,
+          "identity_verified": {
+            "id": true,
+            "price": true,
+            "quantity": true,
+            "source_T": true
+          },
+          "price": "80939.17000000",
+          "quantity": "0.00111000",
+          "source_E_ms": 1793173119249,
+          "source_T_ms": 1793173119249,
+          "trade_id": 6796855870
+        },
+        {
+          "REST_full_parsed_response_received_mono_ns": 29752793486791,
+          "REST_precedes_WS_ms": 672.5315,
+          "REST_record_zero_based_index": 80,
+          "WS_application_received_mono_ns": 29753466018291,
+          "identity_verified": {
+            "id": true,
+            "price": true,
+            "quantity": true,
+            "source_T": true
+          },
+          "price": "80939.18000000",
+          "quantity": "0.00200000",
+          "source_E_ms": 1793173119534,
+          "source_T_ms": 1793173119534,
+          "trade_id": 6796855871
+        },
+        {
+          "REST_full_parsed_response_received_mono_ns": 29752793486791,
+          "REST_precedes_WS_ms": 672.582959,
+          "REST_record_zero_based_index": 80,
+          "WS_application_received_mono_ns": 29753466069750,
+          "identity_verified": {
+            "id": true,
+            "price": true,
+            "quantity": true,
+            "source_T": true
+          },
+          "price": "80939.18000000",
+          "quantity": "0.00200000",
+          "source_E_ms": 1793173119534,
+          "source_T_ms": 1793173119534,
+          "trade_id": 6796855872
+        },
+        {
+          "REST_full_parsed_response_received_mono_ns": 29752793486791,
+          "REST_precedes_WS_ms": 931.458542,
+          "REST_record_zero_based_index": 80,
+          "WS_application_received_mono_ns": 29753724945333,
+          "identity_verified": {
+            "id": true,
+            "price": true,
+            "quantity": true,
+            "source_T": true
+          },
+          "price": "80939.17000000",
+          "quantity": "0.02032000",
+          "source_E_ms": 1793173120092,
+          "source_T_ms": 1793173120092,
+          "trade_id": 6796855873
+        },
+        {
+          "REST_full_parsed_response_received_mono_ns": 29752793486791,
+          "REST_precedes_WS_ms": 931.555667,
+          "REST_record_zero_based_index": 80,
+          "WS_application_received_mono_ns": 29753725042458,
+          "identity_verified": {
+            "id": true,
+            "price": true,
+            "quantity": true,
+            "source_T": true
+          },
+          "price": "80939.17000000",
+          "quantity": "0.00007000",
+          "source_E_ms": 1793173120092,
+          "source_T_ms": 1793173120092,
+          "trade_id": 6796855874
+        },
+        {
+          "REST_full_parsed_response_received_mono_ns": 29752793486791,
+          "REST_precedes_WS_ms": 931.581125,
+          "REST_record_zero_based_index": 80,
+          "WS_application_received_mono_ns": 29753725067916,
+          "identity_verified": {
+            "id": true,
+            "price": true,
+            "quantity": true,
+            "source_T": true
+          },
+          "price": "80939.17000000",
+          "quantity": "0.00008000",
+          "source_E_ms": 1793173120092,
+          "source_T_ms": 1793173120092,
+          "trade_id": 6796855875
+        },
+        {
+          "REST_full_parsed_response_received_mono_ns": 29752793486791,
+          "REST_precedes_WS_ms": 931.602542,
+          "REST_record_zero_based_index": 80,
+          "WS_application_received_mono_ns": 29753725089333,
+          "identity_verified": {
+            "id": true,
+            "price": true,
+            "quantity": true,
+            "source_T": true
+          },
+          "price": "80939.17000000",
+          "quantity": "0.09240000",
+          "source_E_ms": 1793173120092,
+          "source_T_ms": 1793173120092,
+          "trade_id": 6796855876
+        },
+        {
+          "REST_full_parsed_response_received_mono_ns": 29752793486791,
+          "REST_precedes_WS_ms": 931.63925,
+          "REST_record_zero_based_index": 80,
+          "WS_application_received_mono_ns": 29753725126041,
+          "identity_verified": {
+            "id": true,
+            "price": true,
+            "quantity": true,
+            "source_T": true
+          },
+          "price": "80939.17000000",
+          "quantity": "0.00150000",
+          "source_E_ms": 1793173120092,
+          "source_T_ms": 1793173120092,
+          "trade_id": 6796855877
+        },
+        {
+          "REST_full_parsed_response_received_mono_ns": 29752793486791,
+          "REST_precedes_WS_ms": 931.659709,
+          "REST_record_zero_based_index": 80,
+          "WS_application_received_mono_ns": 29753725146500,
+          "identity_verified": {
+            "id": true,
+            "price": true,
+            "quantity": true,
+            "source_T": true
+          },
+          "price": "80939.17000000",
+          "quantity": "0.00007000",
+          "source_E_ms": 1793173120092,
+          "source_T_ms": 1793173120092,
+          "trade_id": 6796855878
+        },
+        {
+          "REST_full_parsed_response_received_mono_ns": 29752793486791,
+          "REST_precedes_WS_ms": 931.67975,
+          "REST_record_zero_based_index": 80,
+          "WS_application_received_mono_ns": 29753725166541,
+          "identity_verified": {
+            "id": true,
+            "price": true,
+            "quantity": true,
+            "source_T": true
+          },
+          "price": "80939.17000000",
+          "quantity": "0.00007000",
+          "source_E_ms": 1793173120092,
+          "source_T_ms": 1793173120092,
+          "trade_id": 6796855879
+        },
+        {
+          "REST_full_parsed_response_received_mono_ns": 29752793486791,
+          "REST_precedes_WS_ms": 931.699167,
+          "REST_record_zero_based_index": 80,
+          "WS_application_received_mono_ns": 29753725185958,
+          "identity_verified": {
+            "id": true,
+            "price": true,
+            "quantity": true,
+            "source_T": true
+          },
+          "price": "80939.17000000",
+          "quantity": "0.00007000",
+          "source_E_ms": 1793173120092,
+          "source_T_ms": 1793173120092,
+          "trade_id": 6796855880
+        },
+        {
+          "REST_full_parsed_response_received_mono_ns": 29752793486791,
+          "REST_precedes_WS_ms": 931.71975,
+          "REST_record_zero_based_index": 80,
+          "WS_application_received_mono_ns": 29753725206541,
+          "identity_verified": {
+            "id": true,
+            "price": true,
+            "quantity": true,
+            "source_T": true
+          },
+          "price": "80939.17000000",
+          "quantity": "0.00007000",
+          "source_E_ms": 1793173120092,
+          "source_T_ms": 1793173120092,
+          "trade_id": 6796855881
+        },
+        {
+          "REST_full_parsed_response_received_mono_ns": 29752793486791,
+          "REST_precedes_WS_ms": 931.738875,
+          "REST_record_zero_based_index": 80,
+          "WS_application_received_mono_ns": 29753725225666,
+          "identity_verified": {
+            "id": true,
+            "price": true,
+            "quantity": true,
+            "source_T": true
+          },
+          "price": "80939.17000000",
+          "quantity": "0.00989000",
+          "source_E_ms": 1793173120092,
+          "source_T_ms": 1793173120092,
+          "trade_id": 6796855882
+        },
+        {
+          "REST_full_parsed_response_received_mono_ns": 29752793486791,
+          "REST_precedes_WS_ms": 931.759709,
+          "REST_record_zero_based_index": 80,
+          "WS_application_received_mono_ns": 29753725246500,
+          "identity_verified": {
+            "id": true,
+            "price": true,
+            "quantity": true,
+            "source_T": true
+          },
+          "price": "80939.17000000",
+          "quantity": "0.00007000",
+          "source_E_ms": 1793173120092,
+          "source_T_ms": 1793173120092,
+          "trade_id": 6796855883
+        },
+        {
+          "REST_full_parsed_response_received_mono_ns": 29752793486791,
+          "REST_precedes_WS_ms": 931.778125,
+          "REST_record_zero_based_index": 80,
+          "WS_application_received_mono_ns": 29753725264916,
+          "identity_verified": {
+            "id": true,
+            "price": true,
+            "quantity": true,
+            "source_T": true
+          },
+          "price": "80939.17000000",
+          "quantity": "0.00007000",
+          "source_E_ms": 1793173120092,
+          "source_T_ms": 1793173120092,
+          "trade_id": 6796855884
+        },
+        {
+          "REST_full_parsed_response_received_mono_ns": 29752793486791,
+          "REST_precedes_WS_ms": 931.796834,
+          "REST_record_zero_based_index": 80,
+          "WS_application_received_mono_ns": 29753725283625,
+          "identity_verified": {
+            "id": true,
+            "price": true,
+            "quantity": true,
+            "source_T": true
+          },
+          "price": "80939.17000000",
+          "quantity": "0.00007000",
+          "source_E_ms": 1793173120092,
+          "source_T_ms": 1793173120092,
+          "trade_id": 6796855885
+        },
+        {
+          "REST_full_parsed_response_received_mono_ns": 29752793486791,
+          "REST_precedes_WS_ms": 931.816167,
+          "REST_record_zero_based_index": 80,
+          "WS_application_received_mono_ns": 29753725302958,
+          "identity_verified": {
+            "id": true,
+            "price": true,
+            "quantity": true,
+            "source_T": true
+          },
+          "price": "80939.17000000",
+          "quantity": "0.02225000",
+          "source_E_ms": 1793173120092,
+          "source_T_ms": 1793173120092,
+          "trade_id": 6796855886
+        },
+        {
+          "REST_full_parsed_response_received_mono_ns": 29752793486791,
+          "REST_precedes_WS_ms": 931.837375,
+          "REST_record_zero_based_index": 80,
+          "WS_application_received_mono_ns": 29753725324166,
+          "identity_verified": {
+            "id": true,
+            "price": true,
+            "quantity": true,
+            "source_T": true
+          },
+          "price": "80939.17000000",
+          "quantity": "0.00007000",
+          "source_E_ms": 1793173120092,
+          "source_T_ms": 1793173120092,
+          "trade_id": 6796855887
+        },
+        {
+          "REST_full_parsed_response_received_mono_ns": 29752793486791,
+          "REST_precedes_WS_ms": 931.858667,
+          "REST_record_zero_based_index": 80,
+          "WS_application_received_mono_ns": 29753725345458,
+          "identity_verified": {
+            "id": true,
+            "price": true,
+            "quantity": true,
+            "source_T": true
+          },
+          "price": "80939.17000000",
+          "quantity": "0.03706000",
+          "source_E_ms": 1793173120092,
+          "source_T_ms": 1793173120092,
+          "trade_id": 6796855888
+        },
+        {
+          "REST_full_parsed_response_received_mono_ns": 29752793486791,
+          "REST_precedes_WS_ms": 931.880334,
+          "REST_record_zero_based_index": 80,
+          "WS_application_received_mono_ns": 29753725367125,
+          "identity_verified": {
+            "id": true,
+            "price": true,
+            "quantity": true,
+            "source_T": true
+          },
+          "price": "80939.17000000",
+          "quantity": "0.00023000",
+          "source_E_ms": 1793173120092,
+          "source_T_ms": 1793173120092,
+          "trade_id": 6796855889
+        },
+        {
+          "REST_full_parsed_response_received_mono_ns": 29752793486791,
+          "REST_precedes_WS_ms": 1183.056709,
+          "REST_record_zero_based_index": 80,
+          "WS_application_received_mono_ns": 29753976543500,
+          "identity_verified": {
+            "id": true,
+            "price": true,
+            "quantity": true,
+            "source_T": true
+          },
+          "price": "80939.18000000",
+          "quantity": "0.00030000",
+          "source_E_ms": 1793173120143,
+          "source_T_ms": 1793173120142,
+          "trade_id": 6796855890
+        },
+        {
+          "REST_full_parsed_response_received_mono_ns": 29752793486791,
+          "REST_precedes_WS_ms": 1183.114792,
+          "REST_record_zero_based_index": 80,
+          "WS_application_received_mono_ns": 29753976601583,
+          "identity_verified": {
+            "id": true,
+            "price": true,
+            "quantity": true,
+            "source_T": true
+          },
+          "price": "80939.18000000",
+          "quantity": "0.00020000",
+          "source_E_ms": 1793173120144,
+          "source_T_ms": 1793173120144,
+          "trade_id": 6796855891
+        },
+        {
+          "REST_full_parsed_response_received_mono_ns": 29752793486791,
+          "REST_precedes_WS_ms": 1191.048459,
+          "REST_record_zero_based_index": 80,
+          "WS_application_received_mono_ns": 29753984535250,
+          "identity_verified": {
+            "id": true,
+            "price": true,
+            "quantity": true,
+            "source_T": true
+          },
+          "price": "80939.17000000",
+          "quantity": "0.00085000",
+          "source_E_ms": 1793173120545,
+          "source_T_ms": 1793173120545,
+          "trade_id": 6796855892
+        },
+        {
+          "REST_full_parsed_response_received_mono_ns": 29752793486791,
+          "REST_precedes_WS_ms": 1194.788542,
+          "REST_record_zero_based_index": 80,
+          "WS_application_received_mono_ns": 29753988275333,
+          "identity_verified": {
+            "id": true,
+            "price": true,
+            "quantity": true,
+            "source_T": true
+          },
+          "price": "80939.18000000",
+          "quantity": "0.00242000",
+          "source_E_ms": 1793173120966,
+          "source_T_ms": 1793173120965,
+          "trade_id": 6796855893
+        },
+        {
+          "REST_full_parsed_response_received_mono_ns": 29752793486791,
+          "REST_precedes_WS_ms": 1194.965709,
+          "REST_record_zero_based_index": 80,
+          "WS_application_received_mono_ns": 29753988452500,
+          "identity_verified": {
+            "id": true,
+            "price": true,
+            "quantity": true,
+            "source_T": true
+          },
+          "price": "80939.17000000",
+          "quantity": "0.12114000",
+          "source_E_ms": 1793173121397,
+          "source_T_ms": 1793173121397,
+          "trade_id": 6796855894
+        },
+        {
+          "REST_full_parsed_response_received_mono_ns": 29752793486791,
+          "REST_precedes_WS_ms": 1195.334625,
+          "REST_record_zero_based_index": 80,
+          "WS_application_received_mono_ns": 29753988821416,
+          "identity_verified": {
+            "id": true,
+            "price": true,
+            "quantity": true,
+            "source_T": true
+          },
+          "price": "80939.18000000",
+          "quantity": "0.00111000",
+          "source_E_ms": 1793173121658,
+          "source_T_ms": 1793173121658,
+          "trade_id": 6796855895
+        },
+        {
+          "REST_full_parsed_response_received_mono_ns": 29752793486791,
+          "REST_precedes_WS_ms": 1195.520792,
+          "REST_record_zero_based_index": 80,
+          "WS_application_received_mono_ns": 29753989007583,
+          "identity_verified": {
+            "id": true,
+            "price": true,
+            "quantity": true,
+            "source_T": true
+          },
+          "price": "80939.17000000",
+          "quantity": "0.00007000",
+          "source_E_ms": 1793173121872,
+          "source_T_ms": 1793173121872,
+          "trade_id": 6796855896
+        },
+        {
+          "REST_full_parsed_response_received_mono_ns": 29752793486791,
+          "REST_precedes_WS_ms": 1195.591709,
+          "REST_record_zero_based_index": 80,
+          "WS_application_received_mono_ns": 29753989078500,
+          "identity_verified": {
+            "id": true,
+            "price": true,
+            "quantity": true,
+            "source_T": true
+          },
+          "price": "80939.17000000",
+          "quantity": "0.00007000",
+          "source_E_ms": 1793173121872,
+          "source_T_ms": 1793173121872,
+          "trade_id": 6796855897
+        },
+        {
+          "REST_full_parsed_response_received_mono_ns": 29752793486791,
+          "REST_precedes_WS_ms": 1195.648334,
+          "REST_record_zero_based_index": 80,
+          "WS_application_received_mono_ns": 29753989135125,
+          "identity_verified": {
+            "id": true,
+            "price": true,
+            "quantity": true,
+            "source_T": true
+          },
+          "price": "80939.17000000",
+          "quantity": "0.00016000",
+          "source_E_ms": 1793173121872,
+          "source_T_ms": 1793173121872,
+          "trade_id": 6796855898
+        },
+        {
+          "REST_full_parsed_response_received_mono_ns": 29752793486791,
+          "REST_precedes_WS_ms": 1436.452667,
+          "REST_record_zero_based_index": 80,
+          "WS_application_received_mono_ns": 29754229939458,
+          "identity_verified": {
+            "id": true,
+            "price": true,
+            "quantity": true,
+            "source_T": true
+          },
+          "price": "80939.17000000",
+          "quantity": "0.00407000",
+          "source_E_ms": 1793173121960,
+          "source_T_ms": 1793173121959,
+          "trade_id": 6796855899
+        },
+        {
+          "REST_full_parsed_response_received_mono_ns": 29752793486791,
+          "REST_precedes_WS_ms": 1436.592792,
+          "REST_record_zero_based_index": 80,
+          "WS_application_received_mono_ns": 29754230079583,
+          "identity_verified": {
+            "id": true,
+            "price": true,
+            "quantity": true,
+            "source_T": true
+          },
+          "price": "80939.17000000",
+          "quantity": "0.00020000",
+          "source_E_ms": 1793173122019,
+          "source_T_ms": 1793173122019,
+          "trade_id": 6796855900
+        },
+        {
+          "REST_full_parsed_response_received_mono_ns": 29894143553625,
+          "REST_precedes_WS_ms": 383.117541,
+          "REST_record_zero_based_index": 188,
+          "WS_application_received_mono_ns": 29894526671166,
+          "identity_verified": {
+            "id": true,
+            "price": true,
+            "quantity": true,
+            "source_T": true
+          },
+          "price": "80943.02000000",
+          "quantity": "0.00008000",
+          "source_E_ms": 1793173261440,
+          "source_T_ms": 1793173261440,
+          "trade_id": 6796857437
+        },
+        {
+          "REST_full_parsed_response_received_mono_ns": 29894143553625,
+          "REST_precedes_WS_ms": 383.230708,
+          "REST_record_zero_based_index": 188,
+          "WS_application_received_mono_ns": 29894526784333,
+          "identity_verified": {
+            "id": true,
+            "price": true,
+            "quantity": true,
+            "source_T": true
+          },
+          "price": "80943.02000000",
+          "quantity": "0.00570000",
+          "source_E_ms": 1793173261995,
+          "source_T_ms": 1793173261995,
+          "trade_id": 6796857438
+        },
+        {
+          "REST_full_parsed_response_received_mono_ns": 29894143553625,
+          "REST_precedes_WS_ms": 705.70125,
+          "REST_record_zero_based_index": 188,
+          "WS_application_received_mono_ns": 29894849254875,
+          "identity_verified": {
+            "id": true,
+            "price": true,
+            "quantity": true,
+            "source_T": true
+          },
+          "price": "80943.02000000",
+          "quantity": "0.00011000",
+          "source_E_ms": 1793173263391,
+          "source_T_ms": 1793173263391,
+          "trade_id": 6796857439
+        },
+        {
+          "REST_full_parsed_response_received_mono_ns": 29894143553625,
+          "REST_precedes_WS_ms": 705.8575,
+          "REST_record_zero_based_index": 188,
+          "WS_application_received_mono_ns": 29894849411125,
+          "identity_verified": {
+            "id": true,
+            "price": true,
+            "quantity": true,
+            "source_T": true
+          },
+          "price": "80943.03000000",
+          "quantity": "0.00008000",
+          "source_E_ms": 1793173263576,
+          "source_T_ms": 1793173263576,
+          "trade_id": 6796857440
+        },
+        {
+          "REST_full_parsed_response_received_mono_ns": 29894143553625,
+          "REST_precedes_WS_ms": 705.959375,
+          "REST_record_zero_based_index": 188,
+          "WS_application_received_mono_ns": 29894849513000,
+          "identity_verified": {
+            "id": true,
+            "price": true,
+            "quantity": true,
+            "source_T": true
+          },
+          "price": "80943.03000000",
+          "quantity": "0.08587000",
+          "source_E_ms": 1793173263590,
+          "source_T_ms": 1793173263589,
+          "trade_id": 6796857441
+        },
+        {
+          "REST_full_parsed_response_received_mono_ns": 29894143553625,
+          "REST_precedes_WS_ms": 706.035208,
+          "REST_record_zero_based_index": 188,
+          "WS_application_received_mono_ns": 29894849588833,
+          "identity_verified": {
+            "id": true,
+            "price": true,
+            "quantity": true,
+            "source_T": true
+          },
+          "price": "80943.02000000",
+          "quantity": "0.00022000",
+          "source_E_ms": 1793173263634,
+          "source_T_ms": 1793173263634,
+          "trade_id": 6796857442
+        },
+        {
+          "REST_full_parsed_response_received_mono_ns": 29900953337708,
+          "REST_precedes_WS_ms": 5.969708,
+          "REST_record_zero_based_index": 192,
+          "WS_application_received_mono_ns": 29900959307416,
+          "identity_verified": {
+            "id": true,
+            "price": true,
+            "quantity": true,
+            "source_T": true
+          },
+          "price": "80940.20000000",
+          "quantity": "0.00018000",
+          "source_E_ms": 1793173268737,
+          "source_T_ms": 1793173268737,
+          "trade_id": 6796857531
+        },
+        {
+          "REST_full_parsed_response_received_mono_ns": 29900953337708,
+          "REST_precedes_WS_ms": 6.01675,
+          "REST_record_zero_based_index": 192,
+          "WS_application_received_mono_ns": 29900959354458,
+          "identity_verified": {
+            "id": true,
+            "price": true,
+            "quantity": true,
+            "source_T": true
+          },
+          "price": "80940.21000000",
+          "quantity": "0.00008000",
+          "source_E_ms": 1793173268779,
+          "source_T_ms": 1793173268778,
+          "trade_id": 6796857532
+        }
+      ],
+      "provenance": "PublicREST.get records response_received_mono_ns AFTER await response.json(), same host monotonic clock as received_mono_ns in raw WS. ID/Decimalprice/Decimalqty/T all verified; E is WS-only. No wall/server-clock conversion used."
+    },
+    "verdict": {
+      "forward_activation": "NOT_STARTED",
+      "freshness_2s": "FAIL_OBSERVED_INITIALIZED_GATES",
+      "full_feed": "BLOCKED_INITIAL_HISTORICAL_ID_GAP_AND_STRICT_NEWS",
+      "initialization": "13 sampled startup UNKNOWN states; no continuous freshness certification",
+      "local_event_loop_250ms": "PASS_FOR_THIS_FINITE_WINDOW",
+      "local_processing_250ms": "PASS_FOR_THIS_FINITE_WINDOW",
+      "measurement_window_integrity": "PASS;9 shutdown-only suffix frames outside covered window unpersisted, not hidden",
+      "next_minimum_experiment": "No new run now. On the same existing public feed, instrument same-event trade IDs/E/T/monotonic receipt on BOTH independent WS clients plus existing REST snapshots, one bounded observation window, to distinguish per-connection relative arrival from common relay/network delay. Keep guards and entries blocked; do not infer continuous book freshness from unchanged endpoint snapshots.",
+      "overall": "FAIL",
+      "repeatability": "NOT_TESTED_AS_PREDECLARED_FIRST_RUN_FRESHNESS_FAILED"
+    },
+    "window_end_Europe_Rome": "2026-10-28T08:41:50.741205+01:00",
+    "window_end_UTC": "2026-10-28T07:41:50.741205+00:00",
+    "window_start_Europe_Rome": "2026-10-28T08:36:50.642786+01:00",
+    "window_start_UTC": "2026-10-28T07:36:50.642786+00:00"
+  },
+  "postchecks": {
+    "all_unchanged": true,
+    "at_ns": 1793174069840252000,
+    "diagnostic_children_exited_return0": true,
+    "external_event_cap_reached": false,
+    "external_events_cap": 10000,
+    "external_events_retained": 3,
+    "no_Docker_service_calls": true,
+    "no_complete_observer_or_forward_collector_started": true,
+    "port8767_connect_ex": 61,
+    "port8767_listener": false,
+    "protected_count": 179
+  },
+  "protected_all_unchanged": true,
+  "protected_count": 179,
+  "repeatability": "NOT_VERIFIED",
+  "runs": [
+    {
+      "complete": {
+        "actual_wall_seconds": 303.03153895799915,
+        "children_returncodes": {
+          "19276": 0,
+          "19277": 0,
+          "19278": 0
+        },
+        "ended_ns": 1793173311126624000,
+        "forced_pids": [],
+        "journal_after": {
+          "quick_check": "ok",
+          "state": {
+            "budget_spent": true,
+            "buy_count": 1,
+            "cash": "999.76609237980375000000000",
+            "position": null,
+            "sell_count": 1
+          }
+        },
+        "journal_before": {
+          "quick_check": "ok",
+          "state": {
+            "budget_spent": true,
+            "buy_count": 1,
+            "cash": "999.76609237980375000000000",
+            "position": null,
+            "sell_count": 1
+          }
+        },
+        "no_service_restored": true,
+        "port8767_listener_after": false,
+        "raw_proof_covers_window_end": true,
+        "started_ns": 1793173008097608000,
+        "stop_reason": "connected_target_reached",
+        "window_end_mono_ns": 29941096061375,
+        "window_start_mono_ns": 29640995144708
+      },
+      "cpu": {
+        "lifetime_seconds": 8.093458,
+        "peak_rss_mib": 60.828125,
+        "percent_one_core_per_connected_seconds": 2.6969365889049066
+      },
+      "external": {
+        "actual_seconds": 302.99005495800156,
+        "captures": 0,
+        "children_rusage": [
+          0.288039,
+          0.617011,
+          3604480,
+          0,
+          0,
+          0,
+          63599,
+          447,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          148,
+          1940
+        ],
+        "event_cap": 10000,
+        "polls": 12919,
+        "self_rusage": [
+          3.7128769999999998,
+          2.5082809999999998,
+          30081024,
+          0,
+          0,
+          0,
+          59172,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          358,
+          18765
+        ]
+      },
+      "feed": {
+        "actual_connected_seconds": 300.5028355,
+        "book_receipt_fresh": true,
+        "book_source_timestamp": "NOT_PROVIDED_BY_BINANCE",
+        "clock_offset_ms": 118.396,
+        "clock_uncertainty_ms": 166.998,
+        "economic_strategy": "NONE_TECHNICAL_ONLY",
+        "max_fresh_seconds": 2,
+        "max_spread_bps": 10,
+        "native_closed_candles": 5,
+        "passed": false,
+        "processing_delay_ms": {
+          "last": 1.129167,
+          "max_observed": 5.294542
+        },
+        "rest_comparison": {
+          "book_bid_ask_match": true,
+          "candle": {
+            "matches": true,
+            "native_close_start_ms": 1793173200000,
+            "rest_row": [
+              1793173200000,
+              "80943.31000000",
+              "80948.34000000",
+              "80943.02000000",
+              "80943.03000000",
+              "5.32342000",
+              1793173259999,
+              "430912.05603240",
+              908,
+              "2.34370000",
+              "189713.07035160",
+              "0"
+            ]
+          },
+          "checked_at": "2026-10-28T07:41:48.855161+00:00",
+          "checked_mono_ns": 29939209998500,
+          "closed_candle_match": true,
+          "missing_trade_ids_remaining": 0,
+          "passed": true,
+          "request_intervals": [
+            {
+              "path": "/api/v3/time",
+              "received_ns": 1793173307587602000,
+              "start_ns": 1793173307253606000
+            },
+            {
+              "path": "/api/v3/trades",
+              "received_ns": 1793173307957819000,
+              "start_ns": 1793173307587803000
+            },
+            {
+              "path": "/api/v3/ticker/bookTicker",
+              "received_ns": 1793173308444558000,
+              "start_ns": 1793173307963277000
+            }
+          ],
+          "trade_gaps_repaired": 0,
+          "trade_values_match": true,
+          "trades_shared": 1000
+        },
+        "source_age_ms": {
+          "last": 329.028,
+          "max": 6209.9055,
+          "min": -295.289
+        },
+        "source_age_not_network_latency": true,
+        "stats": {
+          "book": 8150,
+          "closed_bars": 5,
+          "forming_bars": 145,
+          "trade": 2649,
+          "trade_gaps": 1,
+          "unrepairable_gap": 1
+        },
+        "strict_news": "BLOCKED_UNCERTIFIED",
+        "timestral": "DISABLED",
+        "trade_fresh": true
+      },
+      "frame_accounting": {
+        "parse_error": null,
+        "raw_covers_window_end": true,
+        "raw_last_receipt_mono_ns": 29941275538750,
+        "raw_rows": 10940,
+        "raw_rows_in_window": 10882,
+        "reason": "FIFO+no receive overflow means raw prefix covers the finite window; any shutdown suffix is outside it.",
+        "received": 10949,
+        "shutdown_suffix_missing": 9
+      },
+      "freshness": {
+        "book_source_timestamp": "NOT_PROVIDED; receipt freshness only",
+        "book_stale_samples_after_initialization": 13,
+        "initialized_samples": 1172,
+        "sampling_period_seconds": 0.25,
+        "startup_unknown_samples": 13,
+        "trade_stale_samples_after_initialization": 67
+      },
+      "inputs": {
+        "data_complete": true,
+        "duration": 300.098194125,
+        "feed_gap_block": true,
+        "fresh_failures": 80,
+        "fresh_initialized": true,
+        "max_queue": 5.344791,
+        "overflow": 0,
+        "rejections": 0,
+        "unexpected_disconnects": 0,
+        "w_duration": 300.683138625,
+        "w_max_queue": 1.150958,
+        "w_rejections": 0
+      },
+      "measurement": {
+        "all_times_uncensored": true,
+        "captures": 0,
+        "interval_iostat_samples": 60,
+        "os_samples": 61,
+        "quantiles": "Bounded last20000; counts/max lifetime; startup/cleanup metrics retained explicitly."
+      },
+      "metrics": {
+        "at": "2026-10-28T07:41:51.020350+00:00",
+        "counters": {
+          "ws_messages_received": 10949
+        },
+        "limit_per_stage": 20000,
+        "quantiles": "bounded last samples; counts/max lifetime",
+        "stages": {
+          "certificate_hook": {
+            "count": 11652,
+            "max_ms": 1.509625,
+            "p50_ms": 0.0835,
+            "p95_ms": 0.438625,
+            "p99_ms": 0.608583,
+            "retained": 11652
+          },
+          "certificate_hook.process_cpu": {
+            "count": 11652,
+            "max_ms": 0.93,
+            "p50_ms": 0.083,
+            "p95_ms": 0.433,
+            "p99_ms": 0.6,
+            "retained": 11652
+          },
+          "certificate_hook.thread_cpu": {
+            "count": 11652,
+            "max_ms": 0.928375,
+            "p50_ms": 0.083084,
+            "p95_ms": 0.432084,
+            "p99_ms": 0.5995,
+            "retained": 11652
+          },
+          "consumer_iteration": {
+            "count": 11652,
+            "max_ms": 3.09675,
+            "p50_ms": 0.148458,
+            "p95_ms": 0.623542,
+            "p99_ms": 0.828875,
+            "retained": 11652
+          },
+          "critical_journal_save": {
+            "count": 3,
+            "max_ms": 6.511125,
+            "p50_ms": 4.89875,
+            "p95_ms": 4.89875,
+            "p99_ms": 4.89875,
+            "retained": 3
+          },
+          "critical_journal_save.process_cpu": {
+            "count": 3,
+            "max_ms": 6.302,
+            "p50_ms": 4.74,
+            "p95_ms": 4.74,
+            "p99_ms": 4.74,
+            "retained": 3
+          },
+          "critical_journal_save.thread_cpu": {
+            "count": 3,
+            "max_ms": 6.301083,
+            "p50_ms": 4.739292,
+            "p95_ms": 4.739292,
+            "p99_ms": 4.739292,
+            "retained": 3
+          },
+          "critical_lock_wait": {
+            "count": 3,
+            "max_ms": 0.0135,
+            "p50_ms": 0.005166,
+            "p95_ms": 0.005166,
+            "p99_ms": 0.005166,
+            "retained": 3
+          },
+          "critical_lock_wait.process_cpu": {
+            "count": 3,
+            "max_ms": 0.013,
+            "p50_ms": 0.005,
+            "p95_ms": 0.005,
+            "p99_ms": 0.005,
+            "retained": 3
+          },
+          "critical_lock_wait.thread_cpu": {
+            "count": 3,
+            "max_ms": 0.012458,
+            "p50_ms": 0.004875,
+            "p95_ms": 0.004875,
+            "p99_ms": 0.004875,
+            "retained": 3
+          },
+          "event_loop_lag": {
+            "count": 14323,
+            "max_ms": 29.863916999602225,
+            "p50_ms": 1.0972499985655304,
+            "p95_ms": 1.1766249990614597,
+            "p99_ms": 1.5102910001587588,
+            "retained": 14323
+          },
+          "feed_process": {
+            "count": 10949,
+            "max_ms": 0.3485,
+            "p50_ms": 0.018083,
+            "p95_ms": 0.083458,
+            "p99_ms": 0.104875,
+            "retained": 10949
+          },
+          "feed_process.process_cpu": {
+            "count": 10949,
+            "max_ms": 0.192,
+            "p50_ms": 0.018,
+            "p95_ms": 0.083,
+            "p99_ms": 0.102,
+            "retained": 10949
+          },
+          "feed_process.thread_cpu": {
+            "count": 10949,
+            "max_ms": 0.190083,
+            "p50_ms": 0.017917,
+            "p95_ms": 0.081958,
+            "p99_ms": 0.101375,
+            "retained": 10949
+          },
+          "gc_gen0": {
+            "count": 10,
+            "max_ms": 0.704958,
+            "p50_ms": 0.199375,
+            "p95_ms": 0.56025,
+            "p99_ms": 0.56025,
+            "retained": 10
+          },
+          "gc_gen0.process_cpu": {
+            "count": 10,
+            "max_ms": 0.706,
+            "p50_ms": 0.197,
+            "p95_ms": 0.52,
+            "p99_ms": 0.52,
+            "retained": 10
+          },
+          "gc_gen0.thread_cpu": {
+            "count": 10,
+            "max_ms": 0.704541,
+            "p50_ms": 0.197292,
+            "p95_ms": 0.52025,
+            "p99_ms": 0.52025,
+            "retained": 10
+          },
+          "host_os_sample": {
+            "count": 57,
+            "max_ms": 3.376625,
+            "p50_ms": 0.516167,
+            "p95_ms": 2.496375,
+            "p99_ms": 2.895125,
+            "retained": 57
+          },
+          "host_os_sample.process_cpu": {
+            "count": 57,
+            "max_ms": 1.371,
+            "p50_ms": 0.483,
+            "p95_ms": 0.881,
+            "p99_ms": 1.176,
+            "retained": 57
+          },
+          "host_os_sample.thread_cpu": {
+            "count": 57,
+            "max_ms": 0.881208,
+            "p50_ms": 0.471875,
+            "p95_ms": 0.763542,
+            "p99_ms": 0.826459,
+            "retained": 57
+          },
+          "io_queue_wait": {
+            "count": 571,
+            "max_ms": 4.57625,
+            "p50_ms": 0.297166,
+            "p95_ms": 3.151333,
+            "p99_ms": 3.726708,
+            "retained": 571
+          },
+          "loop_probe_interval": {
+            "count": 1,
+            "max_ms": 49.916958,
+            "p50_ms": 49.916958,
+            "p95_ms": 49.916958,
+            "p99_ms": 49.916958,
+            "retained": 1
+          },
+          "loop_probe_interval.process_cpu": {
+            "count": 1,
+            "max_ms": 0.131,
+            "p50_ms": 0.131,
+            "p95_ms": 0.131,
+            "p99_ms": 0.131,
+            "retained": 1
+          },
+          "loop_probe_interval.thread_cpu": {
+            "count": 1,
+            "max_ms": 0.131584,
+            "p50_ms": 0.131584,
+            "p95_ms": 0.131584,
+            "p99_ms": 0.131584,
+            "retained": 1
+          },
+          "owner_rest_encode": {
+            "count": 223,
+            "max_ms": 2.341833,
+            "p50_ms": 0.064875,
+            "p95_ms": 2.094541,
+            "p99_ms": 2.27475,
+            "retained": 223
+          },
+          "owner_rest_encode.process_cpu": {
+            "count": 223,
+            "max_ms": 2.314,
+            "p50_ms": 0.065,
+            "p95_ms": 2.094,
+            "p99_ms": 2.234,
+            "retained": 223
+          },
+          "owner_rest_encode.thread_cpu": {
+            "count": 223,
+            "max_ms": 2.312542,
+            "p50_ms": 0.0635,
+            "p95_ms": 2.09375,
+            "p99_ms": 2.232459,
+            "retained": 223
+          },
+          "queue_wait": {
+            "count": 10949,
+            "max_ms": 5.344791,
+            "p50_ms": 0.697917,
+            "p95_ms": 2.790875,
+            "p99_ms": 3.848625,
+            "retained": 10949
+          },
+          "raw_write": {
+            "count": 291,
+            "max_ms": 2.857875,
+            "p50_ms": 0.099208,
+            "p95_ms": 0.333125,
+            "p99_ms": 1.726875,
+            "retained": 291
+          },
+          "raw_write.process_cpu": {
+            "count": 291,
+            "max_ms": 2.938,
+            "p50_ms": 0.1,
+            "p95_ms": 0.219,
+            "p99_ms": 0.68,
+            "retained": 291
+          },
+          "raw_write.thread_cpu": {
+            "count": 291,
+            "max_ms": 0.225958,
+            "p50_ms": 0.094709,
+            "p95_ms": 0.167333,
+            "p99_ms": 0.218125,
+            "retained": 291
+          },
+          "rest_compare_network_included": {
+            "count": 56,
+            "max_ms": 4772.930042,
+            "p50_ms": 1118.075416,
+            "p95_ms": 2764.70475,
+            "p99_ms": 2867.837958,
+            "retained": 56
+          },
+          "rest_evidence_write": {
+            "count": 223,
+            "max_ms": 3.288541,
+            "p50_ms": 0.101625,
+            "p95_ms": 0.371833,
+            "p99_ms": 2.253166,
+            "retained": 223
+          },
+          "rest_evidence_write.process_cpu": {
+            "count": 223,
+            "max_ms": 2.444,
+            "p50_ms": 0.123,
+            "p95_ms": 0.422,
+            "p99_ms": 1.372,
+            "retained": 223
+          },
+          "rest_evidence_write.thread_cpu": {
+            "count": 223,
+            "max_ms": 0.318958,
+            "p50_ms": 0.096375,
+            "p95_ms": 0.200833,
+            "p99_ms": 0.250542,
+            "retained": 223
+          },
+          "ws_decode": {
+            "count": 10949,
+            "max_ms": 0.22225,
+            "p50_ms": 0.01,
+            "p95_ms": 0.043459,
+            "p99_ms": 0.055625,
+            "retained": 10949
+          },
+          "ws_decode.process_cpu": {
+            "count": 10949,
+            "max_ms": 0.104,
+            "p50_ms": 0.01,
+            "p95_ms": 0.042,
+            "p99_ms": 0.053,
+            "retained": 10949
+          },
+          "ws_decode.thread_cpu": {
+            "count": 10949,
+            "max_ms": 0.108584,
+            "p50_ms": 0.00975,
+            "p95_ms": 0.041917,
+            "p99_ms": 0.052333,
+            "retained": 10949
+          },
+          "ws_receive_wait_provider_idle_included": {
+            "count": 10949,
+            "max_ms": 4914.286625,
+            "p50_ms": 0.018041,
+            "p95_ms": 181.825459,
+            "p99_ms": 439.349208,
+            "retained": 10949
+          }
+        }
+      },
+      "mode": "B_ONLY_NO_PROFILER",
+      "status": {
+        "feed": "BLOCKED",
+        "freshness": "FAIL",
+        "measurement": "PASS",
+        "overall": "FAIL",
+        "processing": "PASS",
+        "repeat_local_eligible": false
+      },
+      "witness": {
+        "active_strategy_workload": "NA_NO_ACTUAL_COMPLETE4H_CLOSE",
+        "actual_wall_seconds": 302.761893,
+        "arm": "W",
+        "connected_intervals_seconds": [
+          [
+            2.07854425,
+            302.761682875
+          ]
+        ],
+        "connected_seconds": 300.683138625,
+        "counts": {
+          "bytes": 1702795,
+          "connections": 1,
+          "processed": 10971,
+          "received": 10971
+        },
+        "delay_clusters_mono_ns": [],
+        "ended_ns": 1793173311077232000,
+        "feed": null,
+        "metrics": {
+          "at": "2026-10-28T07:41:51.080095+00:00",
+          "counters": {},
+          "limit_per_stage": 20000,
+          "quantiles": "bounded last samples; counts/max lifetime",
+          "stages": {
+            "arrival_gap_idle_included": {
+              "count": 10970,
+              "max_ms": 5068.837958,
+              "p50_ms": 0.020042,
+              "p95_ms": 182.902875,
+              "p99_ms": 442.53875,
+              "retained": 10970
+            },
+            "gc_gen0": {
+              "count": 1,
+              "max_ms": 0.151042,
+              "p50_ms": 0.151042,
+              "p95_ms": 0.151042,
+              "p99_ms": 0.151042,
+              "retained": 1
+            },
+            "gc_gen0.process_cpu": {
+              "count": 1,
+              "max_ms": 0.15,
+              "p50_ms": 0.15,
+              "p95_ms": 0.15,
+              "p99_ms": 0.15,
+              "retained": 1
+            },
+            "gc_gen0.thread_cpu": {
+              "count": 1,
+              "max_ms": 0.150292,
+              "p50_ms": 0.150292,
+              "p95_ms": 0.150292,
+              "p99_ms": 0.150292,
+              "retained": 1
+            },
+            "loop_lag": {
+              "count": 14424,
+              "max_ms": 29.950874999485677,
+              "p50_ms": 1.0929580021183938,
+              "p95_ms": 1.1774589984270278,
+              "p99_ms": 1.2666660004470032,
+              "retained": 14424
+            },
+            "receipt_to_processing": {
+              "count": 10971,
+              "max_ms": 1.150958,
+              "p50_ms": 0.132,
+              "p95_ms": 0.501916,
+              "p99_ms": 0.647292,
+              "retained": 10971
+            }
+          }
+        },
+        "notes": "A/W source-age/freshnessNA(noJSON). Other sourceageuncorrected/notnetwork. No account/order capability inA/B/C. GC enabled unchanged.",
+        "pid": 19276,
+        "rusage": {
+          "input_blocks": 0,
+          "major_faults": 145,
+          "minor_faults": 4409,
+          "output_blocks": 0,
+          "peak_rss_bytes": 57360384,
+          "system_cpu_seconds": 0.558342,
+          "user_cpu_seconds": 3.471222
+        },
+        "started_ns": 1793173008317840000,
+        "strategy_evaluations": 0,
+        "strategy_records": [],
+        "trade_identity_samples": []
+      }
+    }
+  ],
+  "trades_created": 0
+}

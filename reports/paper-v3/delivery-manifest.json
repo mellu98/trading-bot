@@ -1,0 +1,31 @@
+{
+  "files": {
+    "adapters/ib_paper/requirements.lock": "e7a7bfce440789eda01888d901dcbaa4f384c9af4bc7840f5ca6d5a765272ef8",
+    "adapters/ib_paper/setup.sh": "c0f3140015aaa4eab98270f28e504e97443061742e53ca6402f032c7dba835fe",
+    "adapters/ib_paper/vendor/provenance.json": "66557f76a4f7abbf38270846620d017c946e6c55a47a5d71528d04a650ade2e4",
+    "reports/paper-v3/OPERATIONS.md": "4039869ce1a1f148104a8dbf04d99af246580d75a2ef0faa33c5db2388e8036f",
+    "reports/paper-v3/preflight.json": "3f0ea7a8e4d0349155d20638ac038e9fcb4242835a0cd9eef3ca7e03977da048",
+    "reports/paper-v3/readiness.json": "09a6d47b7561adfca67f98009643611276f70d415761c9fdf5cf1b15a1139e79",
+    "reports/paper-v3/reproduction-proof.json": "07e88fd999cd8649f79ffd02a036919f572a009837f90dbd79b1ab0bf0c68845",
+    "reports/paper-v3/tests.txt": "abb161aba57cdb51a4fdb4ce0fcad5a39f4e850848482b84489494c4f98849d5",
+    "reports/paper-v3/verification.json": "95b19b091d53c8cbdd560b3731a5cb0cf21a9bc83e7dda11d45bab16f8eec9be",
+    "run-paper.sh": "34363500283e2f76b18946d66ee9bb882a997011d1538e312beb9ababbe5a9ca",
+    "src/mnq_paper/__init__.py": "b5728b6c3b6ca77936e65c7af6594fe99169794bb621f7f22bbe231c7cd6f9b0",
+    "src/mnq_paper/__main__.py": "55bdcbba8f5e99cf36a35a013e95b6b1d8e1728ebf9babf296b8f2b7e9125c28",
+    "src/mnq_paper/core.py": "6a9e5f2aa76d939c1e013494bf1e0df7613d2ce363d53bcaca261b92da9b6556",
+    "src/mnq_paper/feed.py": "a6566d333a2201afd1841f23743d97cdc05fb89313de86518b8ba810a5fedc95",
+    "src/mnq_paper/ib.py": "c42d732371eff290703905678b4ecbf11771fb0d675dd9d3583b3ee06701ae9e",
+    "src/mnq_paper/mock.py": "f6d78a1877b60675a72780decc79e94ed88cd40b53009f4b1e9e6af319d3a278",
+    "src/mnq_paper/signals.py": "863dcc50c9656dc3a9a69a14fec9d90802380cde0cfa18184dd024392e04a87c",
+    "tests_paper/test_ib_feed.py": "ddd05d213e5d4ed82f6af71eaa2094684b871459f440430c7a6913d21634d1c2",
+    "tests_paper/test_runtime.py": "331e1b1b4d4fb3cc06934683bfeca6a3b2c8ac33d6e5b503a6a4cb89aced53e3"
+  },
+  "frozen_planner_paths_unchanged": 20,
+  "live_trading": false,
+  "new_market_data_purchases": 0,
+  "new_strategy": false,
+  "real_broker_paper_certified": false,
+  "status": "LOCAL_PAPER_INFRASTRUCTURE_VERIFIED_REAL_IB_BLOCKED",
+  "tests_passed": 42,
+  "v1_v2_paths_unchanged": 309
+}

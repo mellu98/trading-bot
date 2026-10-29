@@ -1,0 +1,43 @@
+{
+  "attribution": "Binance Spot public market data; purely local noncommercial nonproduction technical paper research. No permission for commercial/live proprietary execution inferred.",
+  "certificate": "Actual >=60s stream, >=1 native closed x=true 1m candle, trade and book receipt fresh<=2s, trade sourceage upper bound<=2s with clock uncertainty; positive uncrossed spread<=10bps; event processing<=250ms; coherent timestamped REST trade/book/candle comparisons. Book source timestamp not provided, never transport latency.",
+  "config": {
+    "account": "LOCAL_BINANCE_SPOT",
+    "client_id": 0,
+    "daily_max_loss": 10.0,
+    "deadline_seconds": 60,
+    "entry_cash_cap": "100",
+    "fee_rate": "0.001",
+    "max_consecutive_losses": 1,
+    "max_contracts": 1,
+    "max_drawdown": 20.0,
+    "max_trades": 1,
+    "mode": "technical_paper",
+    "slippage_rate": "0.0001",
+    "stale_seconds": 2.0,
+    "stop_fraction": "0.005",
+    "strategy_id": "btcusdt_technical_once",
+    "virtual_cash": "1000"
+  },
+  "execution": "Entry observed ask*(1+1bp), exit observed bid*(1-1bp), modeled taker fee0.1% each side USDT. Qty down to LOT_SIZE actual nonzero grid, totalentrycashincludingfee<=100USDT; publicbestquotesizelimit. Stop0.5% price tickdown,60sdeadline; modeled risk includes bothfees/slip. No guaranteedgaplossbound.",
+  "frozen_at": "2026-10-27T15:15:22.251279+00:00",
+  "readiness": "Technical only. Strictnews blocked; no economic strategy or livefinancialapproval. No commercial/live-data license claim.",
+  "recovery": "Existing Runtime subclass + AtomicJournal + original Risk. Atomic local intents/fills/protection/budget; restart cannot submit secondBUY. Exit freshbook evenuncertifiednews/entry, staleexit remains pending untilfreshquote. One planned SIGKILLwithopenposition thenrestart samejournal.",
+  "scope": "Public BTCUSDT Spot data; one local technical long/flat roundtrip only, then OBSERVE_ONLY. No broker account, remote order, key, leverage, short or margin.",
+  "source_sha256": {
+    "run-binance-paper.sh": "4642e63d4b577a9dad71e8f00fa2cebd93c7075c0531359dbefa9962cbf5c4e2",
+    "src/mnq_local/binance_app.py": "b4bb12477a185792e6f7fdf161822522248805cfba340fce239f8f0276aa4620",
+    "src/mnq_local/binance_spot.py": "686173f0b73fb7c0269a87b2092d46dbc5720d87652509be1ba96f7a0629b943",
+    "src/mnq_local/dashboard.html": "ce0b52af1ac7ae3ad2e76d29f87965722c4346d8e80d012564326fa8c8a7b43d",
+    "tests_local/test_binance_correlated.py": "f11d8ef67bf813b2a55f02905c10cb177851836ff1b49bf7aaefa52aaf5c980b",
+    "tests_local/test_binance_fairness.py": "faf38ddb2d4b3cc3742f17bcc78ee4615bd688d8b7d3338ae47dbeef6551e477",
+    "tests_local/test_binance_spot.py": "f45b24f79542f827004b89f1ddf52bb1d624383395c61072d3341c5e6e58a6c7",
+    "tests_local/test_binance_stability.py": "02948e8c805ca90522480f9d74202f3d2b45b23cc71d0885d01c32b5fd0f0894"
+  },
+  "sources": [
+    "https://developers.binance.com/en/docs/products/spot/faqs/market_data_only",
+    "https://github.com/binance/binance-spot-api-docs/blob/master/web-socket-streams.md",
+    "https://www.binance.com/en/fee/trading",
+    "https://github.com/binance/binance-public-data/blob/master/TERMS_AND_CONDITIONS.md"
+  ]
+}

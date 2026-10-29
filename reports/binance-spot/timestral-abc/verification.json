@@ -1,0 +1,57 @@
+{
+  "209M_cache_sha256": "40cc3cc8ed59cc3a3856885e06d3c14b1e5838f18dc148d9dcb757c5efb2b2a9",
+  "28M_cache_sha256": "32bda775df769360a64ed45b6d3429c42b8b0796f0b398c1a687667d126936e9",
+  "cached_replay": {
+    "differences": [],
+    "files": 73,
+    "no_reinference": true,
+    "results_sha256": "58332fd55e3b355d8622d5f19df4b5f5e98099ab3e2b362c38c8211215004145",
+    "same_forecast_cache": true
+  },
+  "changed_prior_files": [],
+  "environment": {
+    "numpy": "2.3.4",
+    "platform": "macOS-26.5-arm64-arm-64bit-Mach-O",
+    "python": "3.13.14 (main, Jun 23 2026, 15:20:43) [Clang 22.1.3 ]",
+    "torch": "2.14.1"
+  },
+  "existing_Timestral_tests": 68,
+  "new_unique_tests": 11,
+  "no_git_or_gentle_authority_receipt": true,
+  "observer": {
+    "buy_count": 1,
+    "cash": "999.76609237980375000000000",
+    "flat_spent": true,
+    "net": "-0.23390762019625",
+    "pid": 87703,
+    "port": 8767,
+    "readiness_not_promoted": true,
+    "sell_count": 1,
+    "timestral": "DISABLED"
+  },
+  "parent_independent_checks": 63,
+  "predata_ABC_tests": 5,
+  "prospective": {
+    "future_mature_outcome_claimed": false,
+    "last_end_ns": 1793088000000000000,
+    "model_jobs_launched": 0,
+    "orders": 0,
+    "prepared_not_running": true,
+    "probe_messages": {
+      "messages": 2834
+    },
+    "warmup_native4h_bars": 256,
+    "warmup_only": true
+  },
+  "protected_prior_files": 39,
+  "results_sha256": "58332fd55e3b355d8622d5f19df4b5f5e98099ab3e2b362c38c8211215004145",
+  "scientific_freeze_unchanged": true,
+  "shadow_bootstrap_tests": 4,
+  "skill_resolution": "paths-injected",
+  "status": "COMPLETE_RETROSPECTIVE_DIAGNOSTIC_NOT_PROMOTED",
+  "supervisor_tests": 2,
+  "verdicts": {
+    "209M": "NON_UTILE_NELLA_CONFIGURAZIONE_TESTATA",
+    "28M": "NON_UTILE_NELLA_CONFIGURAZIONE_TESTATA"
+  }
+}

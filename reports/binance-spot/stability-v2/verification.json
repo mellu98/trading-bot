@@ -1,0 +1,470 @@
+{
+  "actual_soak": {
+    "actual_seconds": 620.327977375011,
+    "client_response_ms": {
+      "max": 3216.675417,
+      "p50": 17.690208,
+      "p95": 211.955833,
+      "p99": 1172.233625
+    },
+    "controlled_restart": true,
+    "errors": [],
+    "final_flat_spent": true,
+    "pids": [
+      84032,
+      87703
+    ],
+    "samples": 568
+  },
+  "causality": "Original22rejects/595s had insufficient historical stage telemetry; no retroactive attribution. New loop/queue/stage maxima overlap concurrent work but quantiles do not prove scheduler/GIL/disk causality. Initial queued rejections and later reconnect durable commits must not be conflated. Critical lockwait measured separately; original durable FULL commit can still stall owner, not claimed hardened against stalled storage.",
+  "certificate_valid_percent": 18.133802816901408,
+  "certificate_valid_samples": 103,
+  "concurrency": "Same-host offline focused tests and public historical acquisition/replays occurred during soak. Not an isolated-load stability estimate.",
+  "false_predicates_nonexclusive": {
+    "REST_comparison_not_passed": 74,
+    "book_entry_freshness_or_spread_false": 17,
+    "last_processing_delay_over250ms": 13,
+    "no_native_closed_candle_yet": 7,
+    "trade_receipt_or_source_freshness_false": 43,
+    "warmup_or_rewarm_under60s": 465
+  },
+  "first_observed_rejections": {
+    "after_restart": {
+      "count_at_first_observation": 1,
+      "elapsed_seconds": 413.9434208330349,
+      "previous_sample_elapsed_seconds": 409.6116990830051
+    },
+    "before_restart": {
+      "count_at_first_observation": 32,
+      "elapsed_seconds": 97.7851789999986,
+      "previous_sample_elapsed_seconds": 96.31094095803564
+    }
+  },
+  "invariants": {
+    "flat_spent_preserved": true,
+    "one_buy_one_sell": true,
+    "original_Runtime_Risk_Spot_unchanged": true,
+    "threshold_fresh_seconds": 2,
+    "threshold_processing_ms": 250
+  },
+  "last_trade_source_age_corrected_ms_range": {
+    "max": 8133.9155,
+    "min": -807.2035
+  },
+  "launch_attempt": "First shell-background launch died with tool command; attempt artifacts preserved as invalid-launch-attempt. Not counted as elapsed soak or provider failure.",
+  "limits": "WS receive wait includes provider idle and event-loop scheduling; receipt is application timestamp, not kernel arrival. Sourceage/clockuncertainty are not measured network latency. BookTicker source timestamp absent. Actual flat observation has no active position protection or economic strategy execution timing; synthetic tests only for those hooks.",
+  "quiet_control_status": "FAIL_CLOSED_READINESS_REMAINS_BLOCKED",
+  "quiet_control_summary_sha256": "1168e2b3c65972fcbcff0e2f8999e04f9a8385eb527b0c31d2a4c9589a03b908",
+  "residual_cause": "UNRESOLVED; heavy executor concurrency alone is not necessary",
+  "samples": 568,
+  "segments": {
+    "after_restart": {
+      "first_elapsed": 306.73692562500946,
+      "last_elapsed": 619.2875871660071,
+      "max_stats": {
+        "book": 25926,
+        "closed_bars": 6,
+        "forming_bars": 146,
+        "previous_connection_events_discarded": 62,
+        "processing_delay_rejections": 1242,
+        "trade": 9955,
+        "trade_gaps": 8
+      },
+      "samples": 288,
+      "valid": 44
+    },
+    "before_restart": {
+      "first_elapsed": 0.00032300001475960016,
+      "last_elapsed": 300.96082495799055,
+      "max_stats": {
+        "book": 27429,
+        "closed_bars": 5,
+        "forming_bars": 144,
+        "processing_delay_rejections": 496,
+        "trade": 8147,
+        "trade_gaps": 10
+      },
+      "samples": 280,
+      "valid": 59
+    }
+  },
+  "skill_resolution": "paths-injected",
+  "source_clock_sample_ranges": {
+    "clock_offset_ms": {
+      "max": 1741.462,
+      "min": -737.5745
+    },
+    "clock_uncertainty_ms": {
+      "max": 1685.754,
+      "min": 123.4525
+    }
+  },
+  "stage_distributions_by_process": {
+    "after_restart": {
+      "at": "2026-10-27T08:18:13.052766+00:00",
+      "counters": {
+        "ws_messages_received": 37339,
+        "ws_queue_overflow": 1
+      },
+      "limit_per_stage": 20000,
+      "quantiles": "bounded last samples; counts/max lifetime",
+      "stages": {
+        "certificate_hook": {
+          "count": 37655,
+          "max_ms": 292.240584,
+          "p50_ms": 0.075375,
+          "p95_ms": 0.561375,
+          "p99_ms": 1.9855,
+          "retained": 20000
+        },
+        "consumer_iteration": {
+          "count": 37655,
+          "max_ms": 2212.748792,
+          "p50_ms": 0.106375,
+          "p95_ms": 0.963792,
+          "p99_ms": 7.410708,
+          "retained": 20000
+        },
+        "critical_journal_save": {
+          "count": 6,
+          "max_ms": 72.262834,
+          "p50_ms": 5.122167,
+          "p95_ms": 34.082875,
+          "p99_ms": 34.082875,
+          "retained": 6
+        },
+        "critical_lock_wait": {
+          "count": 6,
+          "max_ms": 0.005292,
+          "p50_ms": 0.0015,
+          "p95_ms": 0.004333,
+          "p99_ms": 0.004333,
+          "retained": 6
+        },
+        "dashboard_read": {
+          "count": 287,
+          "max_ms": 1670.796334,
+          "p50_ms": 8.043584,
+          "p95_ms": 56.686042,
+          "p99_ms": 487.187459,
+          "retained": 287
+        },
+        "dashboard_snapshot": {
+          "count": 296,
+          "max_ms": 828.776667,
+          "p50_ms": 7.744,
+          "p95_ms": 52.142125,
+          "p99_ms": 115.895666,
+          "retained": 296
+        },
+        "event_loop_lag": {
+          "count": 13209,
+          "max_ms": 5416.984707931988,
+          "p50_ms": 1.078166940715164,
+          "p95_ms": 9.216042002663016,
+          "p99_ms": 37.689499964471906,
+          "retained": 13209
+        },
+        "feed_process": {
+          "count": 37338,
+          "max_ms": 46.381833,
+          "p50_ms": 0.01125,
+          "p95_ms": 0.106291,
+          "p99_ms": 0.54125,
+          "retained": 20000
+        },
+        "filesystem_export": {
+          "count": 295,
+          "max_ms": 3866.697416,
+          "p50_ms": 41.304583,
+          "p95_ms": 263.122125,
+          "p99_ms": 1668.48875,
+          "retained": 295
+        },
+        "io_queue_wait": {
+          "count": 841,
+          "max_ms": 3733.995208,
+          "p50_ms": 3.668,
+          "p95_ms": 142.576916,
+          "p99_ms": 1307.90625,
+          "retained": 841
+        },
+        "observation_publish": {
+          "count": 295,
+          "max_ms": 3966.929042,
+          "p50_ms": 56.199417,
+          "p95_ms": 451.057417,
+          "p99_ms": 2472.617041,
+          "retained": 295
+        },
+        "owner_rest_encode": {
+          "count": 192,
+          "max_ms": 9.446,
+          "p50_ms": 0.039833,
+          "p95_ms": 3.168333,
+          "p99_ms": 8.860291,
+          "retained": 192
+        },
+        "owner_snapshot_prepare": {
+          "count": 296,
+          "max_ms": 919.8255,
+          "p50_ms": 8.61425,
+          "p95_ms": 60.396416,
+          "p99_ms": 283.914583,
+          "retained": 296
+        },
+        "owner_state_encode": {
+          "count": 296,
+          "max_ms": 531.570292,
+          "p50_ms": 4.357167,
+          "p95_ms": 30.367416,
+          "p99_ms": 161.354959,
+          "retained": 296
+        },
+        "queue_wait": {
+          "count": 37338,
+          "max_ms": 3024.029792,
+          "p50_ms": 1.727625,
+          "p95_ms": 79.412958,
+          "p99_ms": 447.100708,
+          "retained": 20000
+        },
+        "raw_write": {
+          "count": 353,
+          "max_ms": 1497.941958,
+          "p50_ms": 0.291166,
+          "p95_ms": 7.833333,
+          "p99_ms": 40.086833,
+          "retained": 353
+        },
+        "rest_compare_network_included": {
+          "count": 48,
+          "max_ms": 8737.028458,
+          "p50_ms": 1711.084125,
+          "p95_ms": 4981.56975,
+          "p99_ms": 5995.382416,
+          "retained": 48
+        },
+        "rest_evidence_write": {
+          "count": 192,
+          "max_ms": 21.945417,
+          "p50_ms": 0.134167,
+          "p95_ms": 5.111875,
+          "p99_ms": 13.880375,
+          "retained": 192
+        },
+        "sqlite_checkpoint": {
+          "count": 296,
+          "max_ms": 426.799375,
+          "p50_ms": 2.948042,
+          "p95_ms": 47.144458,
+          "p99_ms": 179.860292,
+          "retained": 296
+        },
+        "ws_decode": {
+          "count": 37339,
+          "max_ms": 312.097375,
+          "p50_ms": 0.003625,
+          "p95_ms": 0.032209,
+          "p99_ms": 0.125708,
+          "retained": 20000
+        },
+        "ws_receive_wait_provider_idle_included": {
+          "count": 37339,
+          "max_ms": 3610.694959,
+          "p50_ms": 0.005292,
+          "p95_ms": 51.375125,
+          "p99_ms": 178.918083,
+          "retained": 20000
+        }
+      }
+    },
+    "before_restart": {
+      "at": "2026-10-27T08:12:54.714953+00:00",
+      "counters": {
+        "checkpoint_superseded": 1,
+        "ws_messages_received": 36236,
+        "ws_queue_overflow": 1
+      },
+      "limit_per_stage": 20000,
+      "quantiles": "bounded last samples; counts/max lifetime",
+      "stages": {
+        "certificate_hook": {
+          "count": 36515,
+          "max_ms": 831.310292,
+          "p50_ms": 0.110292,
+          "p95_ms": 0.729459,
+          "p99_ms": 2.258542,
+          "retained": 20000
+        },
+        "consumer_iteration": {
+          "count": 36515,
+          "max_ms": 1069.068291,
+          "p50_ms": 0.167583,
+          "p95_ms": 1.249959,
+          "p99_ms": 9.816459,
+          "retained": 20000
+        },
+        "critical_journal_save": {
+          "count": 6,
+          "max_ms": 1432.39725,
+          "p50_ms": 7.678417,
+          "p95_ms": 408.227417,
+          "p99_ms": 408.227417,
+          "retained": 6
+        },
+        "critical_lock_wait": {
+          "count": 6,
+          "max_ms": 6.559166,
+          "p50_ms": 0.001834,
+          "p95_ms": 0.089042,
+          "p99_ms": 0.089042,
+          "retained": 6
+        },
+        "dashboard_read": {
+          "count": 280,
+          "max_ms": 372.348292,
+          "p50_ms": 8.663,
+          "p95_ms": 54.930125,
+          "p99_ms": 237.285625,
+          "retained": 280
+        },
+        "dashboard_snapshot": {
+          "count": 286,
+          "max_ms": 1470.538292,
+          "p50_ms": 7.757416,
+          "p95_ms": 31.476333,
+          "p99_ms": 148.569792,
+          "retained": 286
+        },
+        "event_loop_lag": {
+          "count": 12729,
+          "max_ms": 2261.423707997892,
+          "p50_ms": 1.09045795397833,
+          "p95_ms": 8.30091699026525,
+          "p99_ms": 42.28554095607251,
+          "retained": 12729
+        },
+        "feed_process": {
+          "count": 36235,
+          "max_ms": 133.909542,
+          "p50_ms": 0.020042,
+          "p95_ms": 0.155542,
+          "p99_ms": 0.654334,
+          "retained": 20000
+        },
+        "filesystem_export": {
+          "count": 285,
+          "max_ms": 1940.697541,
+          "p50_ms": 35.845083,
+          "p95_ms": 391.322541,
+          "p99_ms": 1162.020916,
+          "retained": 285
+        },
+        "io_queue_wait": {
+          "count": 809,
+          "max_ms": 3742.529666,
+          "p50_ms": 4.022125,
+          "p95_ms": 255.989084,
+          "p99_ms": 2454.680208,
+          "retained": 809
+        },
+        "observation_publish": {
+          "count": 285,
+          "max_ms": 5909.539667,
+          "p50_ms": 49.178125,
+          "p95_ms": 536.87225,
+          "p99_ms": 1907.403875,
+          "retained": 285
+        },
+        "owner_rest_encode": {
+          "count": 185,
+          "max_ms": 76.840541,
+          "p50_ms": 0.04125,
+          "p95_ms": 3.633,
+          "p99_ms": 17.352417,
+          "retained": 185
+        },
+        "owner_snapshot_prepare": {
+          "count": 286,
+          "max_ms": 152.161625,
+          "p50_ms": 8.711125,
+          "p95_ms": 66.859708,
+          "p99_ms": 137.599458,
+          "retained": 286
+        },
+        "owner_state_encode": {
+          "count": 286,
+          "max_ms": 108.710458,
+          "p50_ms": 4.6295,
+          "p95_ms": 37.934584,
+          "p99_ms": 74.009833,
+          "retained": 286
+        },
+        "queue_wait": {
+          "count": 36235,
+          "max_ms": 2128.280292,
+          "p50_ms": 1.458375,
+          "p95_ms": 121.990375,
+          "p99_ms": 301.806167,
+          "retained": 20000
+        },
+        "raw_write": {
+          "count": 338,
+          "max_ms": 108.252667,
+          "p50_ms": 0.53275,
+          "p95_ms": 8.75475,
+          "p99_ms": 23.318416,
+          "retained": 338
+        },
+        "rest_compare_network_included": {
+          "count": 46,
+          "max_ms": 7622.761125,
+          "p50_ms": 1567.521875,
+          "p95_ms": 4789.4225,
+          "p99_ms": 6767.624125,
+          "retained": 46
+        },
+        "rest_evidence_write": {
+          "count": 185,
+          "max_ms": 106.266,
+          "p50_ms": 0.133084,
+          "p95_ms": 6.366125,
+          "p99_ms": 8.915125,
+          "retained": 185
+        },
+        "sqlite_checkpoint": {
+          "count": 285,
+          "max_ms": 5522.254583,
+          "p50_ms": 2.93925,
+          "p95_ms": 70.920583,
+          "p99_ms": 165.228834,
+          "retained": 285
+        },
+        "ws_decode": {
+          "count": 36236,
+          "max_ms": 45.277583,
+          "p50_ms": 0.004625,
+          "p95_ms": 0.040375,
+          "p99_ms": 0.151083,
+          "retained": 20000
+        },
+        "ws_receive_wait_provider_idle_included": {
+          "count": 36236,
+          "max_ms": 8074.811084,
+          "p50_ms": 0.007208,
+          "p95_ms": 58.802083,
+          "p99_ms": 170.485584,
+          "retained": 20000
+        }
+      }
+    }
+  },
+  "status": "READINESS_BLOCKED_STABILITY_TARGET_NOT_PASSED",
+  "tests": {
+    "complete_pertinent": 92,
+    "focused_stability_and_spot": 19,
+    "initial_failure": "4 failed solely missing adapters/databento/src in PYTHONPATH; corrected full92-test command passed without code changes",
+    "warnings": 4
+  }
+}

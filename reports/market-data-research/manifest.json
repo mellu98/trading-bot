@@ -1,0 +1,17 @@
+{
+  "account_registrations": 0,
+  "adapters_created": false,
+  "credentials_loaded": false,
+  "diagnostics_inputs_verified": 10,
+  "files": {
+    "reports/market-data-research/analyze.py": "bdaada111068600bd01e85abd3b59042622a7cd18967b706bb76d0cc69c335aa",
+    "reports/market-data-research/decision.md": "798666bdd053d6016214b8d03cb0710d04f08d81f3f808613f52969cf556a8aa",
+    "reports/market-data-research/diagnostics.json": "83c3585479fa14abb521805017690b3165b69a8fb7d614227ce050e39ffb8544"
+  },
+  "market_data_requests": 0,
+  "original_v2_source_hashes_verified": 5,
+  "purchases": 0,
+  "runtime_changes": false,
+  "status": "RESEARCH_ONLY_NO_ACCESS_ACTIVATED_NO_STRATEGY_PROMOTED",
+  "verified_on": "2026-10-26"
+}

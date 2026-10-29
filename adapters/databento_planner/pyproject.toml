@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "databento-session-planner"
+version = "0.1.0"
+requires-python = ">=3.12,<3.14"
+dependencies = ["databento==0.88.0", "databento-dbn==0.70.0", "pandas==3.1.0", "numpy==2.5.4", "exchange-calendars==4.13.2"]
+[dependency-groups]
+dev = ["pytest==8.4.2"]
+[project.scripts]
+databento-plan = "databento_planner.cli:main"
+[tool.setuptools.packages.find]
+where = ["src"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "../databento/src"]

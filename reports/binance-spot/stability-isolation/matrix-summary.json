@@ -1,0 +1,68 @@
+{
+  "all_original_source_checks": {
+    "reports/binance-spot/breakout-4h/runner.py": true,
+    "reports/binance-spot/forward-signals/recorder.py": true,
+    "reports/binance-spot/stability-isolation/control.py": true,
+    "reports/binance-spot/stability-isolation/runner.py": true,
+    "reports/binance-spot/stability-isolation/test_isolation.py": true,
+    "src/mnq_local/binance_app.py": true,
+    "src/mnq_local/binance_spot.py": true,
+    "src/mnq_timestral/strategy.py": true
+  },
+  "arms": {
+    "A": {
+      "connected": 600.3317244990001,
+      "delay": 0,
+      "frames": 133366,
+      "loop_max": 12.371041986625642,
+      "message_rate": 222.15384354591464,
+      "overflow": 3,
+      "queue_max": 6.126166,
+      "segments": [
+        "01-A",
+        "08-A"
+      ]
+    },
+    "B": {
+      "connected": 600.112506873,
+      "delay": 0,
+      "frames": 107885,
+      "loop_max": 22.35583297442645,
+      "message_rate": 179.77462353210274,
+      "overflow": 3,
+      "queue_max": 20.707542,
+      "segments": [
+        "02-B",
+        "07-B"
+      ]
+    },
+    "C": {
+      "connected": 600.112806417,
+      "delay": 0,
+      "frames": 98608,
+      "loop_max": 44.91391696501523,
+      "message_rate": 164.3157735438832,
+      "overflow": 4,
+      "queue_max": 20.023625,
+      "segments": [
+        "03-C",
+        "06-C"
+      ]
+    },
+    "D": {
+      "connected": 603.4830043749998,
+      "delay": 0,
+      "frames": 92302,
+      "loop_max": 50.31908297678456,
+      "message_rate": 152.94879778030042,
+      "overflow": 2,
+      "queue_max": 38.4445,
+      "segments": [
+        "04-D",
+        "05-D"
+      ]
+    }
+  },
+  "disposition": "Completedfrozen8segmentmatrix; no uncorrectedfinalsoak. ParentauthorizedonefairnessfixbeforepairedactualA/Dand30minsoak.",
+  "protected177_unchanged": true
+}
