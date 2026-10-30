@@ -1,0 +1,54 @@
+diff --git a/src/ict_engine/data_capital.py b/src/ict_engine/data_capital.py
+index 90fce97..4678e52 100644
+--- a/src/ict_engine/data_capital.py
++++ b/src/ict_engine/data_capital.py
+@@ -57,7 +57,14 @@ class ReadOnlyHistory:
+         time.sleep(0.15)  # stay well under the documented 10 requests/second
+         headers = {"Accept": "application/json", "User-Agent": "trading-bot-ict-history/1",
+                    **self.http.tokens}
+-        status, result, _ = self.http.sender("GET", path, headers, None)
++        for attempt in range(4):
++            try:
++                status, result, _ = self.http.sender("GET", path, headers, None)
++                break
++            except ConnectionError:  # CapitalError('transport_unknown'): timeout/reset on an idempotent GET
++                if attempt == 3:
++                    raise
++                time.sleep(2 * (attempt + 1))
+         if status in (401, 403) and self.relogins == 0:
+             self.relogins += 1
+             self.http.login()  # one renewal of an expired DEMO session, through the bot's own login
+@@ -127,8 +134,8 @@ def download(cache: Path, epic: str = "US100", months: int = 36, log=print) -> d
+     now = datetime.now(UTC).replace(second=0, microsecond=0)
+     end = now - timedelta(minutes=now.minute % 5)
+     stop_at = end - timedelta(days=int(months * 30.44))
+-    window = timedelta(seconds=STEP * PAGE)
+-    empty_streak, requests, rejected = 0, 0, None
++    window = timedelta(seconds=STEP * (PAGE - 1))  # from/to inclusive: 1000 steps = 1001 bars -> error.invalid.max.daterange
++    empty_streak, requests, rejected, quarantined = 0, 0, None, {}
+     while end > stop_at:
+         start = max(stop_at, end - window)
+         reply = history.prices(epic, start, end)
+@@ -147,7 +154,11 @@ def download(cache: Path, epic: str = "US100", months: int = 36, log=print) -> d
+         else:
+             empty_streak = 0
+             for raw in prices:
+-                row = _parse(raw)
++                try:
++                    row = _parse(raw)
++                except ValueError as error:  # broker candle anomaly: quarantined and counted, never repaired
++                    quarantined[str(error)] = quarantined.get(str(error), 0) + 1
++                    continue
+                 rows[row["start_utc"]] = row
+         if requests % 20 == 0:
+             log(f"  ...{start:%Y-%m-%d} ({len(rows)} bars)")
+@@ -165,7 +176,8 @@ def download(cache: Path, epic: str = "US100", months: int = 36, log=print) -> d
+         "epic": epic, "resolution": "MINUTE_5", "bars": len(ordered),
+         "first_start": ordered[0]["start_utc"] if ordered else None,
+         "last_start": ordered[-1]["start_utc"] if ordered else None,
+-        "requests": requests, "stopped_by": rejected, "downloaded_at_utc": datetime.now(UTC).isoformat(),
++        "requests": requests, "stopped_by": rejected, "quarantined_bars": quarantined,
++        "downloaded_at_utc": datetime.now(UTC).isoformat(),
+         "account_currency": account.get("currency"),
+         "instrument_overrides": instrument_overrides(market),
+         "csv_sha256": hashlib.sha256(target.read_bytes()).hexdigest(),
