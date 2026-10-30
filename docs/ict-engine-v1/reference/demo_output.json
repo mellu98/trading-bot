@@ -1,0 +1,14 @@
+{
+  "label": "SYNTHETIC EXECUTION DEMO \u2014 NOT A BACKTEST",
+  "trades": [
+    {
+      "signal_id": "synthetic-only",
+      "exit_at": "2026-01-05T14:10:00+00:00",
+      "exit_price": 104.0,
+      "reason": "TARGET",
+      "gross_eur": 2.0,
+      "fees_eur": 0.10200000000000001,
+      "net_eur": 1.898
+    }
+  ]
+}

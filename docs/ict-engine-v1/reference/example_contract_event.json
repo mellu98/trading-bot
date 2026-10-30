@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "event_id": "synthetic-bar-001",
+  "event_type": "Bar",
+  "event_time": "2026-01-05T13:05:00Z",
+  "received_at": "2026-01-05T13:05:00.100Z",
+  "payload": {
+    "symbol": "SYNTH",
+    "venue": "SIM",
+    "timeframe_seconds": 300,
+    "start_at": "2026-01-05T13:00:00Z",
+    "end_at": "2026-01-05T13:05:00Z",
+    "known_at": "2026-01-05T13:05:00.100Z",
+    "open": "100",
+    "high": "102",
+    "low": "99",
+    "close": "101",
+    "volume": null,
+    "price_basis": "MID",
+    "data_quality": "VALID",
+    "session_id": "2026-01-05_NY"
+  }
+}

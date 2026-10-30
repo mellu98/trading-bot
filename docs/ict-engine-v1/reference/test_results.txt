@@ -1,0 +1,38 @@
+test_atr_lag (test_engine.Tests.test_atr_lag) ... ok
+test_calendar_point_in_time (test_engine.Tests.test_calendar_point_in_time) ... ok
+test_calendar_stale (test_engine.Tests.test_calendar_stale) ... ok
+test_cancel (test_engine.Tests.test_cancel) ... ok
+test_dst (test_engine.Tests.test_dst) ... ok
+test_duplicate (test_engine.Tests.test_duplicate) ... ok
+test_end_to_end_long_and_mirror_short (test_engine.Tests.test_end_to_end_long_and_mirror_short) ... ok
+test_expiry (test_engine.Tests.test_expiry) ... ok
+test_fixed_fees (test_engine.Tests.test_fixed_fees) ... ok
+test_fvg (test_engine.Tests.test_fvg) ... ok
+test_gap_stop (test_engine.Tests.test_gap_stop) ... ok
+test_id_conflict (test_engine.Tests.test_id_conflict) ... ok
+test_idempotence (test_engine.Tests.test_idempotence) ... ok
+test_invalid_ohlc (test_engine.Tests.test_invalid_ohlc) ... ok
+test_live_forbidden (test_engine.Tests.test_live_forbidden) ... ok
+test_minimum_no_roundup (test_engine.Tests.test_minimum_no_roundup) ... ok
+test_mss_long (test_engine.Tests.test_mss_long) ... ok
+test_mss_requires_displacement (test_engine.Tests.test_mss_requires_displacement) ... ok
+test_nan (test_engine.Tests.test_nan) ... ok
+test_news_boundary (test_engine.Tests.test_news_boundary) ... ok
+test_no_same_bar_fill (test_engine.Tests.test_no_same_bar_fill) ... ok
+test_no_short_spot (test_engine.Tests.test_no_short_spot) ... ok
+test_no_target_on_entry_bar (test_engine.Tests.test_no_target_on_entry_bar) ... ok
+test_nonfinite_context (test_engine.Tests.test_nonfinite_context) ... ok
+test_pivot_delay (test_engine.Tests.test_pivot_delay) ... ok
+test_prefix_invariance (test_engine.Tests.test_prefix_invariance) ... ok
+test_risk (test_engine.Tests.test_risk) ... ok
+test_short_fvg (test_engine.Tests.test_short_fvg) ... ok
+test_size_both_accounts (test_engine.Tests.test_size_both_accounts) ... ok
+test_stop_first (test_engine.Tests.test_stop_first) ... ok
+test_sweep (test_engine.Tests.test_sweep) ... ok
+test_sweep_no_recovery (test_engine.Tests.test_sweep_no_recovery) ... ok
+test_tie_rejected (test_engine.Tests.test_tie_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 33 tests in 0.004s
+
+OK

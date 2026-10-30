@@ -1,0 +1,972 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ICT Integration Contract v1.0",
+  "description": "Envelope stack-neutral. Decimal values are strings. Runtime relational invariants in handoff remain mandatory.",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "event_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "event_type": {
+      "enum": [
+        "Bar",
+        "Quote",
+        "Instrument",
+        "SignalIntent",
+        "OrderCommand",
+        "ExecutionReport",
+        "EconomicEvent",
+        "AccountSnapshot"
+      ]
+    },
+    "event_time": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "received_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "payload": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/Bar"
+        },
+        {
+          "$ref": "#/$defs/Quote"
+        },
+        {
+          "$ref": "#/$defs/Instrument"
+        },
+        {
+          "$ref": "#/$defs/SignalIntent"
+        },
+        {
+          "$ref": "#/$defs/OrderCommand"
+        },
+        {
+          "$ref": "#/$defs/ExecutionReport"
+        },
+        {
+          "$ref": "#/$defs/EconomicEvent"
+        },
+        {
+          "$ref": "#/$defs/AccountSnapshot"
+        }
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "event_id",
+    "event_type",
+    "event_time",
+    "received_at",
+    "payload"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "event_type": {
+            "const": "Bar"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "payload": {
+            "$ref": "#/$defs/Bar"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "event_type": {
+            "const": "Quote"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "payload": {
+            "$ref": "#/$defs/Quote"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "event_type": {
+            "const": "Instrument"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "payload": {
+            "$ref": "#/$defs/Instrument"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "event_type": {
+            "const": "SignalIntent"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "payload": {
+            "$ref": "#/$defs/SignalIntent"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "event_type": {
+            "const": "OrderCommand"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "payload": {
+            "$ref": "#/$defs/OrderCommand"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "event_type": {
+            "const": "ExecutionReport"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "payload": {
+            "$ref": "#/$defs/ExecutionReport"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "event_type": {
+            "const": "EconomicEvent"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "payload": {
+            "$ref": "#/$defs/EconomicEvent"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "event_type": {
+            "const": "AccountSnapshot"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "payload": {
+            "$ref": "#/$defs/AccountSnapshot"
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "Bar": {
+      "type": "object",
+      "properties": {
+        "symbol": {
+          "type": "string",
+          "minLength": 1
+        },
+        "venue": {
+          "type": "string",
+          "minLength": 1
+        },
+        "timeframe_seconds": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "start_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "end_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "known_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "open": {
+          "type": "string",
+          "pattern": "^[0-9]+(\\.[0-9]+)?$"
+        },
+        "high": {
+          "type": "string",
+          "pattern": "^[0-9]+(\\.[0-9]+)?$"
+        },
+        "low": {
+          "type": "string",
+          "pattern": "^[0-9]+(\\.[0-9]+)?$"
+        },
+        "close": {
+          "type": "string",
+          "pattern": "^[0-9]+(\\.[0-9]+)?$"
+        },
+        "volume": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9]+(\\.[0-9]+)?$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "price_basis": {
+          "enum": [
+            "MID",
+            "BID",
+            "ASK",
+            "TRADE"
+          ]
+        },
+        "data_quality": {
+          "enum": [
+            "VALID",
+            "MISSING",
+            "INVALID"
+          ]
+        },
+        "session_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "symbol",
+        "venue",
+        "timeframe_seconds",
+        "start_at",
+        "end_at",
+        "known_at",
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume",
+        "price_basis",
+        "data_quality",
+        "session_id"
+      ],
+      "additionalProperties": false
+    },
+    "Quote": {
+      "type": "object",
+      "properties": {
+        "symbol": {
+          "type": "string",
+          "minLength": 1
+        },
+        "venue": {
+          "type": "string",
+          "minLength": 1
+        },
+        "event_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "known_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "bid": {
+          "type": "string",
+          "pattern": "^[0-9]+(\\.[0-9]+)?$"
+        },
+        "ask": {
+          "type": "string",
+          "pattern": "^[0-9]+(\\.[0-9]+)?$"
+        },
+        "bid_qty": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9]+(\\.[0-9]+)?$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "ask_qty": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9]+(\\.[0-9]+)?$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "sequence": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "symbol",
+        "venue",
+        "event_at",
+        "known_at",
+        "bid",
+        "ask",
+        "bid_qty",
+        "ask_qty",
+        "sequence"
+      ],
+      "additionalProperties": false
+    },
+    "Instrument": {
+      "type": "object",
+      "properties": {
+        "symbol": {
+          "type": "string",
+          "minLength": 1
+        },
+        "venue": {
+          "type": "string",
+          "minLength": 1
+        },
+        "known_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "asset_class": {
+          "enum": [
+            "SPOT",
+            "FX_OTC",
+            "CFD",
+            "FUTURE"
+          ]
+        },
+        "base_currency": {
+          "type": "string",
+          "minLength": 1
+        },
+        "quote_currency": {
+          "type": "string",
+          "minLength": 1
+        },
+        "account_currency": {
+          "const": "EUR"
+        },
+        "tick_size": {
+          "type": "string",
+          "pattern": "^[0-9]+(\\.[0-9]+)?$"
+        },
+        "lot_step": {
+          "type": "string",
+          "pattern": "^[0-9]+(\\.[0-9]+)?$"
+        },
+        "min_qty": {
+          "type": "string",
+          "pattern": "^[0-9]+(\\.[0-9]+)?$"
+        },
+        "max_qty": {
+          "type": "string",
+          "pattern": "^[0-9]+(\\.[0-9]+)?$"
+        },
+        "min_notional": {
+          "type": "string",
+          "pattern": "^[0-9]+(\\.[0-9]+)?$"
+        },
+        "multiplier": {
+          "type": "string",
+          "pattern": "^[0-9]+(\\.[0-9]+)?$"
+        },
+        "short_allowed": {
+          "type": "boolean"
+        },
+        "native_stop": {
+          "type": "boolean"
+        },
+        "native_oco": {
+          "type": "boolean"
+        },
+        "reduce_only": {
+          "type": "boolean"
+        },
+        "fee_schedule_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "margin_model_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "metadata_version": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "symbol",
+        "venue",
+        "known_at",
+        "asset_class",
+        "base_currency",
+        "quote_currency",
+        "account_currency",
+        "tick_size",
+        "lot_step",
+        "min_qty",
+        "max_qty",
+        "min_notional",
+        "multiplier",
+        "short_allowed",
+        "native_stop",
+        "native_oco",
+        "reduce_only",
+        "fee_schedule_id",
+        "margin_model_id",
+        "metadata_version"
+      ],
+      "additionalProperties": false
+    },
+    "SignalIntent": {
+      "type": "object",
+      "properties": {
+        "signal_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "strategy_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "config_hash": {
+          "type": "string",
+          "minLength": 1
+        },
+        "symbol": {
+          "type": "string",
+          "minLength": 1
+        },
+        "venue": {
+          "type": "string",
+          "minLength": 1
+        },
+        "direction": {
+          "enum": [
+            "LONG",
+            "SHORT"
+          ]
+        },
+        "decision_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "known_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "eligible_after": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "expires_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "entry": {
+          "type": "string",
+          "pattern": "^[0-9]+(\\.[0-9]+)?$"
+        },
+        "stop": {
+          "type": "string",
+          "pattern": "^[0-9]+(\\.[0-9]+)?$"
+        },
+        "target": {
+          "type": "string",
+          "pattern": "^[0-9]+(\\.[0-9]+)?$"
+        },
+        "quantity": {
+          "type": "string",
+          "pattern": "^[0-9]+(\\.[0-9]+)?$"
+        },
+        "risk_eur": {
+          "type": "string",
+          "pattern": "^[0-9]+(\\.[0-9]+)?$"
+        },
+        "estimated_cost_eur": {
+          "type": "string",
+          "pattern": "^[0-9]+(\\.[0-9]+)?$"
+        },
+        "net_rr": {
+          "type": "string",
+          "pattern": "^[0-9]+(\\.[0-9]+)?$"
+        },
+        "order_type": {
+          "const": "LIMIT"
+        },
+        "reason_codes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "market_context": {
+          "type": "object",
+          "properties": {
+            "sweep_pool_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sweep_extreme": {
+              "type": "string",
+              "pattern": "^[0-9]+(\\.[0-9]+)?$"
+            },
+            "mss_level": {
+              "type": "string",
+              "pattern": "^[0-9]+(\\.[0-9]+)?$"
+            },
+            "atr_lag": {
+              "type": "string",
+              "pattern": "^[0-9]+(\\.[0-9]+)?$"
+            },
+            "spread": {
+              "type": "string",
+              "pattern": "^[0-9]+(\\.[0-9]+)?$"
+            },
+            "source_event_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "calendar_snapshot_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "metadata_version": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "sweep_pool_id",
+            "sweep_extreme",
+            "mss_level",
+            "atr_lag",
+            "spread",
+            "source_event_ids",
+            "calendar_snapshot_id",
+            "metadata_version"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "signal_id",
+        "strategy_version",
+        "config_hash",
+        "symbol",
+        "venue",
+        "direction",
+        "decision_at",
+        "known_at",
+        "eligible_after",
+        "expires_at",
+        "entry",
+        "stop",
+        "target",
+        "quantity",
+        "risk_eur",
+        "estimated_cost_eur",
+        "net_rr",
+        "order_type",
+        "reason_codes",
+        "market_context"
+      ],
+      "additionalProperties": false
+    },
+    "OrderCommand": {
+      "type": "object",
+      "properties": {
+        "command_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "client_order_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "action": {
+          "enum": [
+            "CREATE",
+            "MODIFY",
+            "CANCEL",
+            "RECONCILE"
+          ]
+        },
+        "symbol": {
+          "type": "string",
+          "minLength": 1
+        },
+        "side": {
+          "enum": [
+            "BUY",
+            "SELL"
+          ]
+        },
+        "quantity": {
+          "type": "string",
+          "pattern": "^[0-9]+(\\.[0-9]+)?$"
+        },
+        "order_type": {
+          "enum": [
+            "LIMIT",
+            "STOP_MARKET",
+            "MARKET"
+          ]
+        },
+        "limit_price": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9]+(\\.[0-9]+)?$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "stop_price": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9]+(\\.[0-9]+)?$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reduce_only": {
+          "type": "boolean"
+        },
+        "parent_signal_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "previous_order_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "expected_order_version": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "risk_reservation_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "submitted_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "expires_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "command_id",
+        "client_order_id",
+        "action",
+        "symbol",
+        "side",
+        "quantity",
+        "order_type",
+        "limit_price",
+        "stop_price",
+        "reduce_only",
+        "parent_signal_id",
+        "previous_order_id",
+        "expected_order_version",
+        "risk_reservation_id",
+        "submitted_at",
+        "expires_at"
+      ],
+      "additionalProperties": false
+    },
+    "ExecutionReport": {
+      "type": "object",
+      "properties": {
+        "execution_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "client_order_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "broker_order_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "order_version": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "state": {
+          "enum": [
+            "ACK",
+            "PARTIAL",
+            "FILLED",
+            "CANCELLED",
+            "REJECTED",
+            "EXPIRED",
+            "UNKNOWN"
+          ]
+        },
+        "event_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "known_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "cumulative_qty": {
+          "type": "string",
+          "pattern": "^[0-9]+(\\.[0-9]+)?$"
+        },
+        "last_qty": {
+          "type": "string",
+          "pattern": "^[0-9]+(\\.[0-9]+)?$"
+        },
+        "last_price": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9]+(\\.[0-9]+)?$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "fee_amount": {
+          "type": "string",
+          "pattern": "^-?[0-9]+(\\.[0-9]+)?$"
+        },
+        "fee_currency": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reason_code": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "execution_id",
+        "client_order_id",
+        "broker_order_id",
+        "order_version",
+        "state",
+        "event_at",
+        "known_at",
+        "cumulative_qty",
+        "last_qty",
+        "last_price",
+        "fee_amount",
+        "fee_currency",
+        "reason_code"
+      ],
+      "additionalProperties": false
+    },
+    "EconomicEvent": {
+      "type": "object",
+      "properties": {
+        "event_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "snapshot_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scheduled_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "known_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "currency": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "importance": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3
+        },
+        "category": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "SCHEDULED",
+            "DELAYED",
+            "RELEASED",
+            "CANCELLED"
+          ]
+        },
+        "actual_first_release": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^-?[0-9]+(\\.[0-9]+)?$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "event_id",
+        "snapshot_id",
+        "scheduled_at",
+        "known_at",
+        "updated_at",
+        "currency",
+        "importance",
+        "category",
+        "status",
+        "actual_first_release"
+      ],
+      "additionalProperties": false
+    },
+    "AccountSnapshot": {
+      "type": "object",
+      "properties": {
+        "account_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "known_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "equity_eur": {
+          "type": "string",
+          "pattern": "^[0-9]+(\\.[0-9]+)?$"
+        },
+        "available_cash_eur": {
+          "type": "string",
+          "pattern": "^[0-9]+(\\.[0-9]+)?$"
+        },
+        "available_margin_eur": {
+          "type": "string",
+          "pattern": "^[0-9]+(\\.[0-9]+)?$"
+        },
+        "reserved_risk_eur": {
+          "type": "string",
+          "pattern": "^[0-9]+(\\.[0-9]+)?$"
+        },
+        "day_start_equity_eur": {
+          "type": "string",
+          "pattern": "^[0-9]+(\\.[0-9]+)?$"
+        },
+        "week_start_equity_eur": {
+          "type": "string",
+          "pattern": "^[0-9]+(\\.[0-9]+)?$"
+        },
+        "peak_equity_eur": {
+          "type": "string",
+          "pattern": "^[0-9]+(\\.[0-9]+)?$"
+        },
+        "net_flows_eur": {
+          "type": "string",
+          "pattern": "^-?[0-9]+(\\.[0-9]+)?$"
+        },
+        "reconciled": {
+          "type": "boolean"
+        },
+        "halted": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "account_id",
+        "known_at",
+        "equity_eur",
+        "available_cash_eur",
+        "available_margin_eur",
+        "reserved_risk_eur",
+        "day_start_equity_eur",
+        "week_start_equity_eur",
+        "peak_equity_eur",
+        "net_flows_eur",
+        "reconciled",
+        "halted"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
