@@ -20,6 +20,9 @@ from zoneinfo import ZoneInfo
 
 from .sizing import slippage_for
 
+# Signal metadata copied onto the trade record (engine v2 audit fields).
+PASS_THROUGH = ("model", "score", "confluence", "array", "pool_type", "smt")
+
 
 class SimulationAdapter:
     def __init__(self, cfg, *, optimistic=False):
@@ -32,6 +35,7 @@ class SimulationAdapter:
         self.active = {}  # PENDING/OPEN only; keeps per-bar work O(1) on long runs
         self.fills = []
         self.cancels = []
+        self.new_fills = []
 
     # ------------------------------------------------------------ lifecycle
     def create(self, signal):
@@ -46,7 +50,8 @@ class SimulationAdapter:
             raise ValueError("qty")
         row = {"signal": dict(signal), "status": "PENDING", "held": 0,
                "known_at": datetime.fromisoformat(signal["known_at"]),
-               "expires_at": datetime.fromisoformat(signal["expires_at"])}
+               "expires_at": datetime.fromisoformat(signal["expires_at"]),
+               "flat_at": datetime.fromisoformat(signal["flat_at"]) if signal.get("flat_at") else None}
         self.orders[sid] = row
         self.active[sid] = row
         return row
@@ -71,6 +76,39 @@ class SimulationAdapter:
     def reconcile(self):
         return list(self.orders.values())
 
+    def flatten(self, b, spread, reason="ROLL"):
+        """Close every open position at bar b's close (market, with slippage); cancel pending orders.
+
+        Used at a futures roll: prices of the next contract must never settle the old one.
+        """
+        out = []
+        c = self.cfg
+        for sid, x in list(self.active.items()):
+            if x["status"] == "PENDING":
+                self.cancel(sid, "CANCEL_" + reason, b.ts.isoformat())
+                continue
+            s, d = x["signal"], x["signal"]["direction"]
+            side = -spread / 2 if d == 1 else spread / 2
+            slip = s["slippage"] if "slippage" in s else slippage_for(s["entry"], c)
+            exit_price = b.c + side - d * slip
+            q, m, fx = s["qty"], c["multiplier"], c["quote_to_eur"]
+            gross = d * (exit_price - x["entry_fill"]) * q * m * fx
+            fees = c["fee_rate"] * (exit_price + x["entry_fill"]) * q * m * fx + c["fixed_fee_eur"] + q * c["unit_fee_eur"]
+            result = {
+                "signal_id": sid, "direction": d, "known_at": s["known_at"], "filled_at": x["filled_at"],
+                "exit_at": b.ts.isoformat(), "entry": x["entry_fill"], "stop": s["stop"], "target": s["target"],
+                "exit_price": exit_price, "reason": reason, "qty": q, "held_bars": x["held"],
+                "gross_eur": gross, "fees_eur": fees, "net_eur": gross - fees, "risk_eur": s["risk_eur"],
+                "R": (gross - fees) / s["risk_eur"] if s["risk_eur"] > 0 else 0.0,
+                "ambiguous_bar": False, "atr_lag": s.get("atr_lag"), "slippage": slip,
+                **{k: s[k] for k in PASS_THROUGH if k in s},
+            }
+            x["status"] = "CLOSED"
+            self.active.pop(sid, None)
+            self.fills.append(result)
+            out.append(result)
+        return out
+
     # ------------------------------------------------------------ per bar
     def _clock(self, ts):
         local = ts.astimezone(self.tz)
@@ -78,6 +116,7 @@ class SimulationAdapter:
 
     def on_bar(self, b, spread):
         out = []
+        self.new_fills = []
         c = self.cfg
         tick = c["tick_size"]
         end_clock = self._clock(b.ts)
@@ -85,14 +124,20 @@ class SimulationAdapter:
         cutoff = c["session_end"]
         # Positions exist only inside the session window, so the first bar ending
         # at/after the cutoff closes them; a bar starting at/after it cancels orders.
-        reaches_cutoff = end_clock >= cutoff
-        starts_after_cutoff = start_clock >= cutoff
+        session_reaches = end_clock >= cutoff
+        session_starts_after = start_clock >= cutoff
+        bar_start = b.ts - timedelta(seconds=c["timeframe_seconds"])
         for sid, x in list(self.active.items()):
             s = x["signal"]
             d = s["direction"]
             new = False
             if b.ts <= x["known_at"]:
                 continue
+            flat = x.get("flat_at")
+            if flat is not None:  # per-signal flat time (multi-window engines)
+                reaches_cutoff, starts_after_cutoff = b.ts >= flat, bar_start >= flat
+            else:
+                reaches_cutoff, starts_after_cutoff = session_reaches, session_starts_after
             if x["status"] == "PENDING":
                 if b.ts >= x["expires_at"]:
                     x["status"] = "EXPIRED"
@@ -112,6 +157,7 @@ class SimulationAdapter:
                 x["status"] = "OPEN"
                 x["entry_fill"] = s["entry"]
                 x["filled_at"] = b.ts.isoformat()
+                self.new_fills.append(sid)
                 new = True
             if x["status"] != "OPEN":
                 continue
@@ -148,7 +194,8 @@ class SimulationAdapter:
                     "exit_price": exit_price, "reason": why, "qty": q, "held_bars": x["held"],
                     "gross_eur": gross, "fees_eur": fees, "net_eur": net, "risk_eur": s["risk_eur"],
                     "R": net / s["risk_eur"] if s["risk_eur"] > 0 else 0.0,
-                    "ambiguous_bar": ambiguous, "atr_lag": s.get("atr_lag"),
+                    "ambiguous_bar": ambiguous, "atr_lag": s.get("atr_lag"), "slippage": slip,
+                    **{k: s[k] for k in PASS_THROUGH if k in s},
                 }
                 x["status"] = "CLOSED"
                 self.active.pop(sid, None)

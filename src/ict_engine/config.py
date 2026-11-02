@@ -132,7 +132,115 @@ PROFILES = {
         "slippage_price": 0.25, "spread_mode": "fixed", "spread_price": 0.25,
         "short_allowed": True, "margin_per_contract": 1500, "quote_to_eur": 1,
     },
+
+    # Capital.com DEMO FX CFDs, native bid/ask. Lot step, minimum size, margin and
+    # tick are replaced by the /markets metadata saved at download time.
+    "capital-eurusd-cfd": {
+        "symbol": "EURUSD", "venue": "capital-demo-cfd", "account_currency": "USD",
+        "synthetic_profile": False, "initial_equity": 5000, "available_cash_eur": 5000,
+        "tick_size": 0.00001, "lot_step": 1, "min_qty": 100, "min_notional": 0,  # assumption until metadata
+        "fee_rate": 0.0, "unit_fee_eur": 0, "slippage_bps": 0.3,  # ~0.3 pip on stop/time exits
+        "spread_mode": "bar", "short_allowed": True, "margin_rate": 0.0333,
+        "multiplier": 1, "quote_to_eur": 1,
+    },
+    "capital-gbpusd-cfd": {
+        "symbol": "GBPUSD", "venue": "capital-demo-cfd", "account_currency": "USD",
+        "synthetic_profile": False, "initial_equity": 5000, "available_cash_eur": 5000,
+        "tick_size": 0.00001, "lot_step": 1, "min_qty": 100, "min_notional": 0,
+        "fee_rate": 0.0, "unit_fee_eur": 0, "slippage_bps": 0.3,
+        "spread_mode": "bar", "short_allowed": True, "margin_rate": 0.0333,
+        "multiplier": 1, "quote_to_eur": 1,
+    },
+    "capital-audusd-cfd": {
+        "symbol": "AUDUSD", "venue": "capital-demo-cfd", "account_currency": "USD",
+        "synthetic_profile": False, "initial_equity": 5000, "available_cash_eur": 5000,
+        "tick_size": 0.00001, "lot_step": 1, "min_qty": 100, "min_notional": 0,
+        "fee_rate": 0.0, "unit_fee_eur": 0, "slippage_bps": 0.3,
+        "spread_mode": "bar", "short_allowed": True, "margin_rate": 0.0333,
+        "multiplier": 1, "quote_to_eur": 1,
+    },
+    # Full-size CME contracts (24h data via CSV). Research-sized accounts: read R only.
+    "cme-nq": {
+        "symbol": "NQ", "venue": "cme", "account_currency": "USD", "synthetic_profile": False,
+        "initial_equity": 1000000, "available_cash_eur": 1000000, "sizing_realistic": False,
+        "tick_size": 0.25, "multiplier": 20, "lot_step": 1, "min_qty": 1, "min_notional": 0,
+        "fee_rate": 0.0, "unit_fee_eur": 4.50,  # assumption: retail all-in round trip per contract
+        "slippage_price": 0.25, "spread_mode": "fixed", "spread_price": 0.25,
+        "short_allowed": True, "margin_per_contract": 20000, "quote_to_eur": 1,
+    },
+    "cme-es": {
+        "symbol": "ES", "venue": "cme", "account_currency": "USD", "synthetic_profile": False,
+        "initial_equity": 1000000, "available_cash_eur": 1000000, "sizing_realistic": False,
+        "tick_size": 0.25, "multiplier": 50, "lot_step": 1, "min_qty": 1, "min_notional": 0,
+        "fee_rate": 0.0, "unit_fee_eur": 4.50,
+        "slippage_price": 0.25, "spread_mode": "fixed", "spread_price": 0.25,
+        "short_allowed": True, "margin_per_contract": 14000, "quote_to_eur": 1,
+    },
 }
+
+# Asset class per profile (engine v2 only: A1 configs and hashes are unchanged).
+ASSET_CLASS = {
+    "synthetic": "index", "binance-btcusdt-spot": "crypto", "capital-btcusd-cfd": "crypto",
+    "capital-us100-cfd": "index", "capital-us500-cfd": "index",
+    "capital-eurusd-cfd": "fx", "capital-gbpusd-cfd": "fx", "capital-audusd-cfd": "fx",
+    "cme-mnq": "future", "cme-mes": "future", "cme-nq": "future", "cme-es": "future",
+}
+
+# SMT companion: correlated market compared at every reversal sweep.
+COMPANION = {"US100": "US500", "US500": "US100", "EURUSD": "GBPUSD", "GBPUSD": "EURUSD",
+             "AUDUSD": "EURUSD", "MNQ": "MES", "MES": "MNQ", "NQ": "ES", "ES": "NQ"}
+
+# ---------------------------------------------------------------- engine v2
+# "Full" ICT engine (docs/ict-engine-v1/13 concept catalog). Every number is a
+# project convention (P), not an ICT attribution. Windows: (decide_from,
+# decide_until, flat_at) in New York time.
+_INDEX_PRESET = {
+    "windows": [["07:00", "11:00", "12:00"], ["13:30", "15:30", "16:00"]],
+    "killzones": [["08:30", "11:00"], ["13:30", "16:00"]],
+    "silver_bullet_windows": [["10:00", "11:00"], ["14:00", "15:00"]],
+}
+_FX_PRESET = {
+    "windows": [["02:00", "05:00", "08:00"], ["07:00", "11:00", "12:00"]],
+    "killzones": [["02:00", "05:00"], ["07:00", "10:00"]],
+    "silver_bullet_windows": [["03:00", "04:00"], ["10:00", "11:00"]],
+}
+V2_PRESETS = {"index": _INDEX_PRESET, "future": _INDEX_PRESET, "fx": _FX_PRESET, "crypto": _INDEX_PRESET}
+
+V2_DEFAULTS = {
+    "engine": "v2",
+    "version": "ict2-1.0",
+    "asset_class": "index",
+    "sessions": {"asia": ["20:00", "24:00"], "london": ["02:00", "05:00"], "nyam": ["07:00", "11:00"]},
+    "models": ["reversal", "continuation", "silver_bullet"],
+    "pool_types": ["swing", "equal", "h1", "pd", "pw", "asia", "london", "nyam"],
+    "equal_tolerance_atr": 0.05,
+    "equal_min_separation": 3,
+    "equal_lookback_mult": 3,
+    "h1_pivot": 2,
+    "h1_pool_hours": 120,
+    "pd_arrays": ["fvg", "ifvg", "breaker", "ob", "ote"],
+    "leg_max_bars": 24,
+    "ob_lookback": 5,
+    "breaker_lookback": 10,
+    "ifvg_lookback": 20,
+    "ifvg_retest_bars": 6,
+    "ote_low": 0.62,
+    "ote_high": 0.79,
+    "ote_entry": 0.705,
+    "target_mode": "nearest",      # nearest (spec: never skip an obstacle) | nearest_rr | fixed_rr
+    "fixed_rr": 2.0,
+    "min_confluence": 0,
+    "sb_bias": "either",           # h1 | daily | either (non-zero and not contradicting)
+    "cont_pullback_z": 0.5,
+    "max_cost_risk": 0.25,         # (spread + slippage + fees) / stop distance
+    "v2_max_spread_atr": None,     # optional legacy gate; off by default
+    "no_entry_before_flat_minutes": 30,
+    "max_hold_bars": 48,
+    "smt_enabled": True,
+}
+
+V2_STRATEGY_KEYS = tuple(k for k in V2_DEFAULTS if k not in ("engine", "version", "asset_class", "smt_enabled")) + (
+    "windows", "killzones", "silver_bullet_windows")
 
 # Cost scenarios (protocol 07 stress): multipliers on fees and slippage.
 SCENARIOS = {
@@ -143,15 +251,30 @@ SCENARIOS = {
 }
 
 
-def build(profile: str = "synthetic", overrides: dict | None = None, scenario: str = "base") -> dict:
+V2_VERSION = "ICT2-1.0"
+
+
+def build(profile: str = "synthetic", overrides: dict | None = None, scenario: str = "base",
+          engine: str = "a1") -> dict:
+    """Build a frozen config. engine="a1" reproduces the package baseline exactly;
+    engine="v2" adds the full-ICT keys and the asset-class windows on top."""
     if profile not in PROFILES:
         raise ValueError(f"unknown profile {profile!r}; available: {sorted(PROFILES)}")
     if scenario not in SCENARIOS:
         raise ValueError(f"unknown scenario {scenario!r}")
+    if engine not in ("a1", "v2"):
+        raise ValueError("engine must be a1 or v2")
     cfg = copy.deepcopy(BASELINE)
     cfg.update(copy.deepcopy(EXTENSION_DEFAULTS))
     cfg.update(copy.deepcopy(PROFILES[profile]))
     cfg["profile"] = profile
+    if engine == "v2":
+        asset = ASSET_CLASS.get(profile, "index")
+        cfg.update(copy.deepcopy(V2_DEFAULTS))
+        cfg["asset_class"] = asset
+        cfg.update(copy.deepcopy(V2_PRESETS[asset]))
+        if asset == "crypto":
+            cfg["weekdays"] = [0, 1, 2, 3, 4, 5, 6]
     for key, value in (overrides or {}).items():
         if key not in cfg:
             raise ValueError(f"unknown config key {key!r}")
@@ -175,6 +298,23 @@ def validate(cfg: dict) -> None:
         raise ValueError("optional HTF/premium/daily-bias filters are specified but not implemented")
     if cfg["fvg_ttl_bars"] != 1:
         raise ValueError("A1 requires the FVG on the bar immediately after the MSS")
+    if cfg.get("engine") == "v2":
+        unknown = set(cfg["models"]) - {"reversal", "continuation", "silver_bullet"}
+        if unknown or not cfg["models"]:
+            raise ValueError(f"unknown models {sorted(unknown)}")
+        unknown = set(cfg["pd_arrays"]) - {"fvg", "ifvg", "breaker", "ob", "ote"}
+        if unknown or not cfg["pd_arrays"]:
+            raise ValueError(f"unknown pd_arrays {sorted(unknown)}")
+        unknown = set(cfg["pool_types"]) - {"swing", "equal", "h1", "pd", "pw", "asia", "london", "nyam"}
+        if unknown:
+            raise ValueError(f"unknown pool_types {sorted(unknown)}")
+        if cfg["target_mode"] not in ("nearest", "nearest_rr", "fixed_rr"):
+            raise ValueError("target_mode must be nearest|nearest_rr|fixed_rr")
+        if cfg["sb_bias"] not in ("h1", "daily", "either"):
+            raise ValueError("sb_bias must be h1|daily|either")
+        for w in cfg["windows"]:
+            if not (len(w) == 3 and w[0] < w[1] <= w[2]):
+                raise ValueError(f"window {w} must be [start, end, flat] with start < end <= flat")
     if cfg["spread_mode"] not in ("context", "fixed", "bps", "bar"):
         raise ValueError("spread_mode must be context|fixed|bps|bar")
     if cfg["drawdown_policy"] not in ("halt", "record"):
@@ -186,16 +326,21 @@ def validate(cfg: dict) -> None:
             raise ValueError(f"{key} must be positive")
 
 
+def version_of(cfg: dict) -> str:
+    return V2_VERSION if cfg.get("engine") == "v2" else STRATEGY_VERSION
+
+
 def config_hash(cfg: dict) -> str:
-    canonical = json.dumps({"strategy_version": STRATEGY_VERSION, **cfg}, sort_keys=True,
+    canonical = json.dumps({"strategy_version": version_of(cfg), **cfg}, sort_keys=True,
                            separators=(",", ":"), allow_nan=False)
     return hashlib.sha256(canonical.encode()).hexdigest()
 
 
 def strategy_hash(cfg: dict) -> str:
     """Hash of the hypothesis only (strategy keys), independent of venue and costs."""
-    part = {k: cfg[k] for k in STRATEGY_KEYS}
-    canonical = json.dumps({"strategy_version": STRATEGY_VERSION, **part}, sort_keys=True,
+    keys = STRATEGY_KEYS + (V2_STRATEGY_KEYS if cfg.get("engine") == "v2" else ())
+    part = {k: cfg[k] for k in keys}
+    canonical = json.dumps({"strategy_version": version_of(cfg), **part}, sort_keys=True,
                            separators=(",", ":"))
     return hashlib.sha256(canonical.encode()).hexdigest()
 

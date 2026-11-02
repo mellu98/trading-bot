@@ -64,6 +64,10 @@ class RiskLedger:
         self.week_start = self.equity
         self.consecutive_losses = 0
         self.daily_trades = 0
+        self.daily_fills = 0
+        # Spec 06: the daily trade limit counts first fills. A1 (archived) counted
+        # intents, which is stricter; kept unchanged for reproducibility.
+        self.count_fills = cfg.get("engine") == "v2"
         self.halted = False
         self.first_drawdown_breach = None
         self.max_drawdown = 0.0
@@ -73,6 +77,7 @@ class RiskLedger:
             self.day = _day(ts)
             self.day_start = self.equity
             self.daily_trades = 0
+            self.daily_fills = 0
             self.consecutive_losses = 0
         if self.week != _week(ts):
             self.week = _week(ts)
@@ -93,7 +98,7 @@ class RiskLedger:
             week_return=(self.equity - self.week_start) / self.week_start if self.week_start > 0 else -1.0,
             drawdown=dd_for_gate,
             consecutive_losses=self.consecutive_losses,
-            daily_trades=self.daily_trades,
+            daily_trades=self.daily_fills if self.count_fills else self.daily_trades,
             concurrent=1 if exposure else 0,
             reserved_fraction=self.cfg["risk_fraction"] if exposure else 0.0,
             halted=self.halted,
@@ -102,6 +107,10 @@ class RiskLedger:
     def on_intent(self, ts: datetime) -> None:
         self.roll(ts)
         self.daily_trades += 1
+
+    def on_fill(self, ts: datetime) -> None:
+        self.roll(ts)
+        self.daily_fills += 1
 
     def on_close(self, ts: datetime, net: float) -> None:
         self.roll(ts)

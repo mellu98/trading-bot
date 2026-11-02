@@ -14,6 +14,7 @@ import random
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
+from . import windows
 from .backtest import spread_for
 from .sizing import slippage_for
 
@@ -32,25 +33,25 @@ def build_index(segments, cfg, start: datetime, end: datetime):
     tz = ZoneInfo(cfg["session_timezone"])
     pools: dict[int, list] = {}
     atrs = []
+    min_left = timedelta(minutes=cfg.get("no_entry_before_flat_minutes", 0)) if cfg.get("engine") == "v2" else timedelta(0)
     for s_idx, seg in enumerate(segments):
         atr = _lagged_atr(seg, cfg["atr_period"])
         atrs.append(atr)
         for k, b in enumerate(seg[:-1]):
             if b.ts < start or b.ts >= end or atr[k] is None or atr[k] <= 0:
                 continue
-            local = b.ts.astimezone(tz)
-            clock = f"{local.hour:02d}:{local.minute:02d}"
-            if local.weekday() not in cfg["weekdays"] or not (cfg["session_start"] <= clock < cfg["session_end"]):
+            flat = windows.flat_at(b.ts, cfg)
+            if flat is None or flat - b.ts < min_left:
                 continue
-            pools.setdefault(local.hour, []).append((s_idx, k))
+            pools.setdefault(b.ts.astimezone(tz).hour, []).append((s_idx, k))
     return pools, atrs
 
 
 def simulate_unit(seg, k, atr, d, stop_atr, target_atr, cfg):
     """Market entry at bar k+1 open; returns R per unit or None if not simulable."""
-    tz = ZoneInfo(cfg["session_timezone"])
     if k + 1 >= len(seg):
         return None
+    flat = windows.flat_at(seg[k].ts, cfg)
     first = seg[k + 1]
     sp = spread_for(first, cfg)
     entry = first.o + d * sp / 2
@@ -72,8 +73,7 @@ def simulate_unit(seg, k, atr, d, stop_atr, target_atr, cfg):
         new = j == k + 1
         hitstop = lo <= stop if d == 1 else hi >= stop
         hittarget = hi >= target + tick if d == 1 else lo <= target - tick
-        local_end = b.ts.astimezone(tz)
-        reaches_cutoff = f"{local_end.hour:02d}:{local_end.minute:02d}" >= cfg["session_end"]
+        reaches_cutoff = flat is not None and b.ts >= flat
         exit_price = None
         if hitstop:
             exit_price = (min(op, stop) if d == 1 else max(op, stop)) - d * slip

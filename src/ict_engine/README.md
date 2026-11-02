@@ -1,37 +1,104 @@
-# ICT Engine A1 nel bot
+# ICT nel bot: motore v2 (completo) e A1 (archiviata)
 
-Strategia ICT del pacchetto `docs/ict-engine-v1/` integrata nel bot per **testarla su dati storici reali** e capire se ha un vantaggio dopo i costi. **Solo simulazione**: nessun comando di questo modulo può inviare ordini.
+Strategie ICT integrate nel bot per **testarle su dati storici reali** e capire se hanno un vantaggio dopo i costi. **Solo simulazione**: nessun comando di questo modulo può inviare ordini.
 
-Regole della strategia (A1, invariate rispetto al pacchetto):
-
-1. Lo **sweep** prende un minimo o massimo di swing confermato e la chiusura rientra nella stessa barra.
-2. Entro 6 barre arriva un **MSS con displacement**: chiusura oltre l'ultimo swing opposto, con corpo ≥ 1 ATR.
-3. Sulla barra successiva compare un **FVG** a tre barre; l'ordine limite va a metà del FVG.
-4. Lo stop sta oltre lo sweep; il target è la liquidità opposta più vicina.
-5. Il trade si fa solo se il rapporto rischio/rendimento netto (net RR) è ≥ 1,5 dopo i costi.
-
-Timeframe M5, ingressi tra le 07:00 e le 11:00 di New York, rischio dello 0,25% per trade.
+- **v2 (completa)** è quella da testare adesso: tutti i concetti ICT del glossario del pacchetto, su NQ ed ES e sul forex principale, con la frequenza tarata a circa **un trade al giorno**.
+- **A1** è la strategia base del pacchetto. È rimasta identica: su BTC e US100 ha fatto 1 trade in circa 2 anni ed è archiviata come "non utilizzabile".
 
 ## Avvio rapido (sul Mac dove gira il bot)
 
 ```sh
 cd "/Users/locoframe/Desktop/TRADING BOT"   # cartella del bot
+git fetch && git checkout ict-engine-v2
 uv sync                                      # solo se manca .venv (serve numpy)
-./run-ict.sh selftest                        # 36 test, ~2 min: parità con il codice del pacchetto inclusa
-./run-ict.sh quickstart                      # scarica 36 mesi BTCUSDT 5m ufficiali e lancia il test completo
+./run-ict.sh selftest                        # ~2 min, deve dire "passed" e nessun "failed"
+./run-ict.sh full-test                       # NQ, ES, EUR/USD, GBP/USD, AUD/USD: download, taratura, test
 ```
 
-Il report è in `reports/ict/<nome-run>/REPORT.md`. I numeri completi sono in `results.json` e i trade dello sviluppo in `trades-dev.csv`.
+`full-test` fa tutto da solo, per ogni mercato:
 
-## Le tre fonti dati
+1. scarica lo storico a 5 minuti dal conto **DEMO Capital.com** del bot, in sola lettura e con le credenziali già nel Portachiavi (salta i mercati già scaricati);
+2. **tara la frequenza** a 1 trade al giorno sul periodo di sviluppo, guardando solo quanti trade escono e mai i profitti;
+3. lancia il test completo del protocollo. Gli holdout restano sigillati.
 
-| Fonte | Comando download | Comando test | Note |
-|---|---|---|---|
-| Binance spot (mercato primario del pacchetto) | `./run-ict.sh download-binance --months 36` | `./run-ict.sh run --source binance --robustness` | Archivi ufficiali `data.binance.vision`, ogni file verificato con SHA256. Nessun account. Lo spread non è nei dati: viene assunto (1 tick). |
-| Capital.com DEMO (US100, US500, BTCUSD) | `./run-ict.sh download-capital --epic US100 --months 36` | `./run-ict.sh run --source capital --epic US100 --robustness` | Usa le credenziali DEMO già nel Portachiavi del bot, **in sola lettura**. Barre bid/ask native, quindi lo spread è quello vero. È anche il mercato più vicino al tuo NQ. |
-| CSV del bot (MNQ/MES Databento) | già presente: `reports/quant-validation/bars120.csv` | `./run-ict.sh run --source csv --csv reports/quant-validation/bars120.csv --symbol MNQ` | Quel file copre solo 09:30–16:00 NY. A1 lavora 07:00–11:00 e dopo ogni buco riparte da zero con 15 barre di riscaldamento, quindi qui quasi non trada. Serve uno storico 24h. |
+Alla fine scrive `reports/ict/RIEPILOGO.md`, una tabella con tutti i mercati, più un `REPORT.md` per mercato. Tempo indicativo: 30–60 minuti.
 
-Lo storico Capital.com: il bot standard legge solo le ultime 500 barre. Per scaricare anni di dati questo modulo aggiunge un'unica richiesta di lettura `GET /prices` con `from`/`to`, senza modificare il client del bot. I parametri esatti di quella rotta non li ho potuti provare dal mio ambiente. Se Capital.com rifiuta la richiesta, il download si ferma con il codice di errore e non scrive nulla.
+| Mercato | Su Capital.com | Mercato correlato per l'SMT |
+|---|---|---|
+| NQ (Nasdaq 100) | US100 | US500 |
+| ES (S&P 500) | US500 | US100 |
+| EUR/USD | EURUSD | GBPUSD |
+| GBP/USD | GBPUSD | EURUSD |
+| AUD/USD | AUDUSD | EURUSD |
+
+Opzioni utili:
+- `--markets US100,EURUSD` per testare solo alcuni mercati;
+- `--target 1.5` per cambiare i trade al giorno;
+- `--refresh` per riscaricare i dati;
+- `--no-robustness` per un giro più veloce.
+
+### Futures CME veri (NQ, ES, MNQ, MES)
+
+US100 e US500 sono i CFD di Capital.com sugli stessi indici di NQ ed ES. Per i futures CME servono barre 24 ore (per esempio da Databento, a pagamento) in un CSV con colonne `symbol,contract,start,end,open,high,low,close,volume`, in UTC, con il contratto reale di ogni barra. Il roll avviene in automatico al cambio di contratto. Comandi:
+
+```sh
+./run-ict.sh calibrate --source csv --csv dati.csv --symbol MNQ --profile cme-mnq
+./run-ict.sh run --source csv --csv dati.csv --symbol MNQ --profile cme-mnq --engine v2 --calibrated --robustness
+```
+
+Se il CSV contiene anche MES, viene usato in automatico per l'SMT. Il file Databento già presente nel bot (`bars120.csv`) copre solo 09:30–16:00 e non basta.
+
+## Strategia v2: cosa fa
+
+Ogni concetto segue la formalizzazione del glossario `docs/ict-engine-v1/13_ICT_CONCEPT_CATALOG.md`. Tutti i numeri sono convenzioni del progetto, non regole attribuite a ICT.
+
+**Liquidità** (dove si cercano gli sweep e i target):
+- swing high/low M5 e uguali (EQH/EQL);
+- swing H1;
+- PDH/PDL e PWH/PWL;
+- massimo e minimo delle sessioni di Asia (20–24 NY), Londra (02–05) e NY mattina (07–11).
+
+Ogni livello diventa utilizzabile solo quando il periodo che lo definisce è chiuso: il PDH al cambio di giornata delle 17:00 NY, il range di Asia a mezzanotte di NY.
+
+**Tre modelli di ingresso:**
+1. **Inversione.** Sweep di un livello di liquidità con chiusura che rientra, poi MSS con displacement entro poche barre, poi ingresso sulla zona migliore della gamba.
+2. **Continuazione.** Il trend H1 è definito, il prezzo ritraccia oltre metà del dealing range (in discount per i long) senza rompere l'origine, poi MSS nella direzione del trend.
+3. **Silver Bullet.** Nelle finestre 10–11 e 14–15 NY (03–04 sul forex), una candela di displacement nella direzione del bias rompe la struttura; l'ingresso è sull'FVG che lascia.
+
+**Zone di ingresso**, in ordine di priorità: FVG (a metà, la CE), FVG invertito, breaker block, order block, OTE (0,705). Le zone già toccate dal prezzo non contano: niente fill retroattivi.
+
+**Stop, target e gestione:**
+- stop oltre l'estremo dello sweep o del pullback, più un buffer;
+- target sulla liquidità opposta più vicina;
+- il trade si fa solo con rapporto rischio/rendimento netto (net RR) ≥ 1,5 dopo i costi;
+- costi totali (spread + slippage + fee) al massimo il 25% della distanza dello stop;
+- chiusura a fine finestra: 12:00 e 16:00 NY sugli indici, 08:00 e 12:00 sul forex;
+- massimo 3 trade al giorno e una posizione alla volta, rischio dello 0,25% per trade.
+
+**Confluenze** (ognuna vale un punto; ogni trade registra quali aveva):
+- allineamento al trend H1;
+- bias giornaliero;
+- premium/discount;
+- killzone;
+- liquidità esterna (non un semplice swing);
+- SMT con il mercato correlato;
+- ingresso dentro l'OTE;
+- zone sovrapposte.
+
+`min_confluence` è la soglia minima di punti.
+
+### La taratura a 1 trade al giorno
+
+`calibrate` prova una scala di 14 livelli, dal più severo al più permissivo:
+- prima tutte le confluenze e il displacement del pacchetto;
+- poi abbassa le confluenze e il displacement;
+- poi allunga i tempi e usa la prima liquidità che dà RR sufficiente;
+- poi aggiunge una killzone (Londra sugli indici, 13–15 NY sul forex);
+- all'ultimo livello toglie il displacement.
+
+Sceglie il livello che in sviluppo dà la frequenza più vicina all'obiettivo. Durante la taratura le regole di rischio basate sulle perdite sono spente e il capitale resta fisso, quindi il risultato non può influire sulla scelta. Il file `reports/ict/calibration/<mercato>.json` contiene solo conteggi di trade.
+
+Se un mercato raggiunge 1 trade al giorno solo agli ultimi livelli, è già un'informazione: l'ICT "pieno" su quel mercato trada molto meno di così.
 
 ## Come leggere il verdetto
 
@@ -39,49 +106,36 @@ Lo storico Capital.com: il bot standard legge solo le ultime 500 barre. Per scar
 |---|---|---|
 | **REJECT (screening)** | Nel periodo di sviluppo l'aspettativa netta è ≤ 0. | Archiviare. Non aprire l'holdout. |
 | **RESEARCH** | Campione troppo piccolo o criteri non soddisfatti. | Nessun paper trading. |
-| **CANDIDATE** | Aspettativa positiva nello sviluppo. | Aprire l'holdout **una volta**: `run ... --unseal-holdout`. |
+| **CANDIDATE** | Aspettativa positiva nello sviluppo. | Parlarne prima, poi aprire l'holdout **una volta**: `run ... --engine v2 --calibrated --unseal-holdout`. |
 | **REJECT** | Perde fuori campione. | Archiviare. |
 | **PAPER TRADE** | Tutti i gate del protocollo 07 sono superati. | 60 giorni di paper trading, poi shadow, come da roadmap. Mai capitale reale senza approvazione esplicita. |
 
-Il criterio principale è l'**R medio**: risultato netto diviso per il rischio all'ingresso, dopo fee e slippage. Il win rate da solo non conta.
+Il criterio principale è l'**R medio**: risultato netto diviso per il rischio all'ingresso, dopo fee e slippage. Il win rate da solo non conta. Nel report trovi anche gli spaccati per modello, punteggio di confluenza, zona e tipo di liquidità. Servono a capire; scegliere a posteriori il pezzo migliore è overfitting.
 
 ## Regole che proteggono il risultato
 
-- **Holdout sigillato.** Gli ultimi 12 mesi non vengono nemmeno calcolati senza `--unseal-holdout`. Alla prima apertura si scrive una ricevuta; un'altra configurazione non può riusarlo, serve un nuovo periodo futuro.
-- **Ogni modifica è un nuovo trial.** Un `--set chiave=valore`, per esempio `--set entry_fraction=0.6`, cambia l'hash e viene registrato in `reports/ict/trials.json`. Holm corregge la significatività per tutti i trial provati, compresi quelli scartati.
-- **Stress dei costi.** Ogni run ripete il test con fee e slippage ×1,5 e ×2 e con slippage ×3.
+- **Holdout sigillato per mercato.** Gli ultimi 12 mesi non vengono calcolati senza `--unseal-holdout`. L'apertura viene registrata in `reports/ict/holdouts.json` **per mercato**, non per nome del run. Dopo, nessun'altra configurazione e nessuna finestra sovrapposta può riaprirlo, nemmeno cambiando label o riscaricando i dati. Se il periodo di sviluppo include mesi di un holdout già aperto, il report lo segnala.
+- **Ogni modifica è un nuovo trial.** Un `--set chiave=valore` cambia l'hash e viene registrato in `reports/ict/trials.json`. Holm corregge la significatività su tutti i trial dello stesso mercato, compresi A1 e quelli scartati.
+- **Stress dei costi sugli stessi trade.** Fee e slippage ×1,5 e ×2, slippage ×3, applicati agli stessi trade. Misura quanto pesano i costi, senza cambiare le decisioni.
 - **Limite ottimistico.** Quando stop e target cadono nella stessa barra, il motore assume lo stop. Il limite ottimistico mostra quanto pesa questa scelta; serve solo come diagnostica.
-- **Benchmark casuale.** Gli stessi trade vengono rifatti con ingresso casuale alla stessa ora, nella stessa direzione e con la stessa geometria di stop e target. Se A1 non batte questo benchmark, la selezione dei setup non aggiunge nulla.
-- **Robustezza** (`--robustness`). Ogni parametro geometrico viene spostato del ±20%, uno alla volta, solo nel periodo di sviluppo.
+- **Benchmark casuale.** Gli stessi trade rifatti con ingresso casuale alla stessa ora, nella stessa direzione e con la stessa geometria di stop e target.
+- **Robustezza.** Ogni parametro geometrico viene spostato del ±20%, uno alla volta, solo nel periodo di sviluppo.
+- **Buchi nei dati.** Weekend e pausa giornaliera mantengono il contesto. Un buco imprevisto azzera lo stato e non pubblica livelli calcolati su dati incompleti. Il roll di un futures chiude le posizioni sul vecchio contratto.
 
-## Cosa è stato verificato
+## Cosa è stato verificato (`./run-ict.sh selftest`)
 
-- **Parità con il codice del pacchetto.** Il motore prende la stessa decisione del riferimento (`reference/ict_strategy.py`) su ogni barra di 14 serie sintetiche, ordini compresi (entry, stop, target, quantità).
-- **Controllo anti look-ahead.** Su random walk a costo zero con barre costruite da un percorso continuo la strategia non guadagna: R medio −0,07 su 500 trade. In sviluppo è emerso che barre sintetiche con "baffi" casuali danno un falso vantaggio agli ordini limite; il test usa quindi percorsi veri.
-- **Test del pacchetto.** I 33 test originali del pacchetto passano ancora.
-- **Bug trovato e corretto.** Il taglio di segmento al cambio di contratto futures veniva calcolato sulle barre da 1 minuto invece che su quelle aggregate.
+- **A1 identica.** Stesse decisioni del codice del pacchetto su ogni barra, e gli hash di configurazione coincidono con quelli del run di Francesco. I 33 test originali del pacchetto passano.
+- **Niente look-ahead in v2.** Le decisioni prese su una parte dei dati restano identiche quando si aggiungono i mesi successivi (prefix invariance). Test dedicati verificano che PDH/PDL, range di Asia, H1 ed SMT diventano visibili solo dopo la chiusura del loro periodo.
+- **Regole rispettate.** Ogni ordine generato sta in una finestra valida, con lo stop oltre l'ingresso, il target oltre l'ingresso, l'ingresso dentro la zona e il punteggio coerente.
+- **Nessun falso vantaggio.** Su prezzi casuali e a costo zero v2 non guadagna. Con i costi, sui dati sintetici in formato Capital.com, la catena completa dà REJECT a circa 1 trade al giorno, come deve.
+- **Taratura cieca ai profitti.** L'output contiene solo conteggi.
+- **Download Capital.com.** Le correzioni di Francesco (finestra di 999 intervalli, barre anomale scartate, nuovo tentativo sugli errori di rete) sono applicate. Il download ora copre anche EURUSD, GBPUSD e AUDUSD.
 
-## Differenze rispetto al codice di riferimento
+## Limiti
 
-| Punto | Riferimento | Qui | Perché |
-|---|---|---|---|
-| Pivot | ricalcolati su tutta la storia a ogni barra | tracciati in modo incrementale | Il calcolo del riferimento diventa ingestibile su 3 anni di M5. Il test di parità prova che le decisioni sono identiche. |
-| Arrotondamento al tick | `floor(x/tick)` | tolleranza di 1e-9 tick | Evita che un prezzo già sul tick slitti di un tick per l'errore binario (100,6/0,01 = 10059,999…). |
-| Uscite a fine sessione, cancel per sessione, target consumato o buco nei dati | descritte nella spec, non implementate | implementate | Sono normative nella spec 01/05/06. |
-| Ledger di rischio | a carico dell'host | `risk.py` | Rendimento giornaliero e settimanale, serie di perdite, drawdown. Nel ledger di ricerca il drawdown viene registrato senza fermare il test; la vista conto applica l'arresto all'8%. |
-| Slippage BTC | prezzo fisso 0,01 | 0,2 bp del prezzo | Con 1 bp il filtro del pacchetto (slippage ≤ 0,05 ATR) scarterebbe quasi tutte le barre tranquille. |
-| Margine | solo contanti | CFD (`margin_rate`) e futures (`margin_per_contract`) | Senza margine, con il contante pieno non si può dimensionare MNQ né un CFD. |
+- **Barre OHLC.** L'ordine dentro la barra non si conosce, niente fill parziali né coda: i risultati non possono qualificare il live.
+- **Calendario news.** Non è incluso: senza `--calendar` il filtro news non è applicato. Sul forex pesa più che altrove (NFP, CPI, FOMC).
+- **Metadati dei CFD.** Lotti, minimi e margine dei CFD vengono dai dati che Capital.com restituisce al download; i valori nei profili sono solo di riserva.
+- **Ciò che non è implementato:** il collegamento al runtime live/paper del bot, che si fa solo dopo un verdetto PAPER TRADE, e il machine learning.
 
-## Non implementato (di proposito)
-
-- **Collegamento al runtime live/paper del bot.** È lo stadio 4 della roadmap e si fa solo dopo un verdetto PAPER TRADE.
-- **Varianti e filtri aggiuntivi.** B1, C1, D1, i filtri HTF, premium/discount e daily bias, e il machine learning.
-- **Esecuzione realistica.** Fill parziali e replay tick per tick.
-- **Calendario news point-in-time.** Si può passare un CSV con `--calendar`, ma il calendario non viene scaricato.
-
-Nessun file esistente del bot è stato modificato. Le aggiunte sono:
-
-- `src/ict_engine/`
-- `tests_ict/`
-- `docs/ict-engine-v1/`
-- `run-ict.sh`
+Nessun file esistente del bot fuori da questo modulo è stato modificato. Le aggiunte sono `src/ict_engine/`, `tests_ict/`, `docs/ict-engine-v1/` e `run-ict.sh`.

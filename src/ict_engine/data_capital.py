@@ -26,10 +26,10 @@ from pathlib import Path
 from .bars import Bar
 
 UTC = timezone.utc
-EPICS = ("US100", "US500", "BTCUSD")
+EPICS = ("US100", "US500", "EURUSD", "GBPUSD", "AUDUSD", "BTCUSD")
 STEP = 300
 PAGE = 1000  # Capital.com maximum bars per request
-ROUTE = re.compile(r"/prices/(US100|US500|BTCUSD)\?resolution=MINUTE_5&max=1000"
+ROUTE = re.compile(r"/prices/(US100|US500|EURUSD|GBPUSD|AUDUSD|BTCUSD)\?resolution=MINUTE_5&max=1000"
                    r"&from=\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}&to=\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}")
 FIELDS = ["start_utc", "bid_o", "bid_h", "bid_l", "bid_c", "ask_o", "ask_h", "ask_l", "ask_c", "volume"]
 

@@ -50,6 +50,7 @@ class RunResult:
     max_drawdown: float = 0.0
     first_drawdown_breach: str | None = None
     session_days: list = field(default_factory=list)
+    extra: dict = field(default_factory=dict)
 
 
 def run(segments, cfg, *, end: datetime | None = None, events=None, optimistic=False,

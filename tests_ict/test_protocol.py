@@ -28,12 +28,27 @@ def test_plan_holdout_last_12_months_and_folds():
     assert short["holdout_start"] is None
 
 
-def test_holdout_receipt_is_one_use(tmp_path):
+def test_holdout_seal_is_one_use_per_market(tmp_path):
     h = (date(2025, 1, 1), date(2026, 1, 1))
-    assert protocol.check_or_write_receipt(tmp_path, "cfgA", "data", h, unseal=False) == "sealed"
-    assert protocol.check_or_write_receipt(tmp_path, "cfgA", "data", h, unseal=True) == "opened_now"
-    assert protocol.check_or_write_receipt(tmp_path, "cfgA", "data", h, unseal=True) == "consumed_same_config"
-    assert protocol.check_or_write_receipt(tmp_path, "cfgB", "data", h, unseal=True) == "consumed_by_other_config"
+    m = "capital|US100"
+    assert protocol.holdout_state(tmp_path, m, h, "cfgA", "data", unseal=False) == "sealed"
+    assert protocol.holdout_state(tmp_path, m, h, "cfgA", "data", unseal=True) == "opened_now"
+    assert protocol.holdout_state(tmp_path, m, h, "cfgA", "data", unseal=True) == "consumed_same_config"
+    assert protocol.holdout_state(tmp_path, m, h, "cfgB", "data", unseal=True) == "consumed_by_other_config"
+    # other market: independent seal
+    assert protocol.holdout_state(tmp_path, "capital|US500", h, "cfgB", "data", unseal=False) == "sealed"
+
+
+def test_seal_ignores_label_and_blocks_overlapping_windows(tmp_path):
+    """Francesco's finding: a different label (or --set) used to reopen the same holdout."""
+    m = "binance|BTCUSDT"
+    assert protocol.holdout_state(tmp_path, m, (date(2025, 1, 1), date(2026, 1, 1)), "cfgA", "d1", True) == "opened_now"
+    # same config, data re-downloaded later: the 12-month window moved and overlaps the opened one
+    later = (date(2025, 4, 1), date(2026, 4, 1))
+    assert protocol.holdout_state(tmp_path, m, later, "cfgA", "d2", True) == "consumed_by_other_config"
+    # a development period that overlaps the opened window is flagged
+    assert protocol.contaminated_by(tmp_path, m, date(2024, 1, 1), date(2025, 4, 1))
+    assert not protocol.contaminated_by(tmp_path, m, date(2023, 1, 1), date(2025, 1, 1))
 
 
 def test_boundary_purge():
@@ -62,3 +77,14 @@ def test_end_to_end_report_on_synthetic_data(tmp_path):
     protocol.evaluate(bars, meta, profile="binance-btcusdt-spot", overrides=over, out_root=tmp_path,
                       label="e2e", log=lambda *_: None)
     assert len(json.loads((tmp_path / "trials.json").read_text())) == 1
+
+
+def test_holm_family_includes_older_a1_trials_of_the_same_market():
+    items = [
+        {"trial_id": "a1", "kind": "decision", "scope": "dev", "dataset_key": "capital|US100|979c74ecaa4dedf6", "p_one_sided": 1.0},
+        {"trial_id": "v2", "kind": "decision", "scope": "dev", "dataset_key": "capital|US100", "p_one_sided": 0.03},
+        {"trial_id": "cal", "kind": "calibration", "scope": "dev", "dataset_key": "capital|US100"},
+        {"trial_id": "other", "kind": "decision", "scope": "dev", "dataset_key": "capital|US500", "p_one_sided": 0.01},
+    ]
+    h = protocol.family_holm(items, "capital|US100", "dev")
+    assert set(h) == {"a1", "v2"} and h["v2"]["family_size"] == 2

@@ -1,6 +1,6 @@
 #!/bin/sh
-# ICT A1 research engine. Simulation only: no command here can place an order.
-# Usage: ./run-ict.sh quickstart | download-binance | download-capital | run | profiles | selftest
+# ICT research engines (A1 + v2). Simulation only: no command here can place an order.
+# Usage: ./run-ict.sh full-test | calibrate | run | summary | download-capital | download-binance | quickstart | profiles | selftest
 set -eu
 ROOT=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 cd "$ROOT"
